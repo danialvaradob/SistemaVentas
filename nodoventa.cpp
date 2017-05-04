@@ -1,6 +1,6 @@
 #include "nodoventa.h"
 
-nodoVenta::nodoVenta()
-{
+void NodoVenta::insertarProductoComprado(string _codigoP, string _codigoC, int _unidadesComp) {
 
+    int x = 0;
 }

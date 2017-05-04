@@ -2,14 +2,11 @@
 using namespace std;
 
 
-NodoProveedor::NodoProveedor()
-{
 
-}
 void NodoProveedor::insertarProveedor(string _id, string _nombre, string _direccion, string _telefono)
 {
-    int numero = stoi(_id)
-    int valor = stoi(identificacion)
+    int numero = stoi(_id);
+    int valor = stoi(identificacion);
 
     if(numero < valor){
         if(Hizq==NULL){
@@ -55,7 +52,7 @@ void NodoProveedor::setAnterior(NodoProveedor* _anterior){
 
 
 void NodoProveedor::setSiguiente(NodoProveedor* _siguiente){
-    anterior = _siguiente;
+    siguiente = _siguiente;
 }
 
 int NodoProveedor::getCantidadDeVentas(){

@@ -1,6 +1,9 @@
 #ifndef LISTAVENTAS_H
 #define LISTAVENTAS_H
 #include <nodoventa.h>
+#include <arbolproveedores.h>
+#include <arbolclientes.h>
+#include <arbolcategorias.h>
 #include <string>
 using namespace std;
 
@@ -13,7 +16,7 @@ public:
     ~ListaVentas();
 
     void insertar(string _codCliente, string _codProveedor , int _descApl, float _monTotal);
-    void insertarNodoVacio(nodoVenta* _nuevo);
+    void insertarNodoVacio(NodoVenta* _nuevo);
     void eliminarFinal();
     bool listaVacia() {return primero == NULL;}
     int largoLista();
@@ -21,12 +24,12 @@ public:
 
     //... funcion que dice
     //... si ya un cliente
-    string getProveedorMasVentas(ListaProveedores* _ListaProveedores);
-    string getClienteMasCompras(ListaClientes* _ListaClientes);
-    string getProductoMasVendido(ListaCategorias* _ListaCategorias);
-    string getCategoriaMasVendida(ListaCategorias* _ListaCategorrias);
+    string getProveedorMasVentas(ArbolProveedores* _ListaProveedores);
+    string getClienteMasCompras(ArbolClientes* _ListaClientes);
+    string getProductoMasVendido(ArbolCategorias* _ListaCategorias);
+    string getCategoriaMasVendida(ArbolCategorias* _ListaCategorrias);
 
-    nodoVenta* getPrimero() {return primero;};
+    NodoVenta* getPrimero() {return primero;};
 
 
     //... elimina el nodo que el monto pagado es 0;
@@ -35,8 +38,8 @@ public:
 
 
 private:
-    nodoVenta* primero;
-    nodoVenta* actual;
+    NodoVenta* primero;
+    NodoVenta* actual;
 
 };
 

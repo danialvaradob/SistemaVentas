@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string>
 using namespace std;
+
 //ARBOL BINARIO DE BUSQUEDA
 
 class ArbolProveedores
@@ -12,21 +13,22 @@ class ArbolProveedores
 public:
 
     NodoProveedor *raiz;
+
     ArbolProveedores():raiz(NULL){};
 
    //++++Insersion al arbol+++++++++++++++++++++
 
     void insertarNodoProveedor(string _id, string _nombre, string _direccion, string _telefono);
     //++++++++++++ Ordenes ++++++++++++++++++++++++
-    void PreordenI(NodoViaje *R);
-    void InordenI(NodoViaje *R);
-    void PostordenI(NodoViaje *R);
+    void PreordenI(NodoProveedor *R);
+    void InordenI(NodoProveedor *R);
+    void PostordenI(NodoProveedor *R);
 
     //+++++++++++ Recorrido +++++++++++++
-    int RecorrerV(NodoViaje * R);
+    int RecorrerV(NodoProveedor * R);
 
     //¿Existe proveedor?
-    bool existeProveedor(string _id);
+    bool existeProveedor(string _id, NodoProveedor* _raiz);
 };
 
 #endif // ARBOLPROVEEDORES_H

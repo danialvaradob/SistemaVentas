@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     arbolsupermercados.cpp \
     listalugares.cpp \
     nodoventa.cpp \
-    listaventas.cpp
+    listaventas.cpp \
+    nodoproductocomprado.cpp
 
 HEADERS += \
     nodocliente.h \
@@ -33,4 +34,5 @@ HEADERS += \
     arbolsupermercados.h \
     listalugares.h \
     nodoventa.h \
-    listaventas.h
+    listaventas.h \
+    nodoproductocomprado.h

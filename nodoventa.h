@@ -4,12 +4,13 @@
 #include <stdlib.h>
 #include <listaventas.h>
 #include <string>
+#include <nodoproductocomprado.h>
 using namespace std;
 
-class nodoVenta {
+class NodoVenta {
 public:
 
-    nodoVenta() {
+    NodoVenta() {
         codigoCliente = "";
         codigoProveedor = "";
         descuentoAplicado = 0;
@@ -23,7 +24,7 @@ public:
 
     }
 
-    nodoVenta(string _codigoCliente, string _codigoProveedor,int _descApl, double _monTotal){
+    NodoVenta(string _codigoCliente, string _codigoProveedor,int _descApl, double _monTotal){
         codigoCliente = _codigoCliente;
         codigoProveedor = _codigoProveedor;
         descuentoAplicado = _descApl;
@@ -38,12 +39,12 @@ public:
 
     void setValores(string _codigoCliente, string _codigoProveedor,int _descApl, double _monTotal);
 
-    nodoVenta *getSiguiente();
-    void setSiguiente(nodoVenta* _siguiente);
-    nodoVenta *getAnterior();
-    void setAnterior(nodoVenta* _anterior);
-    nodoProductoComprado *getPrimerProducto(){return primeroProductoComprado;}
-    void setPrimeroProducto( nodoProductoComprado* _primerProducto);
+    NodoVenta *getSiguiente();
+    void setSiguiente(NodoVenta* _siguiente);
+    NodoVenta *getAnterior();
+    void setAnterior(NodoVenta* _anterior);
+    NodoProductoComprado *getPrimerProducto(){return primeroProductoComprado;}
+    void setPrimeroProducto( NodoProductoComprado* _primerProducto);
 
     string getCodigoCli() {return codigoCliente;};
     string getCodigoProvee() {return codigoProveedor;};
@@ -65,9 +66,9 @@ private:
     int descuentoAplicado;
     double montoTotal;
 
-    nodoVenta* siguiente;
-    nodoVenta* anterior;
-    nodoProductoComprado* primeroProductoComprado;
+    NodoVenta* siguiente;
+    NodoVenta* anterior;
+    NodoProductoComprado* primeroProductoComprado;
 
     friend class ListaVentas;
 

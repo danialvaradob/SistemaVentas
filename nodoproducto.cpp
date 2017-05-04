@@ -1,9 +1,6 @@
 #include "nodoproducto.h"
 
-NodoProducto::NodoProducto()
-{
-    //constructor
-}
+
 
 string NodoProducto::getCodigoProducto(){
     return codigoProducto;
