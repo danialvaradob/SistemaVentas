@@ -1,6 +1,10 @@
 #ifndef ARBOLPROVEEDORES_H
 #define ARBOLPROVEEDORES_H
 #include <nodoproveedor.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+using namespace std;
 //ARBOL BINARIO DE BUSQUEDA
 
 class ArbolProveedores
@@ -21,10 +25,8 @@ public:
     //+++++++++++ Recorrido +++++++++++++
     int RecorrerV(NodoViaje * R);
 
-
-     friend class AVL;
-     friend class AA;
-
+    //¿Existe proveedor?
+    bool existeProveedor(string _id);
 };
 
 #endif // ARBOLPROVEEDORES_H

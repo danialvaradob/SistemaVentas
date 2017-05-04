@@ -1,7 +1,10 @@
 #ifndef NODOVENTA_H
 #define NODOVENTA_H
-
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <listaventas.h>
+#include <string>
+using namespace std;
 
 class nodoVenta {
 public:

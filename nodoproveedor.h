@@ -1,5 +1,10 @@
 #ifndef NODOPROVEEDOR_H
 #define NODOPROVEEDOR_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <arbolproveedores.h>
+#include <string>
+using namespace std;
 
 
 
@@ -35,6 +40,9 @@ public:
     int getCantidadDeVentas();
     void aumentarVentas(){cantidadDeVentas++;}
 
+    // Metodo utilizado para agregar un nodo de forma correcta
+    insertarProveedor(string _id, string _nombre, string _direccion, string _telefono);
+
     NodoProveedor *Hiz;
     NodoProveedor *Hder;
 
@@ -51,7 +59,7 @@ private:
 
     int cantidadDeVentas;
 
-    friend class ListaProveedores;
+    friend class ArbolProveedores;
 
 
 };

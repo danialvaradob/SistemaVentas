@@ -1,8 +1,29 @@
 #include "nodoproveedor.h"
+using namespace std;
+
 
 NodoProveedor::NodoProveedor()
 {
 
+}
+void NodoProveedor::insertarProveedor(string _id, string _nombre, string _direccion, string _telefono)
+{
+    int numero = stoi(_id)
+    int valor = stoi(identificacion)
+
+    if(numero < valor){
+        if(Hizq==NULL){
+            Hizq = new NodoProveedor(_id,  _nombre,  _direccion,  _telefono);
+        }else{
+            Hizq->insertarProveedor(_id,  _nombre,  _direccion,  _telefono);
+        }
+    }else{
+        if(Hder==NULL){
+            Hder = new NodoProveedor(_id,  _nombre,  _direccion,  _telefono);
+        }else{
+            Hder->insertarProveedor(_id,  _nombre,  _direccion,  _telefono);
+        }
+    }
 }
 
 string NodoProveedor::getID(){
