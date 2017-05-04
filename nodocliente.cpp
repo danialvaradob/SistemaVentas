@@ -6,38 +6,38 @@ NodoCliente::NodoCliente()
 }
 
 
-nodoCliente* nodoCliente::getSiguiente(){
+NodoCliente* NodoCliente::getSiguiente(){
     return siguiente;
 }
 
-nodoCliente* nodoCliente::getAnterior(){
+NodoCliente* NodoCliente::getAnterior(){
     return anterior;
 }
 
-void nodoCliente::setSiguiente(nodoCliente* _siguiente){
+void NodoCliente::setSiguiente(NodoCliente* _siguiente){
     siguiente = _siguiente;
 }
 
-void nodoCliente::setAnterior(nodoCliente* _anterior){
+void NodoCliente::setAnterior(NodoCliente* _anterior){
     anterior = _anterior;
 }
 
-string nodoCliente::getNombre(){
+string NodoCliente::getNombre(){
     return nombre;
 }
 
-string nodoCliente::getDireccion(){
+string NodoCliente::getDireccion(){
     return direccion;
 }
 
-string nodoCliente::getID(){
+string NodoCliente::getID(){
     return idx;
 }
 
-string nodoCliente::getTelefono(){
+string NodoCliente::getTelefono(){
     return telefono;
 }
 
-int nodoCliente::getCantidadCompras(){
+int NodoCliente::getCantidadCompras(){
     return cantidadDeCompras;
 }

@@ -1,47 +1,47 @@
 #include "nodoproducto.h"
 
-nodoProducto::nodoProducto()
+NodoProducto::NodoProducto()
 {
     //constructor
 }
 
-string nodoProducto::getCodigoProducto(){
+string NodoProducto::getCodigoProducto(){
     return codigoProducto;
 }
 
-string nodoProducto::getCodigoCategoria(){
+string NodoProducto::getCodigoCategoria(){
     return codigoCategoria;
 }
 
-string nodoProducto::getNombreProducto(){
+string NodoProducto::getNombreProducto(){
     return nombreProducto;
 }
 
-double nodoProducto::getPrecioPorUnidad(){
+double NodoProducto::getPrecioPorUnidad(){
     return precioPorUnidad;
 }
 
-int nodoProducto::getCantidadEnStock(){
+int NodoProducto::getCantidadEnStock(){
     return cantidadEnStock;
 }
 
-nodoProducto* nodoProducto::getAnterior(){
+NodoProducto* NodoProducto::getAnterior(){
     return anterior;
 }
-nodoProducto* nodoProducto::getSiguiente(){
+NodoProducto* NodoProducto::getSiguiente(){
     return siguiente;
 }
 
-void nodoProducto::setAnterior(nodoProducto* _anterior){
+void NodoProducto::setAnterior(NodoProducto* _anterior){
     anterior = _anterior;
 }
 
 
-void nodoProducto::setSiguiente(nodoProducto* _siguiente){
+void NodoProducto::setSiguiente(NodoProducto* _siguiente){
     anterior = _siguiente;
 }
 
-void nodoProducto::setCantidadEnStock(int _cantidadNueva){
+void NodoProducto::setCantidadEnStock(int _cantidadNueva){
     cantidadEnStock = _cantidadNueva;
 
 }

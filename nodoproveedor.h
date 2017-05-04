@@ -4,11 +4,11 @@
 
 
 
-class nodoProveedor {
+class NodoProveedor {
 public:
 
 
-    nodoProveedor(string _id, string _nombre, string _direccion, string _telefono){
+    NodoProveedor(string _id, string _nombre, string _direccion, string _telefono){
         identificacion = _id;
         nombre = _nombre;
         direccion = _direccion;
@@ -21,10 +21,10 @@ public:
     }
 
 
-    nodoProveedor *getSiguiente();
-    void setSiguiente(nodoProveedor* _siguiente);
-    nodoProveedor *getAnterior();
-    void setAnterior(nodoProveedor* _anterior);
+    NodoProveedor *getSiguiente();
+    void setSiguiente(NodoProveedor* _siguiente);
+    NodoProveedor *getAnterior();
+    void setAnterior(NodoProveedor* _anterior);
 
     string getNombre();
     string getDireccion();
@@ -39,8 +39,8 @@ public:
 
 private:
     string identificacion;
-    nodoProveedor *siguiente;
-    nodoProveedor *anterior;
+    NodoProveedor *siguiente;
+    NodoProveedor *anterior;
     string nombre;
     string direccion;
     string telefono;

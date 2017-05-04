@@ -1,42 +1,42 @@
 #include "nodoproveedor.h"
 
-nodoProveedor::nodoProveedor()
+NodoProveedor::NodoProveedor()
 {
 
 }
 
-string nodoProveedor::getID(){
+string NodoProveedor::getID(){
     return identificacion;
 }
 
-string nodoProveedor::getNombre(){
+string NodoProveedor::getNombre(){
     return nombre;
 }
 
-string nodoProveedor::getDireccion(){
+string NodoProveedor::getDireccion(){
     return direccion;
 }
 
-string nodoProveedor::getTelefono(){
+string NodoProveedor::getTelefono(){
     return telefono;
 }
 
-nodoProveedor* nodoProveedor::getAnterior(){
+NodoProveedor* NodoProveedor::getAnterior(){
     return anterior;
 }
-nodoProveedor* nodoProveedor::getSiguiente(){
+NodoProveedor* NodoProveedor::getSiguiente(){
     return siguiente;
 }
 
-void nodoProveedor::setAnterior(nodoProveedor* _anterior){
+void NodoProveedor::setAnterior(NodoProveedor* _anterior){
     anterior = _anterior;
 }
 
 
-void nodoProveedor::setSiguiente(nodoProveedor* _siguiente){
+void NodoProveedor::setSiguiente(NodoProveedor* _siguiente){
     anterior = _siguiente;
 }
 
-int nodoProveedor::getCantidadDeVentas(){
+int NodoProveedor::getCantidadDeVentas(){
     return cantidadDeVentas;
 }

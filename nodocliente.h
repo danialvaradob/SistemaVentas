@@ -3,11 +3,11 @@
 
 
 
-class nodoCliente {
+class NodoCliente {
 public:
 
 
-    nodoCliente(string _id, string _nombre, string _direccion, string _telefono)
+    NodoCliente(string _id, string _nombre, string _direccion, string _telefono)
     {
         idx = _id;
         nombre = _nombre;
@@ -21,10 +21,10 @@ public:
     }
 
 
-    nodoCliente *getSiguiente();
-    void setSiguiente(nodoCliente* _siguiente);
-    nodoCliente *getAnterior();
-    void setAnterior(nodoCliente* _anterior);
+    NodoCliente *getSiguiente();
+    void setSiguiente(NodoCliente* _siguiente);
+    NodoCliente *getAnterior();
+    void setAnterior(NodoCliente* _anterior);
 
     string getNombre();
     string getDireccion();
@@ -39,8 +39,8 @@ public:
 
 private:
     string idx;
-    nodoCliente *siguiente;
-    nodoCliente *anterior;
+    NodoCliente *siguiente;
+    NodoCliente *anterior;
     string nombre;
     string direccion;
     string telefono;

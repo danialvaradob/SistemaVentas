@@ -4,9 +4,9 @@
 
 
 
-class nodoProducto {
+class NodoProducto {
 public:
-    nodoProducto(string _codigoProducto, string _codigoCategoria, string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock){
+    NodoProducto(string _codigoProducto, string _codigoCategoria, string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock){
 
         codigoProducto = _codigoProducto;
         codigoCategoria = _codigoCategoria;
@@ -21,12 +21,12 @@ public:
 
     }
 
-    nodoProducto *getSiguiente();
-    void setSiguiente(nodoProducto* _siguiente);
-    nodoProducto *getAnterior();
-    void setAnterior(nodoProducto* _anterior);
-    nodoProducto *getPrimerProducto();
-    void setPrimeroProducto( nodoProducto* _primerProducto);
+    NodoProducto *getSiguiente();
+    void setSiguiente(NodoProducto* _siguiente);
+    NodoProducto *getAnterior();
+    void setAnterior(NodoProducto* _anterior);
+    NodoProducto *getPrimerProducto();
+    void setPrimeroProducto( NodoProducto* _primerProducto);
 
     string getCodigoProducto();
     string getCodigoCategoria();
@@ -48,8 +48,8 @@ private:
     int cantidadEnStock;
     int cantidadAlInicio;
 
-    nodoProducto *siguiente;
-    nodoProducto *anterior;
+    NodoProducto *siguiente;
+    NodoProducto *anterior;
 
     friend class nodoCategoria;
     friend class ListaCategorias;
