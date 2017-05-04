@@ -17,6 +17,8 @@ public:
         anterior = NULL;
 
         cantidadDeVentas = 0;
+        Hizq=NULL;
+        Hder=NULL;
 
     }
 
@@ -33,6 +35,8 @@ public:
     int getCantidadDeVentas();
     void aumentarVentas(){cantidadDeVentas++;}
 
+    NodoProveedor *Hiz;
+    NodoProveedor *Hder;
 
 
 
@@ -52,5 +56,6 @@ private:
 
 };
 
+typedef NodoProveedor* pNodoProveedor;
 
 #endif // NODOPROVEEDOR_H
