@@ -29,6 +29,10 @@ public:
 
     //¿Existe proveedor?
     bool existeProveedor(string _id, NodoProveedor* _raiz);
+    //Aumenta las ventas de un proveedor determinado
+    void aumentarVentas(string _id, NodoProveedor *_raiz);
+
+    string getNombreProveedor(string _id, NodoProveedor *_raiz);
 };
 
 #endif // ARBOLPROVEEDORES_H

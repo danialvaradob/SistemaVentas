@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     listalugares.cpp \
     nodoventa.cpp \
     listaventas.cpp \
-    nodoproductocomprado.cpp
+    nodoproductocomprado.cpp \
+    nodosupermercado.cpp
 
 HEADERS += \
     nodocliente.h \
@@ -35,4 +36,5 @@ HEADERS += \
     listalugares.h \
     nodoventa.h \
     listaventas.h \
-    nodoproductocomprado.h
+    nodoproductocomprado.h \
+    nodosupermercado.h

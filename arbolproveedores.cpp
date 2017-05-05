@@ -28,6 +28,33 @@ bool ArbolProveedores::existeProveedor(string _id, NodoProveedor *_raiz){
     }
 }
 
+//funcion que aumenta la cantidad de ventas de un nodo
+void ArbolProveedores::aumentarVentas(string _id, NodoProveedor *_raiz) {
+    if (_raiz == NULL) {
+        return;
+    }
+    else if (_raiz->getID() == _id) {
+        _raiz->aumentarVentas();
+
+    } else {
+        aumentarVentas(_id,_raiz->Hder);
+        aumentarVentas(_id,_raiz->Hizq);
+    }
+}
+//retorna el nombre de un _id dado
+string ArbolProveedores::getNombreProveedor(string _id, NodoProveedor *_raiz) {
+    if (_raiz == NULL) {
+        return "";
+    }
+    else if (_raiz->getID() == _id) {
+        return _raiz->getNombre();
+
+    } else {
+        getNombreProveedor(_id,_raiz->Hder);
+        getNombreProveedor(_id,_raiz->Hizq);
+    }
+}
+
 // Recorridos
 void ArbolProveedores::PreordenI(NodoProveedor *R){
     if(R==NULL){
