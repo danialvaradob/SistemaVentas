@@ -1,0 +1,3 @@
+/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles/SistemaVentas2.dir
