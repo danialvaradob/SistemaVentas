@@ -3,7 +3,3 @@
 //LISTA DOBLE CIRCULAR
 
 
-ListaLugares::ListaLugares()
-{
-
-}

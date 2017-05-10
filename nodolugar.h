@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+using namespace std;
 
 class NodoLugar {
     NodoLugar(int _codigo, string _nombre) {

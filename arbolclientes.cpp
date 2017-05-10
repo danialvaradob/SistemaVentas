@@ -50,6 +50,10 @@ ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _
     ApuntadorPagina P = NULL;
 
     Raiz = EmpujarB(Raiz,Numero,  _id,  _nombre,  _direccion,  _telefono);
+    if (Raiz->Esta) {
+        Raiz->Esta = false;
+        return Raiz;
+    }
     if(Raiz->EmpujarArriba){
         P = new Pagina();
         P->cuenta = 1;
@@ -85,6 +89,8 @@ ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _i
         Raiz = BuscarNodoB(Raiz,Numero);
         if(Raiz->Esta){
             cout << "Elemento Repetido" << endl;
+            return Raiz;
+
         }
         if(Raiz->K == 0){
 

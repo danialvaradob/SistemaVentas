@@ -33,14 +33,16 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
         int idCliente = atoi(id.c_str());
 
         // ... crear el nodo
-        if ( _ArbolClientes->existeCliente(_ArbolClientes->raizB, idCliente)){
+        /*if ( _ArbolClientes->existeCliente(_ArbolClientes->raizB, idCliente)){
             cout << "Entro1" << endl;
             continue;
         }else{
+         */
             cout <<"Codigo Cliente: "<< id << "," << nombre << "," << direccion << "," << telefono << endl;
             int intTelefono = atoi(telefono.c_str());
+
             _ArbolClientes->IniciarInsercionB(idCliente,idCliente,nombre,direccion,intTelefono);
-        }
+
     }
 
     archivoEntrada.close();
@@ -50,9 +52,10 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
 
 
 int main() {
-    ArbolClientes *arbol;
+    ArbolClientes *arbol = new ArbolClientes();
     leerArchClientes(arbol);
-    cout << "Hello, World!" << std::endl;
+
+    cout << "Hello, World!" << endl;
 
 
     return 0;
