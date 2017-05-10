@@ -1,6 +1,6 @@
 #include "listaventas.h"
 
-ListaVentas::ListaVentas()
-{
+//ListaVentas::ListaVentas()
+//{
 
-}
+//}

@@ -6,7 +6,7 @@ NodoSupermercado::NodoSupermercado(string _codSuper,string _codLugar, string _no
     codLugar = _codLugar;
     codSuper = _codSuper;
     FB=0;
-    Categorias=NULL;
+    punteroCategorias=NULL;
     Hizq=NULL;
     Hder=NULL;
 }

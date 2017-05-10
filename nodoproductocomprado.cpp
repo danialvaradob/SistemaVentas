@@ -1,6 +1,6 @@
 #include "nodoproductocomprado.h"
 
-NodoProductoComprado::NodoProductoComprado()
-{
-
-}
+//NodoProductoComprado::NodoProductoComprado()
+//{
+//
+//}

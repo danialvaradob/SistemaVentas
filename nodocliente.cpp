@@ -3,7 +3,7 @@
 
 
 
-
+/*
 NodoCliente* NodoCliente::getSiguiente(){
     return siguiente;
 }
@@ -20,6 +20,8 @@ void NodoCliente::setAnterior(NodoCliente* _anterior){
     anterior = _anterior;
 }
 
+
+*/
 string NodoCliente::getNombre(){
     return nombre;
 }

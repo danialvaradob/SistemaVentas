@@ -30,13 +30,13 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSup
 
             if(Hh){
                 switch(ra->obtenerValor()){
-                    case 1: ra->FB=0;
+                    case 1: (ra->FB=0);
                         Hh = false;
                         break;
-                    case 0: ra->FB  = -1;
+                    case 0: (ra->FB  = -1);
                         break;
-                    case -1: n1=ra->Hizq;
-                        if(n1->FB =-1){
+                    case -1: (n1=ra->Hizq);
+                        if(n1->FB ==-1){
                             rotacionSimpleIzquierda(ra,n1);
                         }else{
                             rotacionDobleIzquierda(ra,n1);
@@ -51,12 +51,12 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSup
 
                 if(Hh){
                     switch(ra->FB){
-                        case -1: ra->FB=0;
+                        case -1:( ra->FB=0);
                             Hh = false;
                             break;
-                        case 0: ra->FB=1;
+                        case 0: (ra->FB=1);
                             break;
-                        case 1:n1=ra->Hder;
+                        case 1:(n1=ra->Hder);
                             if(n1->FB=1){
                                 rotacionSimpleDerecha(ra, n1);
                             }else{
@@ -195,14 +195,14 @@ bool ArbolSupermercados::existeSupermercado(string _codNuevoSuper, NodoSupermerc
 
     if (_raiz == NULL) {
         return false;
-    } else if (_raiz->getCodSuper() == _codNuevoSuper ){
+    } else if (_raiz->getCodSuper() == _codNuevoSuper) {
         return true;
-    }else{
-        existeSupermercado(_codNuevoSuper,_raiz->Hizq);
-        existeSupermercado(_codNuevoSuper,_raiz->Hder);
+    } else {
+        existeSupermercado(_codNuevoSuper, _raiz->Hizq);
+        existeSupermercado(_codNuevoSuper, _raiz->Hder);
 
+    }
 }
-
 /*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
  *
  * MODIFICAR Y CAMBIAR A insertarNodoCat  (RN)

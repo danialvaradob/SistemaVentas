@@ -2,7 +2,3 @@
 
 //ARBOL AA
 
-ArbolProductos::ArbolProductos()
-{
-
-}

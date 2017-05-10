@@ -1,20 +1,18 @@
 #ifndef NODOSUPERMERCADO_H
 #define NODOSUPERMERCADO_H
-#include "arbolsupermercados.h"
+
 #include "arbolcategorias.h"
 #include "arbolproductos.h"
 #include <string>
 using namespace std;
 
-class NodoSupermercado
-{
+class NodoSupermercado {
 public:
+
+
     NodoSupermercado(string _codSuper,string _codLugar, string _nombre );
 
-
     void insertarNodo(string _codSuper,string _codLugar, string _nombre );
-
-
     void aumentarVentas() {cantidadVentas++;}
     int obtenerValor();
     string getCodSuper() {return codSuper;}

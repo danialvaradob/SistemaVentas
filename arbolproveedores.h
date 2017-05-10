@@ -1,6 +1,6 @@
 #ifndef ARBOLPROVEEDORES_H
 #define ARBOLPROVEEDORES_H
-#include <nodoproveedor.h>
+#include "nodoproveedor.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>

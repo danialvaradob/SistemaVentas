@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include "nodocategoria.h"
 using namespace std;
 
 
@@ -19,9 +20,14 @@ public:
         cantidadEnStock = _cantidadEnStock;
         cantidadAlInicio = _cantidadEnStock;
 
-        siguiente = NULL;
-        anterior = NULL;
-        //cambioStock = false;
+        cont = 0;
+        nivel = 0;
+
+
+        padre = NULL;
+        raiz = NULL;
+        izq = NULL;
+        der = NULL;
 
     }
 
@@ -41,6 +47,16 @@ public:
     int getCantidadAlInicio() { return cantidadAlInicio;}
 
 
+    // especiales para Nodos de un arbol AA
+    NodoProducto* izq;
+    NodoProducto* der;
+    NodoProducto* padre;
+    NodoProducto* raiz;
+
+    int cont;
+    int nivel;
+
+
 
 
 
@@ -55,8 +71,7 @@ private:
     NodoProducto *siguiente;
     NodoProducto *anterior;
 
-    friend class nodoCategoria;
-    friend class ListaCategorias;
+    friend class NodoCategoria;
 
 
 };

@@ -1,6 +1,9 @@
 #ifndef NODOPRODUCTOCOMPRADO_H
 #define NODOPRODUCTOCOMPRADO_H
 
+#include <string>
+using namespace std;
+
 
 class NodoProductoComprado {
 
@@ -37,4 +40,6 @@ private:
 
 
 };
+
+
 #endif // NODOPRODUCTOCOMPRADO_H

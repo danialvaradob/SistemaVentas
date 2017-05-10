@@ -1,9 +1,10 @@
 #ifndef LISTAVENTAS_H
 #define LISTAVENTAS_H
-#include <nodoventa.h>
-#include <arbolproveedores.h>
-#include <arbolclientes.h>
-#include <arbolcategorias.h>
+
+#include "nodoventa.h"
+#include "arbolproveedores.h"
+#include "arbolclientes.h"
+#include "arbolcategorias.h"
 #include <string>
 using namespace std;
 

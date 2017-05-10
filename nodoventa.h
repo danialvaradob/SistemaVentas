@@ -2,9 +2,9 @@
 #define NODOVENTA_H
 #include <stdio.h>
 #include <stdlib.h>
-#include <listaventas.h>
+
 #include <string>
-#include <nodoproductocomprado.h>
+#include "nodoproductocomprado.h"
 using namespace std;
 
 class NodoVenta {
