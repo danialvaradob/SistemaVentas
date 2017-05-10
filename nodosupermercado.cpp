@@ -12,8 +12,8 @@ NodoSupermercado::NodoSupermercado(string _codSuper,string _codLugar, string _no
 }
 
 void NodoSupermercado::insertarNodo(string _codSuper, string _codLugar, string _nombre) {
-    int numero = stoi(_codSuper);
-    int valor = stoi(codSuper);
+    int numero = 15;//stoi(_codSuper);
+    int valor = 15;//stoi(codSuper);
 
     if(numero<valor){
         if(Hizq==NULL){
@@ -31,5 +31,5 @@ void NodoSupermercado::insertarNodo(string _codSuper, string _codLugar, string _
 }
 
 int NodoSupermercado::obtenerValor() {
-    return stoi(codSuper);
+    return 15;//stoi(codSuper);
 }
