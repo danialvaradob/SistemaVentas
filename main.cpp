@@ -6,7 +6,7 @@ using namespace std;
 
 
 void leerArchClientes(ArbolClientes * _ArbolClientes){
-    string nombreArchivo = "Desktop/Archivos\de\prueba/ArchivosProgra2-Datos/Clientes.txt";
+    string nombreArchivo = "Desktop/Archivos de prueba/ArchivosProgra2-Datos/Clientes.txt";
 
     ifstream archivoEntrada;
     string lineaEnArchivo;
@@ -34,7 +34,8 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
             continue;
         }else{
             cout <<"Codigo Cliente: "<< id << "," << nombre << "," << direccion << "," << telefono << endl;
-            _ArbolClientes->IniciarInsercionB(idCliente,idCliente,nombre,direccion,telefono);
+            int intTelefono = stoi(telefono);
+            _ArbolClientes->IniciarInsercionB(idCliente,idCliente,nombre,direccion,intTelefono);
         }
     }
 

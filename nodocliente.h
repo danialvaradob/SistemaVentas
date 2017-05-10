@@ -1,7 +1,7 @@
 #ifndef NODOCLIENTE_H
 #define NODOCLIENTE_H
 #include <stdio.h>
-#include <stdlib.h>
+
 #include <string>
 using namespace std;
 

@@ -35,22 +35,4 @@ void NodoCliente::setAnterior(NodoCliente *_anterior){
     anterior = _anterior;
 }
 
-string NodoCliente::getNombre(){
-    return nombre;
-}
 
-string NodoCliente::getDireccion(){
-    return direccion;
-}
-
-int NodoCliente::getID(){
-    return idx;
-}
-
-int NodoCliente::getTelefono(){
-    return telefono;
-}
-
-int NodoCliente::getCantidadCompras(){
-    return cantidadDeCompras;
-}
