@@ -27,7 +27,7 @@ nodocategoria *nodocategoria::getAnterior() {
     return anterior;
 }
 
-void nodocategoria::setSiguitente(nodocategoria *nodo) {
+void nodocategoria::setSiguiente(nodocategoria *nodo) {
     siguiente = nodo;
 }
 

@@ -11,12 +11,12 @@ using namespace std;
 class NodoProveedor {
 public:
 
-
-    NodoProveedor(string _id, string _nombre, string _direccion, string _telefono){
-        identificacion = _id;
+    NodoProveedor(int _codP, string _nombre, string _dir, int _tel){
+        numero = _codP;
         nombre = _nombre;
-        direccion = _direccion;
-        telefono = _telefono;
+        direccion = _dir;
+        telefono = _tel;
+
         siguiente = NULL;
         anterior = NULL;
 
@@ -26,6 +26,7 @@ public:
 
     }
 
+    string toString();
 
     NodoProveedor *getSiguiente();
     void setSiguiente(NodoProveedor* _siguiente);
@@ -34,13 +35,13 @@ public:
 
     string getNombre();
     string getDireccion();
-    string getID();
-    string getTelefono();
+    int getID();
+    int getTelefono();
     int getCantidadDeVentas();
     void aumentarVentas(){cantidadDeVentas++;}
 
     // Metodo utilizado para agregar un nodo de forma correcta
-    void insertarProveedor(string _id, string _nombre, string _direccion, string _telefono);
+    void insertarProveedor(NodoProveedor *_prov);
 
     NodoProveedor *Hizq;
     NodoProveedor *Hder;
@@ -49,12 +50,13 @@ public:
 
 
 private:
-    string identificacion;
-    NodoProveedor *siguiente;
-    NodoProveedor *anterior;
+    int numero;
     string nombre;
     string direccion;
-    string telefono;
+    int telefono;
+    int bestScore;
+    NodoProveedor *siguiente;
+    NodoProveedor *anterior;
 
     int cantidadDeVentas;
 

@@ -9,66 +9,46 @@ using namespace std;
 
 class NodoVenta {
 public:
-
-    NodoVenta() {
-        codigoCliente = "";
-        codigoProveedor = "";
-        descuentoAplicado = 0;
-        montoTotal = 0;
-
-
+    NodoVenta(int _codP, string _nombreP, int _codC, string _nombreC, int cant, double _monto){
+        codigoProv = _codP;
+        nombreProv = _nombreP;
+        codigoCliente = _codC;
+        nombreCliente = _nombreC;
+        cantidadComprada = cant;
+        monto = _monto;
         siguiente = NULL;
         anterior = NULL;
-
-        primeroProductoComprado = NULL;
+        primero = NULL;
 
     }
 
-    NodoVenta(string _codigoCliente, string _codigoProveedor,int _descApl, double _monTotal){
-        codigoCliente = _codigoCliente;
-        codigoProveedor = _codigoProveedor;
-        descuentoAplicado = _descApl;
-        montoTotal = _monTotal;
+    string toString();
 
-        siguiente = NULL;
-        anterior = NULL;
+    NodoVenta *getSiguiente(){ return siguiente;};
+    void setSiguiente(NodoVenta* _siguiente){siguiente = _siguiente;};
+    NodoVenta *getAnterior(){ return anterior;};
+    void setAnterior(NodoVenta* _anterior){anterior = _anterior ;};
+    NodoVenta *getPrimero(){return primero;}
+    void setPrimero( NodoVenta* _primerProducto){primero = _primerProducto};
 
-        primeroProductoComprado = NULL;
-
-    }
-
-    void setValores(string _codigoCliente, string _codigoProveedor,int _descApl, double _monTotal);
-
-    NodoVenta *getSiguiente();
-    void setSiguiente(NodoVenta* _siguiente);
-    NodoVenta *getAnterior();
-    void setAnterior(NodoVenta* _anterior);
-    NodoProductoComprado *getPrimerProducto(){return primeroProductoComprado;}
-    void setPrimeroProducto( NodoProductoComprado* _primerProducto);
-
-    string getCodigoCli() {return codigoCliente;};
-    string getCodigoProvee() {return codigoProveedor;};
-    int getDescuentoApl() {return descuentoAplicado;};
-    float getMontoTotal() {return montoTotal;};
-
-    void setCodigoCliente(string _codigoCliente);
-    void setCodigoProveedor(string _codigoProveedor);
-    void setDescuentoAplicado(int _descuentoAplicado);
-    void setMontoTotal(double _montoTotal);
-
-    void insertarProductoComprado(string _codigoP, string _codigoC, int _unidadesComp);
-
-
+    int getCodClient(){ return codigoCliente;};
+    int getCodProv(){ return codigoProv;};
+    int getCant(){return cantidadComprada;};
+    string getNomClien() {return nombreCliente;};
+    string getNomProv() {return nombreProv;};
+    double getMontoTotal() {return monto;};
 
 private:
-    string codigoCliente;
-    string codigoProveedor;
-    int descuentoAplicado;
-    double montoTotal;
+    int codigoProv;
+    string nombreProv;
+    int codigoCliente;
+    string nombreCliente;
+    int cantidadComprada;
+    double monto;
 
     NodoVenta* siguiente;
     NodoVenta* anterior;
-    NodoProductoComprado* primeroProductoComprado;
+    NodoVenta* primero;
 
     friend class ListaVentas;
 

@@ -32,7 +32,7 @@ public:
     nodocategoria *getHIzq();
     void setHDer(nodocategoria *nodo);
     nodocategoria *getHDer();
-    void setSiguitente(nodocategoria *nodo);
+    void setSiguiente(nodocategoria *nodo);
     nodocategoria *getSiguiente();
     void setAnterior(nodocategoria *nodo);
     nodocategoria *getAnterior();
