@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 #include <string>
-#include "nodoproductocomprado.h"
 using namespace std;
 
 class NodoVenta {
