@@ -130,12 +130,12 @@ public:
     ArbolClientes(){raizB = NULL;}
     bool BVacio(){return raizB == NULL;}
     void EstablecerRaizB(ApuntadorPagina Raiz);
-    void IniciarInsercionB(int Numero, int _id, string _nombre, string _direccion, string _telefono);
-    ApuntadorPagina InsertarB(ApuntadorPagina Raiz, int Numero,  int _id, string _nombre, string _direccion, string _telefono);
-    ApuntadorPagina EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, string _telefono);
+    void IniciarInsercionB(int Numero, int _id, string _nombre, string _direccion, int _telefono);
+    ApuntadorPagina InsertarB(ApuntadorPagina Raiz, int Numero,  int _id, string _nombre, string _direccion, int _telefono);
+    ApuntadorPagina EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, int _telefono);
     ApuntadorPagina BuscarNodoB(ApuntadorPagina Raiz, int Numero);
-    ApuntadorPagina MeterHojaB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, string _telefono);
-    ApuntadorPagina DividirNodoB(ApuntadorPagina Raiz,  int _id, string _nombre, string _direccion, string _telefono);
+    ApuntadorPagina MeterHojaB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, int _telefono);
+    ApuntadorPagina DividirNodoB(ApuntadorPagina Raiz,  int _id, string _nombre, string _direccion, int _telefono);
     void IniciarRecorridoB();
     void RecorridoInordenB(ApuntadorPagina Raiz);
     bool existeCliente(ApuntadorPagina Raiz,int _Numero);
@@ -158,13 +158,13 @@ void ArbolClientes::EstablecerRaizB(ApuntadorPagina Raiz)
     raizB = Raiz;
 }
 
-void ArbolClientes::IniciarInsercionB(int Numero, int _id, string _nombre, string _direccion, string _telefono)
+void ArbolClientes::IniciarInsercionB(int Numero, int _id, string _nombre, string _direccion, int _telefono)
 {
     ApuntadorPagina Raiz = raizB;
     raizB = InsertarB(Raiz,Numero,  _id,  _nombre,  _direccion,  _telefono);
 }
 
-ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, string _telefono)
+ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, int _telefono)
 {
     ApuntadorPagina P = NULL;
 
@@ -172,7 +172,7 @@ ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _
     if(Raiz->EmpujarArriba == true){
         P = new Pagina();
         P->cuenta = 1;
-        pNodoCliente Auxiliar = new NodoCliente(Raiz->X,  _id,  _nombre,  _direccion,  _telefono);
+        pNodoCliente Auxiliar = new NodoCliente(Raiz->X,  _id,  _nombre,  _direccion, _telefono);
         P->Claves->InsertarClave(Auxiliar,1);
         P->Ramas->InsertarRama(Raiz->Xr,1);
         if(Raiz->llamadas == 1){
@@ -189,7 +189,7 @@ ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _
 
 }
 
-ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, string _telefono)
+ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, int _telefono)
 {
     if(Raiz == NULL){
         Raiz = new Pagina();
@@ -249,7 +249,7 @@ ApuntadorPagina ArbolClientes::BuscarNodoB(ApuntadorPagina Raiz, int Numero)
     return Raiz;
 }
 
-ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, string _telefono)
+ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, int _telefono)
 {
     int I;
     I = Raiz->cuenta;
@@ -269,7 +269,7 @@ ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, string 
 
 }
 
-ApuntadorPagina ArbolClientes::DividirNodoB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, string _telefono)
+ApuntadorPagina ArbolClientes::DividirNodoB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, int _telefono)
 {
     int I;
     int Posmda;
@@ -358,9 +358,8 @@ bool ArbolClientes::existeCliente(ApuntadorPagina Raiz ,int _Numero) {
 
 }
 
-
 //-----------Pila-----------//
-
+/*
 class PilaB {
 public:
     PilaB() : plistaB(NULL) {}
@@ -412,7 +411,8 @@ pNodoCliente PilaB::Pop()
     }
     return salida;
 }
-
+*/
+/*
 int PilaB::Size(){
     while(plistaB && plistaB->anterior) plistaB = plistaB->anterior;
     int cont=0;
@@ -424,7 +424,7 @@ int PilaB::Size(){
     }
     return cont;
 }
-/*
+
 void Arbol::Clientes(){
     fstream ficheroEntrada;
     string frase;

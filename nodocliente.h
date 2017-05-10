@@ -60,6 +60,7 @@ private:
     friend class Pagina;
     friend class ArregloClaves;
 
+
 };
 
 typedef NodoCliente* pNodoCliente;

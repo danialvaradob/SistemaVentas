@@ -7,7 +7,7 @@ using namespace std;
 
 //+++++++++++++++++++++ Insertar Nodo +++++++++++++++++++++++
 
-void ArbolProveedores::insertarNodoProveedor(string _id, string _nombre, string _direccion, string _telefono) {
+void ArbolProveedores::insertarNodoProveedor(int _id, string _nombre, string _direccion, int _telefono) {
     if(raiz==NULL){
         raiz = new NodoProveedor( _id,  _nombre,  _direccion,  _telefono);
     }else{
@@ -16,7 +16,7 @@ void ArbolProveedores::insertarNodoProveedor(string _id, string _nombre, string 
 }
 
 // funcion utilizada para verificar si ya existe un proveedor
-bool ArbolProveedores::existeProveedor(string _id, NodoProveedor *_raiz){
+bool ArbolProveedores::existeProveedor(int _id, NodoProveedor *_raiz){
     if(_raiz==NULL){
         return false;
     }else if (_raiz->getID() == _id) {
@@ -29,7 +29,7 @@ bool ArbolProveedores::existeProveedor(string _id, NodoProveedor *_raiz){
 }
 
 //funcion que aumenta la cantidad de ventas de un nodo
-void ArbolProveedores::aumentarVentas(string _id, NodoProveedor *_raiz) {
+void ArbolProveedores::aumentarVentas(int _id, NodoProveedor *_raiz) {
     if (_raiz == NULL) {
         return;
     }
@@ -42,7 +42,7 @@ void ArbolProveedores::aumentarVentas(string _id, NodoProveedor *_raiz) {
     }
 }
 //retorna el nombre de un _id dado
-string ArbolProveedores::getNombreProveedor(string _id, NodoProveedor *_raiz) {
+string ArbolProveedores::getNombreProveedor(int _id, NodoProveedor *_raiz) {
     if (_raiz == NULL) {
         return "";
     }

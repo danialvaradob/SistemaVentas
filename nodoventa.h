@@ -29,8 +29,7 @@ public:
     NodoVenta *getAnterior(){ return anterior;};
     void setAnterior(NodoVenta* _anterior){anterior = _anterior ;};
     NodoVenta *getPrimero(){return primero;}
-    void setPrimero( NodoVenta* _primerProducto){primero = _primerProducto};
-
+    void setPrimero( NodoVenta* _primerProducto){primero = _primerProducto;};
     int getCodClient(){ return codigoCliente;};
     int getCodProv(){ return codigoProv;};
     int getCant(){return cantidadComprada;};

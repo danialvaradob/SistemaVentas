@@ -18,7 +18,7 @@ public:
 
    //++++Insersion al arbol+++++++++++++++++++++
 
-    void insertarNodoProveedor(string _id, string _nombre, string _direccion, string _telefono);
+    void insertarNodoProveedor(int _id, string _nombre, string _direccion, int _telefono);
     //++++++++++++ Ordenes ++++++++++++++++++++++++
     void PreordenI(NodoProveedor *R);
     void InordenI(NodoProveedor *R);
@@ -28,11 +28,11 @@ public:
     int RecorrerV(NodoProveedor * R);
 
     //¿Existe proveedor?
-    bool existeProveedor(string _id, NodoProveedor* _raiz);
+    bool existeProveedor(int _id, NodoProveedor* _raiz);
     //Aumenta las ventas de un proveedor determinado
-    void aumentarVentas(string _id, NodoProveedor *_raiz);
+    void aumentarVentas(int _id, NodoProveedor *_raiz);
 
-    string getNombreProveedor(string _id, NodoProveedor *_raiz);
+    string getNombreProveedor(int _id, NodoProveedor *_raiz);
 };
 
 #endif // ARBOLPROVEEDORES_H
