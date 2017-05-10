@@ -11,6 +11,7 @@ using namespace std;
 class ListaLugares {
 public:
     ListaLugares() {primero = actual = NULL;}
+    ~ListaLugares();
 
     bool listaVacia() {return primero == NULL;}
 
