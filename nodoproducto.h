@@ -11,7 +11,7 @@ using namespace std;
 
 class NodoProducto {
 public:
-    NodoProducto(string _codigoProducto, string _codigoCategoria, string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock){
+    NodoProducto(int _codigoProducto, int _codigoCategoria, string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock){
 
         codigoProducto = _codigoProducto;
         codigoCategoria = _codigoCategoria;
@@ -38,8 +38,8 @@ public:
     NodoProducto *getPrimerProducto();
     void setPrimeroProducto( NodoProducto* _primerProducto);
 
-    string getCodigoProducto();
-    string getCodigoCategoria();
+    int getCodigoProducto();
+    int getCodigoCategoria();
     string getNombreProducto();
     double getPrecioPorUnidad();
     int getCantidadEnStock();
@@ -61,8 +61,8 @@ public:
 
 
 private:
-    string codigoProducto;
-    string codigoCategoria;
+    int codigoProducto;
+    int codigoCategoria;
     string nombreProducto;
     double precioPorUnidad;
     int cantidadEnStock;
