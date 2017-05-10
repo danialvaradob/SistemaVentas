@@ -105,19 +105,357 @@ CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o.provides: CMakeFiles/SistemaVe
 CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o
 
 
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o: ../arbolsupermercados.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolsupermercados.cpp"
+
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolsupermercados.cpp" > CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolsupermercados.cpp" -o CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o: ../arbolcategorias.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolcategorias.cpp"
+
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolcategorias.cpp" > CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolcategorias.cpp" -o CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o: ../arbolclientes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolclientes.cpp"
+
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolclientes.cpp" > CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolclientes.cpp" -o CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o: ../arbolproductos.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproductos.cpp"
+
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproductos.cpp" > CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproductos.cpp" -o CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o: ../arbolproveedores.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproveedores.cpp"
+
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproveedores.cpp" > CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproveedores.cpp" -o CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o: ../listalugares.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listalugares.cpp"
+
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/listalugares.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listalugares.cpp" > CMakeFiles/SistemaVentas2.dir/listalugares.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/listalugares.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listalugares.cpp" -o CMakeFiles/SistemaVentas2.dir/listalugares.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o: ../listaventas.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listaventas.cpp"
+
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/listaventas.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listaventas.cpp" > CMakeFiles/SistemaVentas2.dir/listaventas.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/listaventas.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listaventas.cpp" -o CMakeFiles/SistemaVentas2.dir/listaventas.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o: ../nodoproveedor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproveedor.cpp"
+
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproveedor.cpp" > CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproveedor.cpp" -o CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o: ../nodosupermercado.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodosupermercado.cpp"
+
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodosupermercado.cpp" > CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodosupermercado.cpp" -o CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o: ../nodocliente.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodocliente.cpp"
+
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodocliente.cpp" > CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodocliente.cpp" -o CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o: ../nodoproducto.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproducto.cpp"
+
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproducto.cpp" > CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproducto.cpp" -o CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o: ../nodoproductocomprado.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproductocomprado.cpp"
+
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproductocomprado.cpp" > CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproductocomprado.cpp" -o CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o
+
+
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o: CMakeFiles/SistemaVentas2.dir/flags.make
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o: ../nodoventa.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o -c "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoventa.cpp"
+
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoventa.cpp" > CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.i
+
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoventa.cpp" -o CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.s
+
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.requires:
+
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.requires
+
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.provides: CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.provides.build
+.PHONY : CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.provides
+
+CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.provides.build: CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o
+
+
 # Object files for target SistemaVentas2
 SistemaVentas2_OBJECTS = \
 "CMakeFiles/SistemaVentas2.dir/main.cpp.o" \
-"CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o"
+"CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o" \
+"CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o"
 
 # External object files for target SistemaVentas2
 SistemaVentas2_EXTERNAL_OBJECTS =
 
 SistemaVentas2: CMakeFiles/SistemaVentas2.dir/main.cpp.o
 SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o
+SistemaVentas2: CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o
 SistemaVentas2: CMakeFiles/SistemaVentas2.dir/build.make
 SistemaVentas2: CMakeFiles/SistemaVentas2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable SistemaVentas2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable SistemaVentas2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SistemaVentas2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +465,19 @@ CMakeFiles/SistemaVentas2.dir/build: SistemaVentas2
 
 CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/main.cpp.o.requires
 CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o.requires
+CMakeFiles/SistemaVentas2.dir/requires: CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o.requires
 
 .PHONY : CMakeFiles/SistemaVentas2.dir/requires
 

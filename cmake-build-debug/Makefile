@@ -123,6 +123,195 @@ SistemaVentas2/fast:
 	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/build
 .PHONY : SistemaVentas2/fast
 
+arbolcategorias.o: arbolcategorias.cpp.o
+
+.PHONY : arbolcategorias.o
+
+# target to build an object file
+arbolcategorias.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.o
+.PHONY : arbolcategorias.cpp.o
+
+arbolcategorias.i: arbolcategorias.cpp.i
+
+.PHONY : arbolcategorias.i
+
+# target to preprocess a source file
+arbolcategorias.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.i
+.PHONY : arbolcategorias.cpp.i
+
+arbolcategorias.s: arbolcategorias.cpp.s
+
+.PHONY : arbolcategorias.s
+
+# target to generate assembly for a file
+arbolcategorias.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolcategorias.cpp.s
+.PHONY : arbolcategorias.cpp.s
+
+arbolclientes.o: arbolclientes.cpp.o
+
+.PHONY : arbolclientes.o
+
+# target to build an object file
+arbolclientes.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.o
+.PHONY : arbolclientes.cpp.o
+
+arbolclientes.i: arbolclientes.cpp.i
+
+.PHONY : arbolclientes.i
+
+# target to preprocess a source file
+arbolclientes.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.i
+.PHONY : arbolclientes.cpp.i
+
+arbolclientes.s: arbolclientes.cpp.s
+
+.PHONY : arbolclientes.s
+
+# target to generate assembly for a file
+arbolclientes.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolclientes.cpp.s
+.PHONY : arbolclientes.cpp.s
+
+arbolproductos.o: arbolproductos.cpp.o
+
+.PHONY : arbolproductos.o
+
+# target to build an object file
+arbolproductos.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.o
+.PHONY : arbolproductos.cpp.o
+
+arbolproductos.i: arbolproductos.cpp.i
+
+.PHONY : arbolproductos.i
+
+# target to preprocess a source file
+arbolproductos.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.i
+.PHONY : arbolproductos.cpp.i
+
+arbolproductos.s: arbolproductos.cpp.s
+
+.PHONY : arbolproductos.s
+
+# target to generate assembly for a file
+arbolproductos.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproductos.cpp.s
+.PHONY : arbolproductos.cpp.s
+
+arbolproveedores.o: arbolproveedores.cpp.o
+
+.PHONY : arbolproveedores.o
+
+# target to build an object file
+arbolproveedores.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.o
+.PHONY : arbolproveedores.cpp.o
+
+arbolproveedores.i: arbolproveedores.cpp.i
+
+.PHONY : arbolproveedores.i
+
+# target to preprocess a source file
+arbolproveedores.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.i
+.PHONY : arbolproveedores.cpp.i
+
+arbolproveedores.s: arbolproveedores.cpp.s
+
+.PHONY : arbolproveedores.s
+
+# target to generate assembly for a file
+arbolproveedores.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolproveedores.cpp.s
+.PHONY : arbolproveedores.cpp.s
+
+arbolsupermercados.o: arbolsupermercados.cpp.o
+
+.PHONY : arbolsupermercados.o
+
+# target to build an object file
+arbolsupermercados.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.o
+.PHONY : arbolsupermercados.cpp.o
+
+arbolsupermercados.i: arbolsupermercados.cpp.i
+
+.PHONY : arbolsupermercados.i
+
+# target to preprocess a source file
+arbolsupermercados.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.i
+.PHONY : arbolsupermercados.cpp.i
+
+arbolsupermercados.s: arbolsupermercados.cpp.s
+
+.PHONY : arbolsupermercados.s
+
+# target to generate assembly for a file
+arbolsupermercados.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/arbolsupermercados.cpp.s
+.PHONY : arbolsupermercados.cpp.s
+
+listalugares.o: listalugares.cpp.o
+
+.PHONY : listalugares.o
+
+# target to build an object file
+listalugares.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listalugares.cpp.o
+.PHONY : listalugares.cpp.o
+
+listalugares.i: listalugares.cpp.i
+
+.PHONY : listalugares.i
+
+# target to preprocess a source file
+listalugares.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listalugares.cpp.i
+.PHONY : listalugares.cpp.i
+
+listalugares.s: listalugares.cpp.s
+
+.PHONY : listalugares.s
+
+# target to generate assembly for a file
+listalugares.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listalugares.cpp.s
+.PHONY : listalugares.cpp.s
+
+listaventas.o: listaventas.cpp.o
+
+.PHONY : listaventas.o
+
+# target to build an object file
+listaventas.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listaventas.cpp.o
+.PHONY : listaventas.cpp.o
+
+listaventas.i: listaventas.cpp.i
+
+.PHONY : listaventas.i
+
+# target to preprocess a source file
+listaventas.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listaventas.cpp.i
+.PHONY : listaventas.cpp.i
+
+listaventas.s: listaventas.cpp.s
+
+.PHONY : listaventas.s
+
+# target to generate assembly for a file
+listaventas.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/listaventas.cpp.s
+.PHONY : listaventas.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -177,6 +366,168 @@ nodocategoria.cpp.s:
 	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodocategoria.cpp.s
 .PHONY : nodocategoria.cpp.s
 
+nodocliente.o: nodocliente.cpp.o
+
+.PHONY : nodocliente.o
+
+# target to build an object file
+nodocliente.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.o
+.PHONY : nodocliente.cpp.o
+
+nodocliente.i: nodocliente.cpp.i
+
+.PHONY : nodocliente.i
+
+# target to preprocess a source file
+nodocliente.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.i
+.PHONY : nodocliente.cpp.i
+
+nodocliente.s: nodocliente.cpp.s
+
+.PHONY : nodocliente.s
+
+# target to generate assembly for a file
+nodocliente.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodocliente.cpp.s
+.PHONY : nodocliente.cpp.s
+
+nodoproducto.o: nodoproducto.cpp.o
+
+.PHONY : nodoproducto.o
+
+# target to build an object file
+nodoproducto.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.o
+.PHONY : nodoproducto.cpp.o
+
+nodoproducto.i: nodoproducto.cpp.i
+
+.PHONY : nodoproducto.i
+
+# target to preprocess a source file
+nodoproducto.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.i
+.PHONY : nodoproducto.cpp.i
+
+nodoproducto.s: nodoproducto.cpp.s
+
+.PHONY : nodoproducto.s
+
+# target to generate assembly for a file
+nodoproducto.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproducto.cpp.s
+.PHONY : nodoproducto.cpp.s
+
+nodoproductocomprado.o: nodoproductocomprado.cpp.o
+
+.PHONY : nodoproductocomprado.o
+
+# target to build an object file
+nodoproductocomprado.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.o
+.PHONY : nodoproductocomprado.cpp.o
+
+nodoproductocomprado.i: nodoproductocomprado.cpp.i
+
+.PHONY : nodoproductocomprado.i
+
+# target to preprocess a source file
+nodoproductocomprado.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.i
+.PHONY : nodoproductocomprado.cpp.i
+
+nodoproductocomprado.s: nodoproductocomprado.cpp.s
+
+.PHONY : nodoproductocomprado.s
+
+# target to generate assembly for a file
+nodoproductocomprado.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproductocomprado.cpp.s
+.PHONY : nodoproductocomprado.cpp.s
+
+nodoproveedor.o: nodoproveedor.cpp.o
+
+.PHONY : nodoproveedor.o
+
+# target to build an object file
+nodoproveedor.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.o
+.PHONY : nodoproveedor.cpp.o
+
+nodoproveedor.i: nodoproveedor.cpp.i
+
+.PHONY : nodoproveedor.i
+
+# target to preprocess a source file
+nodoproveedor.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.i
+.PHONY : nodoproveedor.cpp.i
+
+nodoproveedor.s: nodoproveedor.cpp.s
+
+.PHONY : nodoproveedor.s
+
+# target to generate assembly for a file
+nodoproveedor.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoproveedor.cpp.s
+.PHONY : nodoproveedor.cpp.s
+
+nodosupermercado.o: nodosupermercado.cpp.o
+
+.PHONY : nodosupermercado.o
+
+# target to build an object file
+nodosupermercado.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.o
+.PHONY : nodosupermercado.cpp.o
+
+nodosupermercado.i: nodosupermercado.cpp.i
+
+.PHONY : nodosupermercado.i
+
+# target to preprocess a source file
+nodosupermercado.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.i
+.PHONY : nodosupermercado.cpp.i
+
+nodosupermercado.s: nodosupermercado.cpp.s
+
+.PHONY : nodosupermercado.s
+
+# target to generate assembly for a file
+nodosupermercado.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodosupermercado.cpp.s
+.PHONY : nodosupermercado.cpp.s
+
+nodoventa.o: nodoventa.cpp.o
+
+.PHONY : nodoventa.o
+
+# target to build an object file
+nodoventa.cpp.o:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.o
+.PHONY : nodoventa.cpp.o
+
+nodoventa.i: nodoventa.cpp.i
+
+.PHONY : nodoventa.i
+
+# target to preprocess a source file
+nodoventa.cpp.i:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.i
+.PHONY : nodoventa.cpp.i
+
+nodoventa.s: nodoventa.cpp.s
+
+.PHONY : nodoventa.s
+
+# target to generate assembly for a file
+nodoventa.cpp.s:
+	$(MAKE) -f CMakeFiles/SistemaVentas2.dir/build.make CMakeFiles/SistemaVentas2.dir/nodoventa.cpp.s
+.PHONY : nodoventa.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +537,51 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... SistemaVentas2"
+	@echo "... arbolcategorias.o"
+	@echo "... arbolcategorias.i"
+	@echo "... arbolcategorias.s"
+	@echo "... arbolclientes.o"
+	@echo "... arbolclientes.i"
+	@echo "... arbolclientes.s"
+	@echo "... arbolproductos.o"
+	@echo "... arbolproductos.i"
+	@echo "... arbolproductos.s"
+	@echo "... arbolproveedores.o"
+	@echo "... arbolproveedores.i"
+	@echo "... arbolproveedores.s"
+	@echo "... arbolsupermercados.o"
+	@echo "... arbolsupermercados.i"
+	@echo "... arbolsupermercados.s"
+	@echo "... listalugares.o"
+	@echo "... listalugares.i"
+	@echo "... listalugares.s"
+	@echo "... listaventas.o"
+	@echo "... listaventas.i"
+	@echo "... listaventas.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... nodocategoria.o"
 	@echo "... nodocategoria.i"
 	@echo "... nodocategoria.s"
+	@echo "... nodocliente.o"
+	@echo "... nodocliente.i"
+	@echo "... nodocliente.s"
+	@echo "... nodoproducto.o"
+	@echo "... nodoproducto.i"
+	@echo "... nodoproducto.s"
+	@echo "... nodoproductocomprado.o"
+	@echo "... nodoproductocomprado.i"
+	@echo "... nodoproductocomprado.s"
+	@echo "... nodoproveedor.o"
+	@echo "... nodoproveedor.i"
+	@echo "... nodoproveedor.s"
+	@echo "... nodosupermercado.o"
+	@echo "... nodosupermercado.i"
+	@echo "... nodosupermercado.s"
+	@echo "... nodoventa.o"
+	@echo "... nodoventa.i"
+	@echo "... nodoventa.s"
 .PHONY : help
 
 

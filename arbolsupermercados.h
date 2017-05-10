@@ -18,9 +18,9 @@ public:
 
 
     //CAMBIAR ESTAS
-    void PreordenI(NodoSupermercado *k);
-    string InordenI();
-    void PostordenI();
+    void preordenI(NodoSupermercado *k);
+    string inordenI();
+    void postordenI();
 
     bool Hh;
 
@@ -42,8 +42,9 @@ public:
 
     //Agregar Categoria (a un arbol de categorias)
 
-    void agregarCategoria();
-    void agregarProducto();
+    void agregarCategoria(); // inserta un nodo a un arbol RN
+    void agregarProducto();  // inserta un nodo a un arbol AA
+    bool existeSupermercado(string _codNuevoSuper, NodoSupermercado* _raiz);
 
 };
 

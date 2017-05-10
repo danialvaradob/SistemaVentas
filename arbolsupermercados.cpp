@@ -18,7 +18,6 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSup
     NodoSupermercado *n1;
 
     int numero = stoi(_codSuper);
-    int valor = stoi(codSuper);
 
     if(raiz==NULL){
         ra=new NodoSupermercado( _codSuper, _codLugar,  _nombre );
@@ -47,7 +46,7 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSup
                 }
             }
         }else{
-            if(pIdHotel>ra->obtenerValor()){
+            if(numero>ra->obtenerValor()){
                 insertarBalanceado(ra->Hder, _codSuper, _codLugar, _nombre);
 
                 if(Hh){
@@ -71,9 +70,8 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSup
         }
     }
 }
-
-void AVL::Equilibrar1(NodoHotel* n, bool Hh){
-    NodoHotel *n1;
+void ArbolSupermercados::equilibrar1(NodoSupermercado *n, bool) {
+    NodoSupermercado *n1;
     switch (n->FB){
         case -1: n->FB = 0;
             break;
@@ -84,16 +82,16 @@ void AVL::Equilibrar1(NodoHotel* n, bool Hh){
             if(n1->FB>=0){
                 if(n1->FB=0){
                     Hh = false;
-                    RotacionSimpleDerecha(n, n1);
+                    rotacionSimpleDerecha(n, n1);
                 }else{
-                    RotacionDobleDerecha(n, n1);
+                    rotacionDobleDerecha(n, n1);
                 }
             }
     }
 }
 
-void AVL::Equilibrar2(NodoHotel* n, bool Hh){
-    NodoHotel *n1;
+void ArbolSupermercados::equilibrar2(NodoSupermercado *n, bool) {
+    NodoSupermercado *n1;
     switch (n->FB){
         case 1: n->FB = 0;
             break;
@@ -104,18 +102,17 @@ void AVL::Equilibrar2(NodoHotel* n, bool Hh){
             if(n1->FB<=0){
                 if(n1->FB=0){
                     Hh = false;
-                    RotacionSimpleIzquierda(n, n1);
+                    rotacionSimpleIzquierda(n, n1);
                 }else{
-                    RotacionDobleIzquierda(n, n1);
+                    rotacionDobleIzquierda(n, n1);
                 }
             }
     }
 }
 
 
-
-void AVL::RotacionDobleIzquierda(NodoHotel* n, NodoHotel* n1){
-    NodoHotel *n2;
+void ArbolSupermercados::rotacionDobleIzquierda(NodoSupermercado *n, NodoSupermercado *n1) {
+    NodoSupermercado *n2;
     n2=n1->Hder;
     n->Hizq = n2->Hder;
     n2->Hder=n;
@@ -135,9 +132,8 @@ void AVL::RotacionDobleIzquierda(NodoHotel* n, NodoHotel* n1){
     n2->FB=0;
     n=n2;
 }
-
-void AVL::RotacionDobleDerecha(NodoHotel* n, NodoHotel* n1){
-    NodoHotel *n2;
+void ArbolSupermercados::rotacionDobleDerecha(NodoSupermercado *n, NodoSupermercado *n1) {
+    NodoSupermercado *n2;
     n2=n1->Hizq;
     n->Hder = n2->Hizq;
     n2->Hizq=n;
@@ -157,8 +153,7 @@ void AVL::RotacionDobleDerecha(NodoHotel* n, NodoHotel* n1){
     n2->FB=0;
     n=n2;
 }
-
-void AVL::RotacionSimpleDerecha(NodoHotel* n, NodoHotel* n1){
+void ArbolSupermercados::rotacionSimpleDerecha(NodoSupermercado *n, NodoSupermercado *n1) {
     n->Hder=n1->Hizq;
     n1->Hizq=n;
 
@@ -172,7 +167,7 @@ void AVL::RotacionSimpleDerecha(NodoHotel* n, NodoHotel* n1){
     n=n1;
 }
 
-void AVL::RotacionSimpleIzquierda(NodoHotel* n, NodoHotel* n1){
+void ArbolSupermercados::rotacionSimpleIzquierda(NodoSupermercado *n, NodoSupermercado *n1) {
     n->Hizq=n1->Hder;
     n1->Hder=n;
 
@@ -185,18 +180,34 @@ void AVL::RotacionSimpleIzquierda(NodoHotel* n, NodoHotel* n1){
     }
     n=n1;
 }
-
-void AVL::PreordenI(NodoHotel *R){
+void ArbolSupermercados::preordenI(NodoSupermercado *R) {
     if(R==NULL){
         return;
     }else{
         cout<<R->obtenerValor()<<endl;
-        PreordenI(R->Hizq);
-        PreordenI(R->Hder);
+        preordenI(R->Hizq);
+        preordenI(R->Hder);
     }
 }
 
-//++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
+//retornta true si el codigo de supermercado buscado existe
+bool ArbolSupermercados::existeSupermercado(string _codNuevoSuper, NodoSupermercado* _raiz) {
+
+    if (_raiz == NULL) {
+        return false;
+    } else if (_raiz->getCodSuper() == _codNuevoSuper ){
+        return true;
+    }else{
+        existeSupermercado(_codNuevoSuper,_raiz->Hizq);
+        existeSupermercado(_codNuevoSuper,_raiz->Hder);
+
+}
+
+/*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
+ *
+ * MODIFICAR Y CAMBIAR A insertarNodoCat  (RN)
+ *                       inserntarNodoPro (AA)
+ *
 void AVL :: InsertaNodoTransporte(NodoHotel *H,int idHotel, int idTransporte, int tipoT,string origen, string destino,string salida,string horaSalida ,string Llegada,string horaLlegada,string compannia ,int  plazas,int precio,int cantT){
     if (H==NULL){
         return;
@@ -235,3 +246,5 @@ void AVL:: InsertaNodoOferta(NodoHotel *H,int idHotel, int  idOferta,int  precio
         }
     }
 }
+
+ */

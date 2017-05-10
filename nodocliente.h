@@ -10,8 +10,9 @@ class NodoCliente {
 public:
 
 
-    NodoCliente(string _id, string _nombre, string _direccion, string _telefono)
+    NodoCliente(int _numero, int _id, string _nombre, string _direccion, string _telefono)
     {
+        numero = _numero;
         idx = _id;
         nombre = _nombre;
         direccion = _direccion;
@@ -19,31 +20,35 @@ public:
         siguiente = NULL;
         anterior = NULL;
 
+        izq = NULL;
+        der = NULL;
+
         cantidadDeCompras = 0;
 
     }
 
 
-    NodoCliente *getSiguiente();
-    void setSiguiente(NodoCliente* _siguiente);
-    NodoCliente *getAnterior();
-    void setAnterior(NodoCliente* _anterior);
 
+    int getNumero() {return numero;}
     string getNombre();
     string getDireccion();
-    string getID();
+    int getID();
     string getTelefono();
     int getCantidadCompras();
     void aumentarVentas(){cantidadDeCompras++;}
 
+    NodoCliente* izq;
+    NodoCliente* der;
+    NodoCliente *siguiente;
+    NodoCliente *anterior;
 
 
 
 
 private:
-    string idx;
-    NodoCliente *siguiente;
-    NodoCliente *anterior;
+    int numero;
+    int idx;
+
     string nombre;
     string direccion;
     string telefono;
@@ -51,10 +56,13 @@ private:
     int cantidadDeCompras;
 
     //friend class ListaProveedores;
-    friend class ListaClientes;
+    friend class ArbolClientes;
+    friend class Pagina;
+    friend class ArregloClaves;
 
 };
 
+typedef NodoCliente* pNodoCliente;
 
 
 #endif // NODOCLIENTE_H

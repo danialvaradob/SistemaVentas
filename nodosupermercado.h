@@ -2,6 +2,7 @@
 #define NODOSUPERMERCADO_H
 #include "arbolsupermercados.h"
 #include "arbolcategorias.h"
+#include "arbolproductos.h"
 #include <string>
 using namespace std;
 
@@ -16,13 +17,15 @@ public:
 
     void aumentarVentas() {cantidadVentas++;}
     int obtenerValor();
-    string obtenerCodSuper() {return codSuper;}
+    string getCodSuper() {return codSuper;}
     string getCodLugar() {return codLugar;}
     string getNombre() {return nombre;}
     int getCantidadVentas() {return cantidadVentas;}
 
     NodoSupermercado *Hizq, *Hder;
-    ArbolCategorias* Categorias;
+    ArbolCategorias* punteroCategorias;
+    ArbolProductos*  punteroProductos;
+
     int FB;
 
 

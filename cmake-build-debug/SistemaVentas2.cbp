@@ -78,6 +78,48 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolcategorias.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolcategorias.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolclientes.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolclientes.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproductos.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproductos.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproveedores.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolproveedores.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolsupermercados.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/arbolsupermercados.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listalugares.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listalugares.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listaventas.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/listaventas.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
 		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/main.cpp">
 			<Option target="SistemaVentas2"/>
 		</Unit>
@@ -85,6 +127,42 @@
 			<Option target="SistemaVentas2"/>
 		</Unit>
 		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodocategoria.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodocliente.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodocliente.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproducto.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproducto.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproductocomprado.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproductocomprado.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproveedor.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoproveedor.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodosupermercado.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodosupermercado.h">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoventa.cpp">
+			<Option target="SistemaVentas2"/>
+		</Unit>
+		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/nodoventa.h">
 			<Option target="SistemaVentas2"/>
 		</Unit>
 		<Unit filename="/Users/danielalvarado/Documents/U/Semestre II de Carrera (2017)/Estructuras/Progra 2/CLion/SistemaVentas2/CMakeLists.txt">

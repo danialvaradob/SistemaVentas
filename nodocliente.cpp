@@ -28,7 +28,7 @@ string NodoCliente::getDireccion(){
     return direccion;
 }
 
-string NodoCliente::getID(){
+int NodoCliente::getID(){
     return idx;
 }
 
