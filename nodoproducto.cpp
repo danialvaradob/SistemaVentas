@@ -2,11 +2,11 @@
 
 
 
-string NodoProducto::getCodigoProducto(){
+int NodoProducto::getCodigoProducto(){
     return codigoProducto;
 }
 
-string NodoProducto::getCodigoCategoria(){
+int NodoProducto::getCodigoCategoria(){
     return codigoCategoria;
 }
 
