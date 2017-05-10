@@ -18,7 +18,7 @@ public:
 
    //++++Insersion al arbol+++++++++++++++++++++
 
-    void insertarNodoProveedor(int _id, string _nombre, string _direccion, int _telefono);
+    void insertarNodoProveedor(NodoProveedor *_prov);
     //++++++++++++ Ordenes ++++++++++++++++++++++++
     void PreordenI(NodoProveedor *R);
     void InordenI(NodoProveedor *R);

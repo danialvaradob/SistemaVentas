@@ -169,7 +169,7 @@ ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _
     ApuntadorPagina P = NULL;
 
     Raiz = EmpujarB(Raiz,Numero,  _id,  _nombre,  _direccion,  _telefono);
-    if(Raiz->EmpujarArriba == true){
+    if(Raiz->EmpujarArriba){
         P = new Pagina();
         P->cuenta = 1;
         pNodoCliente Auxiliar = new NodoCliente(Raiz->X,  _id,  _nombre,  _direccion, _telefono);
@@ -213,7 +213,7 @@ ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _i
         Raiz->EmpujarArriba = Aux->EmpujarArriba;
         Raiz->X = Aux -> X;
         Raiz->Xr = Aux->Xr;
-        if(Raiz->EmpujarArriba ==  true){
+        if(Raiz->EmpujarArriba){
             if(Raiz->cuenta < 4){
                 Raiz->EmpujarArriba = false;
                 Raiz = MeterHojaB(Raiz,  _id,  _nombre,  _direccion,  _telefono);

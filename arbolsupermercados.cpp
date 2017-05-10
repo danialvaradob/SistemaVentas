@@ -17,7 +17,7 @@ void ArbolSupermercados::insertarNodoSupermercado(string _codSuper,string _codLu
 void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSuper,string _codLugar, string _nombre ){
     NodoSupermercado *n1;
 
-    int numero = stoi(_codSuper);
+    int numero = 15;//stoi(_codSuper);
 
     if(raiz==NULL){
         ra=new NodoSupermercado( _codSuper, _codLugar,  _nombre );

@@ -7,11 +7,11 @@ using namespace std;
 
 //+++++++++++++++++++++ Insertar Nodo +++++++++++++++++++++++
 
-void ArbolProveedores::insertarNodoProveedor(int _id, string _nombre, string _direccion, int _telefono) {
+void ArbolProveedores::insertarNodoProveedor(NodoProveedor *_prov) {
     if(raiz==NULL){
-        raiz = new NodoProveedor( _id,  _nombre,  _direccion,  _telefono);
+        raiz = _prov;
     }else{
-        raiz->insertarProveedor( _id,  _nombre,  _direccion,  _telefono);
+        raiz->insertarProveedor(raiz, _prov);
     }
 }
 
