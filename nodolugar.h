@@ -21,6 +21,8 @@ class NodoLugar {
 
     int getCodigo() {return codigo;}
     string getNombre() {return nombre;}
+    NodoLugar* getAnteior() {return anterior;}
+    NodoLugar* getSiguiente() {return siguiente;}
 
 
 private:
