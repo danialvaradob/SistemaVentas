@@ -8,6 +8,47 @@
 
 using namespace std;
 
+
+void leerArchSupermercado(ArbolSupermercados * _supermercado){
+    string nombreArchivo = "Supermercados.txt";
+
+    ifstream archivoEntrada;
+    string lineaEnArchivo;
+
+    archivoEntrada.open(nombreArchivo, ios::in);
+
+    if (archivoEntrada.fail()) {
+        cout << "Problemas al intentar abrir el archivo: " << nombreArchivo << endl;
+    }
+
+    while (archivoEntrada >> lineaEnArchivo){
+        char * lineaValores = new char[lineaEnArchivo.length()+1];
+        strcpy(lineaValores, lineaEnArchivo.c_str());
+
+
+        string codSuper(std::strtok (lineaValores, ";"));
+        string codLugar(std::strtok (NULL, ";"));
+        string nombre(std::strtok (NULL, ";"));
+
+        // ... crear el nodo
+        //cout << id << "," << nombre << "," << direccion << "," << telefono << endl;
+
+        int codSint = atoi(codSuper.c_str());
+        int codLint = atoi(codLugar.c_str());
+        if (_supermercado->existeSupermercado(codSint,_supermercado->raiz)) {
+            cout << "Supermercado ya existe, codigo: " << codSuper << endl;
+            continue;
+        }else{
+            cout << "Codigo Supermercado: " << codSuper << " Nombre: "<< nombre << endl;
+            //_supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
+            _supermercado->insertarBalanceado(_supermercado->raiz,false,codSint,codLint,nombre);
+        }
+    }
+    archivoEntrada.close();
+
+}
+
+
 void leerArchCategorias(ArbolCategorias *arbolCategorias) {
     string nombreArchivo = "Categorias.txt";
     ifstream file;
@@ -46,48 +87,6 @@ void leerArchCategorias(ArbolCategorias *arbolCategorias) {
     }
     file.close();
 }
-
-
-void leerArchSupermercado(ArbolSupermercados * _supermercado){
-    string nombreArchivo = "Supermercados.txt";
-
-    ifstream archivoEntrada;
-    string lineaEnArchivo;
-
-    archivoEntrada.open(nombreArchivo, ios::in);
-
-    if (archivoEntrada.fail()) {
-        cout << "Problemas al intentar abrir el archivo: " << nombreArchivo << endl;
-    }
-
-    while (archivoEntrada >> lineaEnArchivo){
-        char * lineaValores = new char[lineaEnArchivo.length()+1];
-        strcpy(lineaValores, lineaEnArchivo.c_str());
-
-
-        string codSuper(std::strtok (lineaValores, ";"));
-        string codLugar(std::strtok (NULL, ";"));
-        string nombre(std::strtok (NULL, ";"));
-
-        // ... crear el nodo
-        //cout << id << "," << nombre << "," << direccion << "," << telefono << endl;
-
-        int codSint = atoi(codSuper.c_str());
-        int codLint = atoi(codLugar.c_str());
-        if (_supermercado->existeSupermercado(codSint,_supermercado->raiz)) {
-            cout << "Supermercado ya existe, codigo: " << codSuper << endl;
-            continue;
-        }else{
-            cout << "Codigo Supermercado: " << codSuper << " Nombre: "<< nombre << endl;
-            _supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
-        }
-    }
-    archivoEntrada.close();
-
-}
-
-
-
 
 void leerArchProveedores(ArbolProveedores * _proveedores){
     string nombreArchivo = "Proveedores.txt";
@@ -220,8 +219,10 @@ int main() {
     //leerArchProveedores(arbolProveedores);
 
     ArbolCategorias *arbolCategorias = new ArbolCategorias();
-    leerArchCategorias(arbolCategorias);
+    //leerArchCategorias(arbolCategorias);
 
+    ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
+    leerArchSupermercado(arbolSupermercados);
 
     cout << "Hello, World!" << endl;
 

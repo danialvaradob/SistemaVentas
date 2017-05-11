@@ -23,11 +23,8 @@ string NodoProveedor::toString() {
 
 
 
-void NodoProveedor::insertarProveedor(int idProveedor,string nombre,string direccion,int intTel)
-{
-    int id = idProveedor;
-
-    if(id <= numero){
+void NodoProveedor::insertarProveedor(int idProveedor,string nombre,string direccion,int intTel) {
+    if(idProveedor < numero){
         if(Hizq==NULL){
             Hizq = new NodoProveedor(idProveedor,nombre,direccion,intTel);
         }else{

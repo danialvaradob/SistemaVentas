@@ -5,28 +5,20 @@
 //ARBOL AVL
 
 
-void ArbolSupermercados::insertarNodoSupermercado(int _codSuper,int _codLugar, string _nombre )
-{
-    if(raiz==NULL){
-        raiz = new NodoSupermercado(  _codSuper, _codLugar,  _nombre );
-    }else{
-        raiz->insertarNodo( _codSuper, _codLugar,  _nombre );
-    }
-}
 
-void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, int _codSuper,int _codLugar, string _nombre ){
+void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra,bool Hh, int _codSuper,int _codLugar, string _nombre ){
     NodoSupermercado *n1;
 
-    int numero = 15;//stoi(_codSuper);
+
 
     if(raiz==NULL){
         ra=new NodoSupermercado( _codSuper, _codLugar,  _nombre );
         Hh = true;
     }else{
         cout<<endl;
-        if(numero<=ra->obtenerValor()){
+        if(_codSuper<=ra->obtenerValor()){
 
-            insertarBalanceado(ra->Hizq, _codSuper, _codLugar, _nombre);
+            insertarBalanceado(ra->Hizq,Hh, _codSuper, _codLugar, _nombre);
 
             if(Hh){
                 switch(ra->obtenerValor()){
@@ -46,8 +38,8 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, int _codSuper,
                 }
             }
         }else{
-            if(numero>ra->obtenerValor()){
-                insertarBalanceado(ra->Hder, _codSuper, _codLugar, _nombre);
+            if(_codSuper>ra->obtenerValor()){
+                insertarBalanceado(ra->Hder,Hh, _codSuper, _codLugar, _nombre);
 
                 if(Hh){
                     switch(ra->FB){
@@ -168,8 +160,9 @@ void ArbolSupermercados::rotacionSimpleDerecha(NodoSupermercado *n, NodoSupermer
 }
 
 void ArbolSupermercados::rotacionSimpleIzquierda(NodoSupermercado *n, NodoSupermercado *n1) {
-    n->Hizq=n1->Hder;
-    n1->Hder=n;
+
+    n->Hizq = n1->Hder;
+    n1->Hder = n;
 
     if(n1->FB==-1){
         n->FB=0;
@@ -250,3 +243,4 @@ void AVL:: InsertaNodoOferta(NodoHotel *H,int idHotel, int  idOferta,int  precio
 }
 
  */
+
