@@ -17,13 +17,13 @@ ListaLugares::~ListaLugares() {
 void ListaLugares::insertarLugar(int _codigo, string _nombre) {
 
     if (listaVacia()){
-        NodoLugar* nuevo = new  NodoLugar( _codigo,  _nombre,);
+        NodoLugar* nuevo = new  NodoLugar( _codigo,  _nombre);
 
         primero = nuevo;
         nuevo->siguiente = primero;
         nuevo->anterior = primero;
     }else{
-        NodoLugar* nuevo = new  NodoLugar( _codigo,  _nombre,);
+        NodoLugar* nuevo = new  NodoLugar( _codigo,  _nombre);
         nuevo->siguiente = primero;
         nuevo->anterior = primero->anterior;
         primero->anterior->siguiente = nuevo;

@@ -41,7 +41,7 @@ public:
     void aumentarVentas(){cantidadDeVentas++;}
 
     // Metodo utilizado para agregar un nodo de forma correcta
-    void insertarProveedor(NodoProveedor *raiz, NodoProveedor *_prov);
+    void insertarProveedor(int idProveedor,string nombre,string direccion,int intTel);
 
     NodoProveedor *Hizq;
     NodoProveedor *Hder;

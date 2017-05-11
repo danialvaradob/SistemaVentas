@@ -18,7 +18,7 @@ public:
 
    //++++Insersion al arbol+++++++++++++++++++++
 
-    void insertarNodoProveedor(NodoProveedor *_prov);
+    void insertarNodoProveedor(int idProveedor,string nombre,string direccion,int tel);
     //++++++++++++ Ordenes ++++++++++++++++++++++++
     void PreordenI(NodoProveedor *R);
     void InordenI(NodoProveedor *R);
@@ -33,6 +33,8 @@ public:
     void aumentarVentas(int _id, NodoProveedor *_raiz);
 
     string getNombreProveedor(int _id, NodoProveedor *_raiz);
+
+    bool encontrado = false;
 };
 
 #endif // ARBOLPROVEEDORES_H

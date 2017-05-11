@@ -23,22 +23,21 @@ string NodoProveedor::toString() {
 
 
 
-void NodoProveedor::insertarProveedor(NodoProveedor *raiz,NodoProveedor *_prov)
+void NodoProveedor::insertarProveedor(int idProveedor,string nombre,string direccion,int intTel)
 {
-    int numero = _prov->getID();
-    int valor = raiz->getID();
+    int id = idProveedor;
 
-    if(numero <= valor){
-        if(raiz->Hizq==NULL){
-            raiz->Hizq = _prov;
+    if(id <= numero){
+        if(Hizq==NULL){
+            Hizq = new NodoProveedor(idProveedor,nombre,direccion,intTel);
         }else{
-            raiz->Hizq->insertarProveedor(raiz->Hizq, _prov);
+            Hizq->insertarProveedor(idProveedor,nombre,direccion,intTel);
         }
     }else{
-        if(raiz->Hder==NULL){
-            raiz->Hder = _prov;
+        if(Hder==NULL){
+            Hder = new NodoProveedor(idProveedor,nombre,direccion,intTel);
         }else{
-            raiz->Hder->insertarProveedor(raiz->Hizq, _prov);
+            Hder->insertarProveedor(idProveedor,nombre,direccion,intTel);
         }
     }
 }

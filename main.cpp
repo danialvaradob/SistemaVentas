@@ -2,10 +2,54 @@
 #include "arbolsupermercados.h"
 #include "arbolclientes.h"
 #include "listalugares.h"
+#include "arbolproveedores.h"
 #include <fstream>
 #include <cstring>
 
 using namespace std;
+
+
+
+void leerArchProveedores(ArbolProveedores * _proveedores){
+    string nombreArchivo = "Proveedores.txt";
+
+    ifstream archivoEntrada;
+    string lineaEnArchivo;
+
+    archivoEntrada.open(nombreArchivo, ios::in);
+
+    if (archivoEntrada.fail()) {
+        cout << "Problemas al intentar abrir el archivo: " << nombreArchivo << endl;
+    }
+
+    while (archivoEntrada >> lineaEnArchivo){
+        char * lineaValores = new char[lineaEnArchivo.length()+1];
+        strcpy(lineaValores, lineaEnArchivo.c_str());
+
+
+        string id(std::strtok (lineaValores, ";"));
+        string nombre(std::strtok (NULL, ";"));
+        string direccion(std::strtok (NULL, ";"));
+        string telefono(std::strtok (NULL, ";"));
+
+        // ... crear el nodo
+        //cout << id << "," << nombre << "," << direccion << "," << telefono << endl;
+
+        int idProveedor = atoi(id.c_str());
+        int intTel = atoi(telefono.c_str());
+
+        if (_proveedores->existeProveedor(idProveedor,_proveedores->raiz)) {
+            cout << "Proveedor ya existe" << endl;
+            continue;
+        }else{
+            cout << "Codigo Proveedor: " << id << endl;
+            //NodoProveedor* nodoProveedor = new NodoProveedor(idProveedor,nombre,direccion,intTel);
+            _proveedores->insertarNodoProveedor(idProveedor,nombre,direccion,intTel);
+        }
+    }
+    archivoEntrada.close();
+
+}
 
 
 
@@ -91,8 +135,12 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
 
 
 int main() {
-    ArbolClientes *arbol = new ArbolClientes();
-    leerArchClientes(arbol);
+    ArbolClientes *arbolClientes = new ArbolClientes();
+    //leerArchClientes(arbolClientes);
+
+    ArbolProveedores* arbolProveedores = new ArbolProveedores();
+    leerArchProveedores(arbolProveedores);
+
 
     cout << "Hello, World!" << endl;
 
