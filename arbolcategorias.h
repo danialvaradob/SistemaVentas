@@ -25,6 +25,9 @@ public:
     bool existeCategoria(int _id, nodocategoria *_raiz);
     void InordenRN(nodocategoria *T);
     nodocategoria *raiz;
+
+
+
 };
 
 #endif // ARBOLCATEGORIAS_H

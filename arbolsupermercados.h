@@ -51,7 +51,7 @@ public:
 
     NodoSupermercado* getSuper(int _codSuper);
     // no se logro hacer
-    ArbolCategorias* getCategorias(int _codSuper,int _codCat,NodoSupermercado* _raiz);
+    ArbolCategorias* getArbolCategorias(int _codSuper,NodoSupermercado* _raiz);
 
 };
 

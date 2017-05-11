@@ -7,6 +7,7 @@
 
 
 #include <iostream>
+#include "arbolproductos.h"
 using namespace std;
 
 enum Color {RED, BLACK};
@@ -36,6 +37,8 @@ public:
     nodocategoria *izq;
     nodocategoria *der;
     Color color;
+
+    ArbolProductos* punteroArbolProductos;
 
 private:
 

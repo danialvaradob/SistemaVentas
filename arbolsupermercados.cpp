@@ -233,17 +233,22 @@ bool ArbolSupermercados::existeCategoria(int _codSuper,int _codCat, NodoSupermer
 }
 
 
-/*
-ArbolCategorias* ArbolSupermercados::getCategorias(int _codSuper,NodoSupermercado* _raiz) {
+
+ArbolCategorias* ArbolSupermercados::getArbolCategorias(int _codSuper,NodoSupermercado* _raiz) {
     if (raiz == NULL) return NULL;
 
     else if (raiz->codSuper == _codSuper) {
         return raiz->punteroCategorias;
     } else {
-        return getCategorias(_codSuper,raiz->Hizq) || getCategorias(_codSuper,raiz->Hder);
+        if (raiz->Hder != NULL) {
+            return getArbolCategorias( _codSuper,_raiz->Hder);
+        }
+        if (raiz->Hizq != NULL) {
+            return getArbolCategorias( _codSuper, _raiz->Hizq);
+        }
     }
 }
-*/
+
 /*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
  *
  * MODIFICAR Y CAMBIAR A insertarNodoCat  (RN)
