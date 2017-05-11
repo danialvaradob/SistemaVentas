@@ -8,45 +8,6 @@
 
 using namespace std;
 
-void leerArchCategorias(ArbolCategorias *arbolCategorias) {
-    string nombreArchivo = "Categorias.txt";
-    ifstream file;
-    string lineaEnArchivo;
-    int codigo;
-    int codigoSup;
-    int cont = 0;
-    file.open(nombreArchivo,ios::out|ios::in);
-    if (file.fail()) {
-        cout << "Unable to open file";
-    }else{
-        while(file>>lineaEnArchivo){
-            char *valorEnLinea = new char[lineaEnArchivo.length()+1];
-            strcpy(valorEnLinea, lineaEnArchivo.c_str());
-
-            string _codigoSup(std::strtok (valorEnLinea, ";") );
-            codigoSup = atoi(_codigoSup.c_str());
-            string _codigo(std::strtok (NULL, ";") );
-            codigo = atoi(_codigo.c_str());
-            string descripcion(std::strtok (NULL, ";") );
-            nodocategoria *nuevo = new nodocategoria(codigo, descripcion);
-
-            if(cont==0){
-                arbolCategorias->insertarValorNodoRN(codigo, descripcion);
-                cont++;
-
-            }else{
-                if(!arbolCategorias->existeCategoria(codigo, arbolCategorias->raiz)) {
-                    arbolCategorias->insertarValorNodoRN(codigo, descripcion);
-                    cout <<"Codigo Categoria: "<< _codigo << "," << descripcion << endl;
-                    cont++;
-                }
-            }
-        }
-        //leerArchProductos("Productos.txt");
-    }
-    file.close();
-}
-
 
 void leerArchSupermercado(ArbolSupermercados * _supermercado){
     string nombreArchivo = "Supermercados.txt";
@@ -79,7 +40,8 @@ void leerArchSupermercado(ArbolSupermercados * _supermercado){
             continue;
         }else{
             cout << "Codigo Supermercado: " << codSuper << " Nombre: "<< nombre << endl;
-            _supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
+            //_supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
+            _supermercado->insertarBalanceado(_supermercado->raiz,false,codSint,codLint,nombre);
         }
     }
     archivoEntrada.close();
@@ -87,7 +49,44 @@ void leerArchSupermercado(ArbolSupermercados * _supermercado){
 }
 
 
+void leerArchCategorias(ArbolCategorias *arbolCategorias) {
+    string nombreArchivo = "Categorias.txt";
+    ifstream file;
+    string lineaEnArchivo;
+    int codigo;
+    int codigoSup;
+    int cont = 0;
+    file.open(nombreArchivo,ios::out|ios::in);
+    if (file.fail()) {
+        cout << "Unable to open file";
+    }else{
+        while(file>>lineaEnArchivo){
+            char *valorEnLinea = new char[lineaEnArchivo.length()+1];
+            strcpy(valorEnLinea, lineaEnArchivo.c_str());
 
+            string _codigoSup(std::strtok (valorEnLinea, ";") );
+            codigoSup = atoi(_codigoSup.c_str());
+            string _codigo(std::strtok (NULL, ";") );
+            codigo = atoi(_codigo.c_str());
+            string descripcion(std::strtok (NULL, ";") );
+            nodocategoria *nuevo = new nodocategoria(codigo, descripcion);
+
+            if(cont==0){
+                arbolCategorias->InsertarNodoRN(arbolCategorias->raiz, nuevo);
+                cont++;
+
+            }else{
+                if(!arbolCategorias->existeCategoria(codigo, arbolCategorias->raiz)) {
+                    arbolCategorias->InsertarNodoRN(arbolCategorias->raiz, nuevo);
+                    cout <<"Codigo Categoria: "<< _codigo << "," << descripcion << endl;
+                    cont++;
+                }else{cout << "Repetido" << endl;}
+            }
+        }
+        //leerArchProductos("Productos.txt");
+    }
+    file.close();
+}
 
 void leerArchProveedores(ArbolProveedores * _proveedores){
     string nombreArchivo = "Proveedores.txt";
@@ -220,8 +219,10 @@ int main() {
     //leerArchProveedores(arbolProveedores);
 
     ArbolCategorias *arbolCategorias = new ArbolCategorias();
-    leerArchCategorias(arbolCategorias);
+    //leerArchCategorias(arbolCategorias);
 
+    ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
+    leerArchSupermercado(arbolSupermercados);
 
     cout << "Hello, World!" << endl;
 
