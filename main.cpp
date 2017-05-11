@@ -31,15 +31,15 @@ void leerArchCategorias(ArbolCategorias *arbolCategorias) {
             nodocategoria *nuevo = new nodocategoria(codigo, descripcion);
 
             if(cont==0){
-                arbolCategorias->InsertarNodoRN(arbolCategorias->raiz, nuevo);
+                arbolCategorias->insertarValorNodoRN(codigo, descripcion);
                 cont++;
 
             }else{
                 if(!arbolCategorias->existeCategoria(codigo, arbolCategorias->raiz)) {
-                    arbolCategorias->InsertarNodoRN(arbolCategorias->raiz, nuevo);
+                    arbolCategorias->insertarValorNodoRN(codigo, descripcion);
                     cout <<"Codigo Categoria: "<< _codigo << "," << descripcion << endl;
                     cont++;
-                }else{cout << "Repetido" << endl;}
+                }
             }
         }
         //leerArchProductos("Productos.txt");
