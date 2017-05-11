@@ -18,35 +18,3 @@ string nodocategoria::toString() {
 
     return "Codigo de categoria: "+_cod+"\nDescripcion del producto: "+descripcion;
 }
-
-void nodocategoria::setAnterior(nodocategoria *nodo) {
-    anterior = nodo;
-}
-
-nodocategoria *nodocategoria::getAnterior() {
-    return anterior;
-}
-
-void nodocategoria::setSiguiente(nodocategoria *nodo) {
-    siguiente = nodo;
-}
-
-nodocategoria *nodocategoria::getSiguiente() {
-    return siguiente;
-}
-
-void nodocategoria::setHDer(nodocategoria *nodo) {
-    der = nodo;
-}
-
-nodocategoria *nodocategoria::getHDer() {
-    return der;
-}
-
-void nodocategoria::setHIzq(nodocategoria *nodo) {
-    izq = nodo;
-}
-
-nodocategoria *nodocategoria::getHIzq() {
-    return izq;
-}

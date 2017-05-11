@@ -9,40 +9,36 @@
 #include <iostream>
 using namespace std;
 
+enum Color {RED, BLACK};
+
 class nodocategoria {
 public:
     nodocategoria(int _codigo, string _desc){
         codigo = _codigo;
         descripcion = _desc;
         bestScore = 0;
-        siguiente = NULL;
-        anterior = NULL;
-
+        padre = NULL;
+        tio = NULL;
+        abuelo = NULL;
         izq = NULL;
         der = NULL;
-
-
-
+        color = RED;
     }
+
     string toString();
     int getCodigo() {return codigo;};
-    string getNombre() {return descripcion;};
+    string getDesc() {return descripcion;};
     void incBestScore(){bestScore++;};
-    void setHIzq(nodocategoria *nodo);
-    nodocategoria *getHIzq();
-    void setHDer(nodocategoria *nodo);
-    nodocategoria *getHDer();
-    void setSiguiente(nodocategoria *nodo);
-    nodocategoria *getSiguiente();
-    void setAnterior(nodocategoria *nodo);
-    nodocategoria *getAnterior();
 
-
-private:
-    nodocategoria *siguiente;
-    nodocategoria *anterior;
+    nodocategoria *padre;
+    nodocategoria *tio;
+    nodocategoria *abuelo;
     nodocategoria *izq;
     nodocategoria *der;
+    Color color;
+
+private:
+
     int codigo;
     string descripcion;
     int bestScore;

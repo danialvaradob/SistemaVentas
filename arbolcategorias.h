@@ -5,13 +5,25 @@
 #include "nodocategoria.h"
 //ARBOL ROJINEGRO
 
+
+
 class ArbolCategorias
 {
 public:
-    ArbolCategorias();
-    void Borrar(nodocategoria *nodo);
+    ArbolCategorias(){
+        raiz = NULL;
+    }
 
-private:
+    void insertarValorNodoRN (int _idCategoria, string _descrip);
+    void inordenRN(nodocategoria *R);
+    void levelOrder();
+
+    void rotarIzquierda(nodocategoria *&, nodocategoria *&);
+    void rotarDerecha(nodocategoria *&, nodocategoria *&);
+    void aplicarReglas(nodocategoria *&, nodocategoria *&);
+    nodocategoria* InsertarNodoRN(nodocategoria* RaizRN, nodocategoria *pt);
+
+    void InordenRN(nodocategoria *T);
     nodocategoria *raiz;
 };
 
