@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void leerArchCategorias(ArbolCategorias *arbolCategorias) {
+void leerArchCategorias(ArbolSupermercados* _supermercados) {
     string nombreArchivo = "Categorias.txt";
     ifstream file;
     string lineaEnArchivo;
@@ -28,15 +28,17 @@ void leerArchCategorias(ArbolCategorias *arbolCategorias) {
             string _codigo(std::strtok (NULL, ";") );
             codigo = atoi(_codigo.c_str());
             string descripcion(std::strtok (NULL, ";") );
-            nodocategoria *nuevo = new nodocategoria(codigo, descripcion);
+            //nodocategoria *nuevo = new nodocategoria(codigo, descripcion);
 
             if(cont==0){
-                arbolCategorias->insertarValorNodoRN(codigo, descripcion);
+                //arbolCategorias->insertarValorNodoRN(codigo, descripcion);
+                _supermercados->agregarCategoria(_supermercados->raiz,codigoSup,codigo,descripcion);
                 cont++;
+                cout << "primera vez" << endl;
 
             }else{
-                if(!arbolCategorias->existeCategoria(codigo, arbolCategorias->raiz)) {
-                    arbolCategorias->insertarValorNodoRN(codigo, descripcion);
+                if(!_supermercados->existeCategoria(codigoSup,codigo,_supermercados->raiz)) {
+                    _supermercados->agregarCategoria(_supermercados->raiz,codigoSup,codigo,descripcion);
                     cout <<"Codigo Categoria: "<< _codigo << "," << descripcion << endl;
                     cont++;
                 }
@@ -257,11 +259,12 @@ int main() {
     ArbolProveedores* arbolProveedores = new ArbolProveedores();
     //leerArchProveedores(arbolProveedores);
 
-    ArbolCategorias *arbolCategorias = new ArbolCategorias();
-    //leerArchCategorias(arbolCategorias);
-
     ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
     leerArchSupermercado(arbolSupermercados);
+
+    leerArchCategorias(arbolSupermercados);
+
+
 
     cout << "Hello, World!" << endl;
 

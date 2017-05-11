@@ -198,6 +198,52 @@ bool ArbolSupermercados::existeSupermercado(int _codNuevoSuper, NodoSupermercado
 
     }
 }
+
+void ArbolSupermercados::agregarCategoria(NodoSupermercado *nodoSupermercado,int _codSuper,int _codCat, string _descCat) {
+    if (raiz == NULL) {
+        return;
+    } else if (raiz->codSuper == _codSuper){
+        // primero revisa si esta vacio el arbol
+        if (raiz->punteroCategorias == NULL) {
+            //crea el arbol y le agrega la categoria
+            raiz->punteroCategorias = new ArbolCategorias();
+            raiz->punteroCategorias->insertarValorNodoRN(_codCat,_descCat);
+
+        } else {
+            raiz->punteroCategorias->insertarValorNodoRN(_codCat,_descCat);
+        }
+        //si no esta vacio lo agrega
+
+    } else{
+        agregarCategoria(raiz->Hizq,_codSuper,_codCat,_descCat);
+        agregarCategoria(raiz->Hder,_codSuper,_codCat,_descCat);
+    }
+
+}
+
+bool ArbolSupermercados::existeCategoria(int _codSuper,int _codCat, NodoSupermercado *_raiz) {
+    if (raiz == NULL) return false;
+
+    else if (raiz->punteroCategorias != NULL) {
+            return raiz->punteroCategorias->existeCategoria(_codCat,raiz->punteroCategorias->raiz);
+    } else {
+        return existeCategoria(_codSuper, _codCat,raiz->Hizq) || existeCategoria(_codSuper, _codCat,raiz->Hder);
+    }
+
+}
+
+
+/*
+ArbolCategorias* ArbolSupermercados::getCategorias(int _codSuper,NodoSupermercado* _raiz) {
+    if (raiz == NULL) return NULL;
+
+    else if (raiz->codSuper == _codSuper) {
+        return raiz->punteroCategorias;
+    } else {
+        return getCategorias(_codSuper,raiz->Hizq) || getCategorias(_codSuper,raiz->Hder);
+    }
+}
+*/
 /*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
  *
  * MODIFICAR Y CAMBIAR A insertarNodoCat  (RN)
