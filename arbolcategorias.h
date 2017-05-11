@@ -22,7 +22,7 @@ public:
     void rotarDerecha(nodocategoria *&, nodocategoria *&);
     void aplicarReglas(nodocategoria *&, nodocategoria *&);
     nodocategoria* InsertarNodoRN(nodocategoria* RaizRN, nodocategoria *pt);
-
+    bool existeCategoria(int _id, nodocategoria *_raiz);
     void InordenRN(nodocategoria *T);
     nodocategoria *raiz;
 };

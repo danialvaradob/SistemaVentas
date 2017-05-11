@@ -2,6 +2,18 @@
 #include <iostream>
 //Arbol ROJINEGRO
 
+bool ArbolCategorias::existeCategoria(int _id, nodocategoria *_raiz) {
+    if(_raiz==NULL){
+        cout << "Final de un nodo" << endl;
+        return false;
+    }else if (_raiz->getCodigo() == _id) {
+        cout << "Encontrado" << endl;
+        return true;
+    }else{
+        cout << "buscando" << endl;
+        return  existeCategoria(_id,_raiz->izq) || existeCategoria(_id,_raiz->der);
+    }
+}
 
 nodocategoria *ArbolCategorias::InsertarNodoRN(nodocategoria* RaizRN, nodocategoria *pt){
     if (RaizRN == NULL)
