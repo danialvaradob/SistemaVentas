@@ -10,13 +10,13 @@ class NodoSupermercado {
 public:
 
 
-    NodoSupermercado(string _codSuper,string _codLugar, string _nombre );
+    NodoSupermercado(int _codSuper,int _codLugar, string _nombre );
 
-    void insertarNodo(string _codSuper,string _codLugar, string _nombre );
+    void insertarNodo(int _codSuper,int _codLugar, string _nombre );
     void aumentarVentas() {cantidadVentas++;}
     int obtenerValor();
-    string getCodSuper() {return codSuper;}
-    string getCodLugar() {return codLugar;}
+    int getCodSuper() {return codSuper;}
+    int getCodLugar() {return codLugar;}
     string getNombre() {return nombre;}
     int getCantidadVentas() {return cantidadVentas;}
 
@@ -29,8 +29,8 @@ public:
 
 private:
     string  nombre;
-    string  codSuper;
-    string  codLugar;
+    int  codSuper;
+    int  codLugar;
     int cantidadVentas;
 
     friend class ArbolCategorias;

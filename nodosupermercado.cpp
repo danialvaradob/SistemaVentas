@@ -1,6 +1,6 @@
 #include "nodosupermercado.h"
 
-NodoSupermercado::NodoSupermercado(string _codSuper,string _codLugar, string _nombre )
+NodoSupermercado::NodoSupermercado(int _codSuper,int _codLugar, string _nombre )
 {
     nombre = _nombre;
     codLugar = _codLugar;
@@ -11,17 +11,15 @@ NodoSupermercado::NodoSupermercado(string _codSuper,string _codLugar, string _no
     Hder=NULL;
 }
 
-void NodoSupermercado::insertarNodo(string _codSuper, string _codLugar, string _nombre) {
-    int numero = 15;//stoi(_codSuper);
-    int valor = 15;//stoi(codSuper);
+void NodoSupermercado::insertarNodo(int _codSuper, int _codLugar, string _nombre) {
 
-    if(numero<valor){
+    if(_codSuper<codSuper){
         if(Hizq==NULL){
             Hizq = new NodoSupermercado(_codSuper, _codLugar,_nombre);
         }else{
             Hizq->insertarNodo(_codSuper, _codLugar,_nombre);
         }
-    }if(numero>valor){
+    }if(_codSuper>codSuper){
         if(Hder==NULL){
             Hder = new NodoSupermercado(_codSuper, _codLugar,_nombre);
             Hder->insertarNodo(_codSuper, _codLugar,_nombre);
@@ -31,5 +29,5 @@ void NodoSupermercado::insertarNodo(string _codSuper, string _codLugar, string _
 }
 
 int NodoSupermercado::obtenerValor() {
-    return 15;//stoi(codSuper);
+    codSuper;
 }

@@ -15,7 +15,7 @@ public:
 
     NodoSupermercado *raiz;
 
-    void insertarNodoSupermercado(string _codSuper,string _codLugar, string _nombre );
+    void insertarNodoSupermercado(int _codSuper,int _codLugar, string _nombre );
 
 
     //CAMBIAR ESTAS
@@ -29,7 +29,7 @@ public:
     //ESCRIBIR ESTAS EN CODIGO
     void equilibrar1(NodoSupermercado *n, bool);
     void equilibrar2(NodoSupermercado *n, bool);
-    void insertarBalanceado(NodoSupermercado *ra, string _codSuper,string _codLugar, string _nombre );
+    void insertarBalanceado(NodoSupermercado *ra, int _codSuper,int _codLugar, string _nombre );
     void rotacionDobleIzquierda(NodoSupermercado *n1, NodoSupermercado *n2);
     void rotacionDobleDerecha(NodoSupermercado *n1, NodoSupermercado *n2);
     void rotacionSimpleIzquierda(NodoSupermercado *n1, NodoSupermercado *n2);
@@ -45,7 +45,7 @@ public:
 
     void agregarCategoria(); // inserta un nodo a un arbol RN
     void agregarProducto();  // inserta un nodo a un arbol AA
-    bool existeSupermercado(string _codNuevoSuper, NodoSupermercado* _raiz);
+    bool existeSupermercado(int _codNuevoSuper, NodoSupermercado* _raiz);
 
 };
 

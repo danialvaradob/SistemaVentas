@@ -5,7 +5,7 @@
 //ARBOL AVL
 
 
-void ArbolSupermercados::insertarNodoSupermercado(string _codSuper,string _codLugar, string _nombre )
+void ArbolSupermercados::insertarNodoSupermercado(int _codSuper,int _codLugar, string _nombre )
 {
     if(raiz==NULL){
         raiz = new NodoSupermercado(  _codSuper, _codLugar,  _nombre );
@@ -14,7 +14,7 @@ void ArbolSupermercados::insertarNodoSupermercado(string _codSuper,string _codLu
     }
 }
 
-void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, string _codSuper,string _codLugar, string _nombre ){
+void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra, int _codSuper,int _codLugar, string _nombre ){
     NodoSupermercado *n1;
 
     int numero = 15;//stoi(_codSuper);
@@ -191,13 +191,15 @@ void ArbolSupermercados::preordenI(NodoSupermercado *R) {
 }
 
 //retornta true si el codigo de supermercado buscado existe
-bool ArbolSupermercados::existeSupermercado(string _codNuevoSuper, NodoSupermercado* _raiz) {
+bool ArbolSupermercados::existeSupermercado(int _codNuevoSuper, NodoSupermercado* _raiz) {
 
     if (_raiz == NULL) {
         return false;
     } else if (_raiz->getCodSuper() == _codNuevoSuper) {
         return true;
     } else {
+
+        return existeSupermercado(_codNuevoSuper,_raiz->Hizq) || existeSupermercado(_codNuevoSuper,_raiz->Hder);
         existeSupermercado(_codNuevoSuper, _raiz->Hizq);
         existeSupermercado(_codNuevoSuper, _raiz->Hder);
 
