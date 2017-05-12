@@ -1,60 +1,73 @@
 #include "arbolsupermercados.h"
 #include "nodosupermercado.h"
 #include <iostream>
-
+#include <conio.h>
+#include <iostream>
+#include <stdio.h>
+using namespace std;
 //ARBOL AVL
 
 
 
-void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra,bool Hh, int _codSuper,int _codLugar, string _nombre ){
+/*Variables:
+nuevo: Nueva hoja del arbol
+recorrer: Es el puntero que esta señalando hacia la raiz del arbol, esta variable recorre el arbol hasta encontrar un espacio null donde guardar el nuevo nodo.
+PadreAB: Mantiene un puntero al nodo anterior para referirse a el como el padre del nuevo nodo.
+Funciones involucradas:
+Recursivamente se llama así mismo hasta encontrar la ubicación donde se guardará el nuevo nodo, envío como parámetros (La dirección del lado del árbol hacía donde entrará, La nueva hoja, Referencia al padre).
+*/
+void ArbolSupermercados::insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int _codSuper, int _codLugar, string _nombre) {
     NodoSupermercado *n1;
 
-
-
-    if(raiz==NULL){
+    if(ra==NULL){
         ra=new NodoSupermercado( _codSuper, _codLugar,  _nombre );
         Hh = true;
-    }else{
-        cout<<endl;
-        if(_codSuper<=ra->obtenerValor()){
+    }else {
+        if (_codSuper <= ra->obtenerValor()) {
 
-            insertarBalanceado(ra->Hizq,Hh, _codSuper, _codLugar, _nombre);
+            insertarBalanceado(ra->Hizq, Hh, _codSuper, _codLugar, _nombre);
 
-            if(Hh){
-                switch(ra->obtenerValor()){
-                    case 1: (ra->FB=0);
+            if (Hh) {
+                switch (ra->FB) {
+                    case 1:
+                        (ra->FB = 0);
                         Hh = false;
                         break;
-                    case 0: (ra->FB  = -1);
+                    case 0:
+                        (ra->FB = -1);
                         break;
-                    case -1: (n1=ra->Hizq);
-                        if(n1->FB ==-1){
-                            rotacionSimpleIzquierda(ra,n1);
-                        }else{
-                            rotacionDobleIzquierda(ra,n1);
+                    case -1:
+                        (n1 = ra->Hizq);
+                        if (n1->FB == -1) {
+                            rotacionSimpleIzquierda(ra, n1);
+                        } else {
+                            rotacionDobleIzquierda(ra, n1);
                         }
                         Hh = false;
                         break;
                 }
             }
-        }else{
-            if(_codSuper>ra->obtenerValor()){
-                insertarBalanceado(ra->Hder,Hh, _codSuper, _codLugar, _nombre);
+        } else {
+            if (_codSuper > ra->obtenerValor()) {
+                insertarBalanceado(ra->Hder, Hh, _codSuper, _codLugar, _nombre);
 
-                if(Hh){
-                    switch(ra->FB){
-                        case -1:( ra->FB=0);
+                if (Hh) {
+                    switch (ra->FB) {
+                        case -1:
+                            (ra->FB = 0);
                             Hh = false;
                             break;
-                        case 0: (ra->FB=1);
+                        case 0:
+                            (ra->FB = 1);
                             break;
-                        case 1:(n1=ra->Hder);
-                            if(n1->FB=1){
+                        case 1:
+                            (n1 = ra->Hder);
+                            if (n1->FB = 1) {
                                 rotacionSimpleDerecha(ra, n1);
-                            }else{
+                            } else {
                                 rotacionDobleDerecha(ra, n1);
                             }
-                            Hh=false;
+                            Hh = false;
                             break;
                     }
                 }
@@ -62,7 +75,10 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *ra,bool Hh, int _c
         }
     }
 }
-void ArbolSupermercados::equilibrar1(NodoSupermercado *n, bool) {
+
+
+
+void ArbolSupermercados::equilibrar1(NodoSupermercado *&n, bool) {
     NodoSupermercado *n1;
     switch (n->FB){
         case -1: n->FB = 0;
@@ -82,7 +98,7 @@ void ArbolSupermercados::equilibrar1(NodoSupermercado *n, bool) {
     }
 }
 
-void ArbolSupermercados::equilibrar2(NodoSupermercado *n, bool) {
+void ArbolSupermercados::equilibrar2(NodoSupermercado *&n, bool) {
     NodoSupermercado *n1;
     switch (n->FB){
         case 1: n->FB = 0;
@@ -103,7 +119,7 @@ void ArbolSupermercados::equilibrar2(NodoSupermercado *n, bool) {
 }
 
 
-void ArbolSupermercados::rotacionDobleIzquierda(NodoSupermercado *n, NodoSupermercado *n1) {
+void ArbolSupermercados::rotacionDobleIzquierda(NodoSupermercado *&n, NodoSupermercado *&n1) {
     NodoSupermercado *n2;
     n2=n1->Hder;
     n->Hizq = n2->Hder;
@@ -124,7 +140,7 @@ void ArbolSupermercados::rotacionDobleIzquierda(NodoSupermercado *n, NodoSuperme
     n2->FB=0;
     n=n2;
 }
-void ArbolSupermercados::rotacionDobleDerecha(NodoSupermercado *n, NodoSupermercado *n1) {
+void ArbolSupermercados::rotacionDobleDerecha(NodoSupermercado *&n, NodoSupermercado *&n1) {
     NodoSupermercado *n2;
     n2=n1->Hizq;
     n->Hder = n2->Hizq;
@@ -145,7 +161,7 @@ void ArbolSupermercados::rotacionDobleDerecha(NodoSupermercado *n, NodoSupermerc
     n2->FB=0;
     n=n2;
 }
-void ArbolSupermercados::rotacionSimpleDerecha(NodoSupermercado *n, NodoSupermercado *n1) {
+void ArbolSupermercados::rotacionSimpleDerecha(NodoSupermercado *&n, NodoSupermercado *&n1) {
     n->Hder=n1->Hizq;
     n1->Hizq=n;
 
@@ -159,7 +175,7 @@ void ArbolSupermercados::rotacionSimpleDerecha(NodoSupermercado *n, NodoSupermer
     n=n1;
 }
 
-void ArbolSupermercados::rotacionSimpleIzquierda(NodoSupermercado *n, NodoSupermercado *n1) {
+void ArbolSupermercados::rotacionSimpleIzquierda(NodoSupermercado *&n, NodoSupermercado *&n1) {
 
     n->Hizq = n1->Hder;
     n1->Hder = n;
@@ -283,7 +299,7 @@ void AVL:: InsertaNodoOferta(NodoHotel *H,int idHotel, int  idOferta,int  precio
             if (H->anterior==NULL){
                 H->anterior=new AA();
             }
-            H->anterior->lookup( idOferta,  precioInd,  precioDoble,  cantI,  cantD);
+            H->anterior->lookup( idFBrta,  precioInd,  precioDoble,  cantI,  cantD);
             return;
         }
         else{

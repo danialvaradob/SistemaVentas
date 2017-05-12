@@ -27,13 +27,13 @@ public:
 
 
     //ESCRIBIR ESTAS EN CODIGO
-    void equilibrar1(NodoSupermercado *n, bool);
-    void equilibrar2(NodoSupermercado *n, bool);
-    void insertarBalanceado(NodoSupermercado *ra, bool Hh, int _codSuper,int _codLugar, string _nombre );
-    void rotacionDobleIzquierda(NodoSupermercado *n1, NodoSupermercado *n2);
-    void rotacionDobleDerecha(NodoSupermercado *n1, NodoSupermercado *n2);
-    void rotacionSimpleIzquierda(NodoSupermercado *n1, NodoSupermercado *n2);
-    void rotacionSimpleDerecha(NodoSupermercado *n1, NodoSupermercado *n2);
+    void equilibrar1(NodoSupermercado *&n, bool);
+    void equilibrar2(NodoSupermercado *&n, bool);
+    void insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int _codSuper,int _codLugar, string _nombre );
+    void rotacionDobleIzquierda(NodoSupermercado *&n1, NodoSupermercado *&n2);
+    void rotacionDobleDerecha(NodoSupermercado *&n1, NodoSupermercado *&n2);
+    void rotacionSimpleIzquierda(NodoSupermercado *&n1, NodoSupermercado *&n2);
+    void rotacionSimpleDerecha(NodoSupermercado *&n1, NodoSupermercado *&n2);
 
     //++++++++++++++++++Inserciones +++++++++++++++++++++++++++++++++++++++++
 

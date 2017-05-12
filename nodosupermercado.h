@@ -10,7 +10,17 @@ class NodoSupermercado {
 public:
 
 
-    NodoSupermercado(int _codSuper,int _codLugar, string _nombre );
+    NodoSupermercado(int _codSuper,int _codLugar, string _nombre ){
+        codSuper = _codSuper;
+        codLugar = _codLugar;
+        nombre = _nombre;
+        FB = 0;
+        cantidadVentas = 0;
+        Hder = NULL;
+        Hizq = NULL;
+        punteroProductos = NULL;
+        punteroCategorias = NULL;
+    }
 
     void insertarNodo(int _codSuper,int _codLugar, string _nombre );
     void aumentarVentas() {cantidadVentas++;}

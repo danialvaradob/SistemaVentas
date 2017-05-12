@@ -44,7 +44,7 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
 
 
         // ... crear el nodo
-        if ( productos->existeProducto(productos->raiz,codProI) {
+        if (productos->existeProducto(productos->raiz,codProI)){
             continue;
         }else{
 
@@ -104,6 +104,7 @@ void leerArchCategorias(ArbolSupermercados* _supermercados) {
 
 
 void leerArchSupermercado(ArbolSupermercados * _supermercado){
+    bool Hh = false;
     string nombreArchivo = "Supermercados.txt";
 
     ifstream archivoEntrada;
@@ -135,7 +136,8 @@ void leerArchSupermercado(ArbolSupermercados * _supermercado){
         }else{
             cout << "Codigo Supermercado: " << codSuper << " Nombre: "<< nombre << endl;
             //_supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
-            _supermercado->insertarBalanceado(_supermercado->raiz,false,codSint,codLint,nombre);
+
+            _supermercado->insertarBalanceado(_supermercado->raiz, Hh,codSint,codLint,nombre);
         }
     }
     archivoEntrada.close();

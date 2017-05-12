@@ -126,7 +126,6 @@ bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
         return  existeProducto(_raiz->izq,_codProducto) || existeProducto(_raiz->der,_codProducto);
     }
 }
-}
 
 /*
  *
