@@ -16,7 +16,7 @@ void ArbolProductos::buscar(int _codigoProducto, int _codigoCategoria, string _n
     temp=insertarNodo(raiz, temp);
 }
 
-void ArbolProductos::girar(NodoProducto  *temp)
+void ArbolProductos::girar(NodoProducto  *&temp)
 {
     NodoProducto *ptr = temp->izq;
     if (temp->padre->izq == temp)
@@ -32,7 +32,7 @@ void ArbolProductos::girar(NodoProducto  *temp)
     temp->nivel = (temp->izq ? temp->izq->nivel + 1 : 1);
 }
 
-bool ArbolProductos::dividir(NodoProducto  *temp)
+bool ArbolProductos::dividir(NodoProducto  *&temp)
 {
     NodoProducto * ptr = temp->der;
     if (ptr && ptr->der && (ptr->der->nivel == temp->nivel))
@@ -53,7 +53,7 @@ bool ArbolProductos::dividir(NodoProducto  *temp)
     return false;
 }
 
-void ArbolProductos::balancear(NodoProducto * temp)
+void ArbolProductos::balancear(NodoProducto *& temp)
 {
     temp->izq = NULL;
     temp->der = NULL;
@@ -76,7 +76,7 @@ void ArbolProductos::balancear(NodoProducto * temp)
     }
 }
 
-NodoProducto* ArbolProductos::insertarNodo(NodoProducto * temp, NodoProducto * ins)
+NodoProducto* ArbolProductos::insertarNodo(NodoProducto * &temp, NodoProducto * &ins)
 {
     if (raiz == NULL)
     {

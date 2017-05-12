@@ -1,7 +1,6 @@
 #include "arbolsupermercados.h"
 #include "nodosupermercado.h"
 #include <iostream>
-#include <conio.h>
 #include <iostream>
 #include <stdio.h>
 using namespace std;
@@ -215,7 +214,7 @@ bool ArbolSupermercados::existeSupermercado(int _codNuevoSuper, NodoSupermercado
     }
 }
 
-void ArbolSupermercados::agregarCategoria(NodoSupermercado *nodoSupermercado,int _codSuper,int _codCat, string _descCat) {
+void ArbolSupermercados::agregarCategoria(NodoSupermercado *raiz,int _codSuper,int _codCat, string _descCat) {
     if (raiz == NULL) {
         return;
     } else if (raiz->codSuper == _codSuper){
@@ -238,12 +237,12 @@ void ArbolSupermercados::agregarCategoria(NodoSupermercado *nodoSupermercado,int
 }
 
 bool ArbolSupermercados::existeCategoria(int _codSuper,int _codCat, NodoSupermercado *_raiz) {
-    if (raiz == NULL) return false;
+    if (_raiz == NULL) return false;
 
-    else if (raiz->punteroCategorias != NULL) {
-            return raiz->punteroCategorias->existeCategoria(_codCat,raiz->punteroCategorias->raiz);
+    else if (_raiz->punteroCategorias != NULL) {
+            return _raiz->punteroCategorias->existeCategoria(_codCat,_raiz->punteroCategorias->raiz);
     } else {
-        return existeCategoria(_codSuper, _codCat,raiz->Hizq) || existeCategoria(_codSuper, _codCat,raiz->Hder);
+        return existeCategoria(_codSuper, _codCat,_raiz->Hizq) || existeCategoria(_codSuper, _codCat,_raiz->Hder);
     }
 
 }
@@ -251,15 +250,15 @@ bool ArbolSupermercados::existeCategoria(int _codSuper,int _codCat, NodoSupermer
 
 
 ArbolCategorias* ArbolSupermercados::getArbolCategorias(int _codSuper,NodoSupermercado* _raiz) {
-    if (raiz == NULL) return NULL;
+    if (_raiz == NULL) return NULL;
 
-    else if (raiz->codSuper == _codSuper) {
-        return raiz->punteroCategorias;
+    else if (_raiz->codSuper == _codSuper) {
+        return _raiz->punteroCategorias;
     } else {
-        if (raiz->Hder != NULL) {
+        if (_raiz->Hder != NULL) {
             return getArbolCategorias( _codSuper,_raiz->Hder);
         }
-        if (raiz->Hizq != NULL) {
+        if (_raiz->Hizq != NULL) {
             return getArbolCategorias( _codSuper, _raiz->Hizq);
         }
     }
