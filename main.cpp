@@ -107,7 +107,7 @@ void leerArchCategorias(ArbolSupermercados* _supermercados) {
 }
 
 
-void leerArchSupermercado(ArbolSupermercados * _supermercado){
+void leerArchSupermercado(ArbolSupermercados * _supermercado, ListaLugares* _lugares){
     bool Hh = false;
     string nombreArchivo = "Supermercados.txt";
 
@@ -142,6 +142,7 @@ void leerArchSupermercado(ArbolSupermercados * _supermercado){
             //_supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
 
             _supermercado->insertarBalanceado(_supermercado->raiz, Hh,codSint,codLint,nombre);
+            _lugares->aumentarCantidadDeSupermercados(codLint);
         }
     }
     archivoEntrada.close();
@@ -276,6 +277,9 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
 
 
 int main() {
+    ListaLugares* listaLugares = new ListaLugares();
+    leerArchLugares(listaLugares);
+
     ArbolClientes *arbolClientes = new ArbolClientes();
     //leerArchClientes(arbolClientes);
 
@@ -283,11 +287,11 @@ int main() {
     //leerArchProveedores(arbolProveedores);
 
     ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
-    leerArchSupermercado(arbolSupermercados);
+    //leerArchSupermercado(arbolSupermercados,listaLugares);
 
-    leerArchCategorias(arbolSupermercados);
+    //leerArchCategorias(arbolSupermercados);
 
-    leerArchProductos(arbolSupermercados);
+    //leerArchProductos(arbolSupermercados);
 
     cout << "Hello, World!" << endl;
 

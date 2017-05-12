@@ -52,6 +52,18 @@ bool ListaLugares::existeLugar(int _codigo) {
 
     while(aux->siguiente != primero) {
         if (aux->codigo == _codigo) return true;
+        aux = aux->getSiguiente();
     }
     return false;
+}
+
+void ListaLugares::aumentarCantidadDeSupermercados(int _codLugar) {
+    NodoLugar* aux = primero;
+    do {
+        if (aux->getCodigo() == _codLugar) aux->aumentarCantidadSuper();
+
+        aux = aux->getSiguiente();
+    } while (aux != primero);
+
+
 }

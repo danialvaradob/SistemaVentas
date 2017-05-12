@@ -20,6 +20,7 @@ public:
     void balancear(NodoProducto * &temp);  //se utiliza rebal en ingles
     NodoProducto* insertarNodo(NodoProducto *& temp, NodoProducto *& ins); // se utiliza insert en ingles
     void print(NodoProducto*H);
+    void eliminar(NodoProducto*& _raiz,int _codigoProducto); //estaba intenandola
 
     //void preordenI(NodoProducto *R); //funcion utilizada para recorrer el arbol e ir imprimiendo en preorden la info
 

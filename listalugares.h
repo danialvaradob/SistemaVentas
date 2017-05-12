@@ -18,6 +18,7 @@ public:
     int largoLista();
     void insertarLugar(int _codigo, string _nombre);
     bool existeLugar(int _codigo);
+    void aumentarCantidadDeSupermercados(int codLugar);
 
 private:
     NodoLugar* primero;

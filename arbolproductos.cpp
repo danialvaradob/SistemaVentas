@@ -127,6 +127,20 @@ bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
     }
 }
 
+void ArbolProductos::eliminar(NodoProducto *&_raiz, int _codigoProducto) {
+    if( _codigoProducto > _raiz->getCodigoProducto()) {
+        eliminar(_raiz->der, _codigoProducto);
+    } else if(_codigoProducto < _raiz->getCodigoProducto()) {
+        if (_raiz->izq == NULL && _raiz->der == NULL) {
+            return;
+        } else if (_raiz->izq == NULL) {
+            //
+        }
+
+    }
+
+}
+
 /*
  *
  *
