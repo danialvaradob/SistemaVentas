@@ -24,6 +24,8 @@ public:
         izq = NULL;
         der = NULL;
         color = RED;
+
+        punteroArbolProductos = new ArbolProductos();
     }
 
     string toString();

@@ -253,7 +253,6 @@ ArbolCategorias* ArbolSupermercados::getArbolCategorias(int _codSuper,NodoSuperm
     if (_raiz == NULL) return NULL;
 
     else if (_raiz->codSuper == _codSuper) {
-
         return _raiz->punteroCategorias;
     } else {
         if (_raiz->Hder != NULL) {
@@ -264,6 +263,19 @@ ArbolCategorias* ArbolSupermercados::getArbolCategorias(int _codSuper,NodoSuperm
         }
     }
 }
+
+void ArbolSupermercados::getArbolCat(int _codSuper, NodoSupermercado *_raiz, ArbolCategorias *&_arbolCat) {
+    if (_raiz == NULL) return;
+
+    else if (_raiz->codSuper == _codSuper) {
+        _arbolCat = _raiz->punteroCategorias;
+    } else {
+        getArbolCat( _codSuper,_raiz->Hder,_arbolCat);
+        getArbolCat( _codSuper, _raiz->Hizq,_arbolCat);
+
+    }
+}
+
 
 /*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
  *

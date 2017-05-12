@@ -44,11 +44,14 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
         int cantidadEnStock = atoi(cantidadEnStockSt.c_str());
 
 
-        ArbolCategorias* arbolCategorias = _supermercados->getArbolCategorias(codSupI,_supermercados->raiz);
-        ArbolProductos* productos = arbolCategorias->getArbolProductos(arbolCategorias->raiz,codCatI);
+        ArbolCategorias* arbolCategorias = new ArbolCategorias();
+        _supermercados->getArbolCat(codSupI,_supermercados->raiz,arbolCategorias);
+
+        ArbolProductos* productos = new ArbolProductos();
+        arbolCategorias->getArbolProd(arbolCategorias->raiz,codCatI,productos);
 
         // ... crear el nodo
-        if (productos->existeProducto(productos->raiz,codProI)){
+        if (productos != NULL && productos->existeProducto(productos->raiz,codProI)){
             continue;
         }else{
 
@@ -287,11 +290,12 @@ int main() {
     //leerArchProveedores(arbolProveedores);
 
     ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
-    //leerArchSupermercado(arbolSupermercados,listaLugares);
+    leerArchSupermercado(arbolSupermercados,listaLugares);
 
-    //leerArchCategorias(arbolSupermercados);
+    leerArchCategorias(arbolSupermercados);
 
-    //leerArchProductos(arbolSupermercados);
+    //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
+    leerArchProductos(arbolSupermercados);
 
     cout << "Hello, World!" << endl;
 

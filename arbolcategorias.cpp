@@ -227,3 +227,14 @@ ArbolProductos* ArbolCategorias::getArbolProductos(nodocategoria *_raiz, int _co
             }
         }
 }
+
+void ArbolCategorias::getArbolProd(nodocategoria *_raiz, int codCat, ArbolProductos *&arbolProductos) {
+    if (_raiz == NULL) return;
+
+    else if (_raiz->getCodigo() == codCat) {
+        arbolProductos = _raiz->punteroArbolProductos;
+    } else {
+        getArbolProd( _raiz->der,codCat,arbolProductos);
+        getArbolProd(  _raiz->izq,codCat,arbolProductos);
+    }
+}
