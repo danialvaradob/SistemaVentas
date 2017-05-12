@@ -8,7 +8,10 @@
 
 using namespace std;
 
+
+//// PARA PRUEBA A VER SI REGISTRA BIEN UN PRODUCTO
 void leerArchProductos(ArbolSupermercados* _supermercados) {
+    ArbolProductos* productos = new ArbolProductos();
     string nombreArchivo = "Productos.txt";
 
     ifstream archivoEntrada;
@@ -41,16 +44,16 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
 
 
         // ... crear el nodo
-        //if () {
-        //    continue;
-        //}else{
+        if ( productos->existeProducto(productos->raiz,codProI) {
+            continue;
+        }else{
 
-            //cout <<codigoProducto << "," << codigoCategoria << "," << nombreProducto<< "," << precioPorUnidadSt<< ","
-             //    << cantidadEnStockSt << endl;
+            cout <<codigoProducto << "," << codigoCategoria << "," << nombreProducto<< "," << precioPorUnidadSt<< ","
+                << cantidadEnStockSt << endl;
             //_categoria->insertarProducto(codigoProducto, codigoCategoria, nombreProducto, precioPorUnidad, cantidadEnStock);
-
+            productos->buscar(codProI, codCatI, nombreProducto, precioPorUnidad, cantidadEnStock);
         }
-    //}
+    }
 
     archivoEntrada.close();
 
