@@ -253,6 +253,7 @@ ArbolCategorias* ArbolSupermercados::getArbolCategorias(int _codSuper,NodoSuperm
     if (_raiz == NULL) return NULL;
 
     else if (_raiz->codSuper == _codSuper) {
+
         return _raiz->punteroCategorias;
     } else {
         if (_raiz->Hder != NULL) {

@@ -183,3 +183,47 @@ void ArbolCategorias ::insertarValorNodoRN(int _id,string _desc){
     aplicarReglas(raiz, pt);
 
 }
+
+void ArbolCategorias::agregarProducto(nodocategoria *raiz, int codProI, int codCatI, string nombreProducto,
+                                      int precioPorUnidad, int cantidadEnStock) {
+
+    if (raiz == NULL) {
+        return;
+    } else if (raiz->getCodigo() == codCatI){
+        // primero revisa si esta vacio el arbol
+        if (raiz->punteroArbolProductos == NULL) {
+            //crea el arbol y le agrega la categoria
+            raiz->punteroArbolProductos = new ArbolProductos();
+            raiz->punteroArbolProductos->buscar( codProI,  codCatI,  nombreProducto,
+                     precioPorUnidad,  cantidadEnStock);
+
+        } else {
+            raiz->punteroArbolProductos->buscar( codProI,  codCatI,  nombreProducto,
+                                                 precioPorUnidad,  cantidadEnStock);
+        }
+        //si no esta vacio lo agrega
+
+    } else{
+        agregarProducto(raiz->izq,  codProI,  codCatI,  nombreProducto,
+                 precioPorUnidad,  cantidadEnStock);
+        agregarProducto(raiz->der,  codProI,  codCatI,  nombreProducto,
+                 precioPorUnidad,  cantidadEnStock);
+
+    }
+
+}
+
+ArbolProductos* ArbolCategorias::getArbolProductos(nodocategoria *_raiz, int _codCat) {
+        if (_raiz == NULL) return NULL;
+
+        else if (_raiz->getCodigo() ==_codCat ) {
+            return _raiz->punteroArbolProductos;
+        } else {
+            if (_raiz->der != NULL) {
+                return getArbolProductos(_raiz->der,  _codCat);
+            }
+            if (_raiz->izq != NULL) {
+                return getArbolProductos(_raiz->izq,  _codCat);
+            }
+        }
+}

@@ -11,7 +11,7 @@ using namespace std;
 
 //// PARA PRUEBA A VER SI REGISTRA BIEN UN PRODUCTO
 void leerArchProductos(ArbolSupermercados* _supermercados) {
-    ArbolProductos* productos = new ArbolProductos();
+
     string nombreArchivo = "Productos.txt";
 
     ifstream archivoEntrada;
@@ -28,8 +28,9 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
         strcpy(lineaValores, lineaEnArchivo.c_str());
 
 
-        string codigoProducto(std::strtok (lineaValores, ";"));
+        string codSuper(std::strtok (lineaValores, ";"));
         string codigoCategoria(std::strtok (NULL, ";"));
+        string codigoProducto(std::strtok (NULL, ";"));
         string nombreProducto(std::strtok (NULL, ";"));
 
         string precioPorUnidadSt(std::strtok (NULL, ";"));
@@ -37,11 +38,14 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
 
         int codProI = atoi(codigoProducto.c_str());
         int codCatI = atoi(codigoCategoria.c_str());
+        int codSupI = atoi(codSuper.c_str());
 
         float precioPorUnidad = atof(precioPorUnidadSt.c_str());
         int cantidadEnStock = atoi(cantidadEnStockSt.c_str());
 
 
+        ArbolCategorias* arbolCategorias = _supermercados->getArbolCategorias(codSupI,_supermercados->raiz);
+        ArbolProductos* productos = arbolCategorias->getArbolProductos(arbolCategorias->raiz,codCatI);
 
         // ... crear el nodo
         if (productos->existeProducto(productos->raiz,codProI)){
@@ -283,7 +287,7 @@ int main() {
 
     leerArchCategorias(arbolSupermercados);
 
-
+    leerArchProductos(arbolSupermercados);
 
     cout << "Hello, World!" << endl;
 

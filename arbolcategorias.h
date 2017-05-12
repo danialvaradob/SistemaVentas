@@ -27,6 +27,8 @@ public:
     void InordenRN(nodocategoria *T);
     nodocategoria *raiz;
 
+    void agregarProducto(nodocategoria* _raiz,int codProI, int codCatI, string nombreProducto, int precioPorUnidad, int cantidadEnStock);
+    ArbolProductos* getArbolProductos(nodocategoria* _raiz,int codCat);
 
 
 };

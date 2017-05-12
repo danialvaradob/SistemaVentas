@@ -116,13 +116,13 @@ NodoProducto* ArbolProductos::insertarNodo(NodoProducto * &temp, NodoProducto * 
 
 bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
     if(_raiz==NULL){
-        cout << "Final de un nodo" << endl;
+        //cout << "Final de un nodo" << endl;
         return false;
     }else if (_raiz->getCodigoProducto() == _codProducto) {
-        cout << "Encontrado" << endl;
+        //cout << "Encontrado" << endl;
         return true;
     }else{
-        cout << "buscando" << endl;
+        //cout << "buscando" << endl;
         return  existeProducto(_raiz->izq,_codProducto) || existeProducto(_raiz->der,_codProducto);
     }
 }
