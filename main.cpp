@@ -8,6 +8,56 @@
 
 using namespace std;
 
+void leerArchProductos(ArbolSupermercados* _supermercados) {
+    string nombreArchivo = "Productos.txt";
+
+    ifstream archivoEntrada;
+    string lineaEnArchivo;
+
+    archivoEntrada.open(nombreArchivo, ios::in);
+
+    if (archivoEntrada.fail()) {
+        cout << "Problemas al intentar abrir el archivo: " << nombreArchivo << endl;
+    }
+
+    while (archivoEntrada >> lineaEnArchivo){
+        char * lineaValores = new char[lineaEnArchivo.length()+1];
+        strcpy(lineaValores, lineaEnArchivo.c_str());
+
+
+        string codigoProducto(std::strtok (lineaValores, ";"));
+        string codigoCategoria(std::strtok (NULL, ";"));
+        string nombreProducto(std::strtok (NULL, ";"));
+
+        string precioPorUnidadSt(std::strtok (NULL, ";"));
+        string cantidadEnStockSt(std::strtok (NULL, ";"));
+
+        int codProI = atoi(codigoProducto.c_str());
+        int codCatI = atoi(codigoCategoria.c_str());
+
+        float precioPorUnidad = atof(precioPorUnidadSt.c_str());
+        int cantidadEnStock = atoi(cantidadEnStockSt.c_str());
+
+
+
+        // ... crear el nodo
+        //if () {
+        //    continue;
+        //}else{
+
+            //cout <<codigoProducto << "," << codigoCategoria << "," << nombreProducto<< "," << precioPorUnidadSt<< ","
+             //    << cantidadEnStockSt << endl;
+            //_categoria->insertarProducto(codigoProducto, codigoCategoria, nombreProducto, precioPorUnidad, cantidadEnStock);
+
+        }
+    //}
+
+    archivoEntrada.close();
+
+
+}
+
+
 void leerArchCategorias(ArbolSupermercados* _supermercados) {
     string nombreArchivo = "Categorias.txt";
     ifstream file;

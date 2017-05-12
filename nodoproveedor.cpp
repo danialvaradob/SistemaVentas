@@ -39,6 +39,9 @@ void NodoProveedor::insertarProveedor(int idProveedor,string nombre,string direc
     }
 }
 
+
+
+
 int NodoProveedor::getID(){
     return numero;
 }

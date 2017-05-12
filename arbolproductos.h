@@ -24,6 +24,9 @@ public:
     void preordenI(NodoProducto *R); //funcion utilizada para recorrer el arbol e ir imprimiendo en preorden la info
 
 
+    // retorna true si en un determinado arbol de productos existe (el arbol de productos todos tienen la misma categoria)
+    bool existeProducto(NodoProducto *_raiz,int codProducto);
+
 
 
 };

@@ -113,8 +113,44 @@ NodoProducto* ArbolProductos::insertarNodo(NodoProducto * temp, NodoProducto * i
 }
 
 
+
+bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
+    if(_raiz==NULL){
+        cout << "Final de un nodo" << endl;
+        return false;
+    }else if (_raiz->getCodigoProducto() == _codProducto) {
+        cout << "Encontrado" << endl;
+        return true;
+    }else{
+        cout << "buscando" << endl;
+        return  existeProducto(_raiz->izq,_codProducto) || existeProducto(_raiz->der,_codProducto);
+    }
+}
+}
+
 /*
-void ArbolProductos::print(NodoProducto* temp)
+ *
+ *
+ *
+ *
+ *
+
+
+void ArbolProductos::PreordenI(NodoProducto *R){
+    if(R==NULL){
+        return;
+    }else{
+        cout<<"El id de la oferta es : "<<R->getCodigoProducto()<<endl;
+        cout<<"Los precios de la oferta individual es :"<<R->obtenerI()<<" Y quedan :"<<R->obtenerCI()<<endl;
+        cout<<"Los precios de la oferta Doble es :"<<R->obtenerD()<<" Y quedan :"<<R->obtenerCD()<<endl;
+        PreordenI(R->izq);
+        PreordenI(R->der);
+    }
+}
+
+
+
+ void ArbolProductos::print(NodoProducto* temp)
 {
     if (!temp)
         return;

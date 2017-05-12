@@ -15,6 +15,16 @@ bool ArbolCategorias::existeCategoria(int _id, nodocategoria *_raiz) {
     }
 }
 
+bool ArbolCategorias::existeProducto(int _codProducto, int _codCategoria, nodocategoria *_raiz) {
+    if(_raiz==NULL){
+        return false;
+    }else if (_raiz->getCodigo() == _codCategoria) {
+        return _raiz->punteroArbolProductos->existeProducto(_raiz->punteroArbolProductos->raiz,_codProducto);
+    }else{
+        return  existeCategoria(_codCategoria,_raiz->izq) || existeCategoria(_codCategoria,_raiz->der);
+    }
+}
+
 nodocategoria *ArbolCategorias::InsertarNodoRN(nodocategoria* RaizRN, nodocategoria *pt){
     if (RaizRN == NULL)
         return pt;
