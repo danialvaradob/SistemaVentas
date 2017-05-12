@@ -58,7 +58,9 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
             cout <<codigoProducto << "," << codigoCategoria << "," << nombreProducto<< "," << precioPorUnidadSt<< ","
                 << cantidadEnStockSt << endl;
             //_categoria->insertarProducto(codigoProducto, codigoCategoria, nombreProducto, precioPorUnidad, cantidadEnStock);
-            productos->buscar(codProI, codCatI, nombreProducto, precioPorUnidad, cantidadEnStock);
+            _supermercados->agregarProducto(_supermercados->raiz,codSupI,codCatI,codProI,nombreProducto, precioPorUnidad,
+                                            cantidadEnStock);
+
         }
     }
     archivoEntrada.close();

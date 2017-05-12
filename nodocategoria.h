@@ -25,7 +25,7 @@ public:
         der = NULL;
         color = RED;
 
-        punteroArbolProductos = new ArbolProductos();
+        punteroArbolProductos = NULL;
     }
 
     string toString();

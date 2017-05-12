@@ -44,7 +44,8 @@ public:
     //Agregar Categoria (a un arbol de categorias)
 
     void agregarCategoria(NodoSupermercado* nodoSupermercado,int _codSuper,int _codCat, string _descCat); // inserta un nodo a un arbol RN
-    void agregarProducto();  // inserta un nodo a un arbol AA
+    void agregarProducto(NodoSupermercado* nodoSupermercado, int _codSuper, int _codCat,
+                         int _codProducto , string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock);  // inserta un nodo a un arbol AA
     bool existeSupermercado(int _codNuevoSuper, NodoSupermercado* _raiz);
 
     bool existeCategoria(int _codSuper,int _codCat, NodoSupermercado* _raiz);

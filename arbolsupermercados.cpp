@@ -236,6 +236,34 @@ void ArbolSupermercados::agregarCategoria(NodoSupermercado *raiz,int _codSuper,i
 
 }
 
+void ArbolSupermercados::agregarProducto(NodoSupermercado *raiz, int _codSuper,
+                                         int _codCat, int _codProducto, string _nombreProducto, double _precioPorUnidad,
+                                         int _cantidadEnStock) {
+    if (raiz == NULL) {
+        return;
+    } else if (raiz->codSuper == _codSuper){
+        // primero revisa si esta vacio el arbol
+        raiz->punteroCategorias->agregarProducto(raiz->punteroCategorias->raiz,  _codProducto,
+                                                   _codCat,  _nombreProducto,  _precioPorUnidad,
+                                                   _cantidadEnStock);
+
+        //si no esta vacio lo agrega
+
+    } else{
+        agregarProducto(raiz->Hizq, _codSuper,
+             _codCat,  _codProducto,  _nombreProducto,  _precioPorUnidad,
+             _cantidadEnStock);
+        agregarProducto(raiz->Hder, _codSuper,
+                        _codCat,  _codProducto,  _nombreProducto,  _precioPorUnidad,
+                        _cantidadEnStock);
+        //agregarCategoria(raiz->Hizq,_codSuper,_codCat,_descCat);
+        //agregarCategoria(raiz->Hder,_codSuper,_codCat,_descCat);
+    }
+
+}
+
+
+
 bool ArbolSupermercados::existeCategoria(int _codSuper,int _codCat, NodoSupermercado *_raiz) {
     if (_raiz == NULL) return false;
 
