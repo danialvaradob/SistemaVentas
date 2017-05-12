@@ -19,9 +19,10 @@ public:
         cantidadEnStock = _cantidadEnStock;
         cantidadAlInicio = _cantidadEnStock;
 
+
         cont = 0;
         nivel = 0;
-
+        cantidadProductoVendido = 0;
 
         padre = NULL;
         raiz = NULL;
@@ -44,6 +45,8 @@ public:
     int getCantidadEnStock();
     void setCantidadEnStock(int _cantidadNueva);
     int getCantidadAlInicio() { return cantidadAlInicio;}
+    void aumentarCantidadProductosVendidos() {cantidadProductoVendido++;}
+    int getCantidadProVend() {return cantidadProductoVendido;}
 
 
     // especiales para Nodos de un arbol AA
@@ -60,6 +63,7 @@ public:
 
 
 private:
+    int cantidadProductoVendido;
     int codigoProducto;
     int codigoCategoria;
     string nombreProducto;

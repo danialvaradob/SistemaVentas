@@ -141,6 +141,21 @@ void ArbolProductos::eliminar(NodoProducto *&_raiz, int _codigoProducto) {
 
 }
 
+
+void ArbolProductos::PreordenI(NodoProducto *R){
+    if(R==NULL){
+        return;
+    }else{
+
+        cout << "Nombre del producto: " << R->getNombreProducto() << endl;
+        cout << "Codigo del producto: " << R->getCodigoProducto() << endl;
+        cout << "Pertenece a la categoria: " << R->getCodigoCategoria() << endl;
+        PreordenI(R->izq);
+        PreordenI(R->der);
+    }
+}
+
+
 /*
  *
  *
