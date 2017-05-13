@@ -32,6 +32,9 @@ public:
     void cambiarStock(NodoProducto* &_raiz,int _codProducto, int _cantidad);
     void getNodoProducto(int _codProducto, NodoProducto* _raiz,NodoProducto* &_nuevoNodo);
 
+    void getProductoMasVendido( NodoProducto* _raiz,NodoProducto* &_nuevoNodo);
+    void getProductosCambiaronStock(NodoProducto* _raiz);
+
 
 
 };

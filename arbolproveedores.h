@@ -33,6 +33,7 @@ public:
     void aumentarVentas(int _id, NodoProveedor *_raiz);
 
     string getNombreProveedor(int _id, NodoProveedor *_raiz);
+    void getNodoProveedor(int _id,NodoProveedor *_raiz, NodoProveedor* &_nuevoNodo);
 
     bool encontrado = false;
 };

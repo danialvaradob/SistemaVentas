@@ -90,3 +90,14 @@ void ArbolProveedores::PostordenI(NodoProveedor *R){
 
     }
 }
+
+void ArbolProveedores::getNodoProveedor(int _id, NodoProveedor *_raiz, NodoProveedor *&_nuevoNodo) {
+    if (_raiz ==NULL) return;
+    else if (_raiz->getID() == _id) {
+        _nuevoNodo = _raiz;
+    } else {
+        getNodoProveedor( _id,  _raiz->Hizq,_nuevoNodo);
+        getNodoProveedor( _id,  _raiz->Hder,_nuevoNodo);
+
+    }
+}

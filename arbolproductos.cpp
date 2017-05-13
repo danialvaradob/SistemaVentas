@@ -180,6 +180,32 @@ void ArbolProductos::getNodoProducto(int _codProducto, NodoProducto* _raiz, Nodo
     }
 }
 
+void ArbolProductos::getProductoMasVendido(NodoProducto *_raiz, NodoProducto *&_nuevoNodo) {
+    if (_raiz == NULL) return;
+    else if (_raiz->getBestScore() > _nuevoNodo->getBestScore()) {
+
+        _nuevoNodo = _raiz;
+    } else {
+        getProductoMasVendido(_raiz->izq,_nuevoNodo);
+        getProductoMasVendido(_raiz->der,_nuevoNodo);
+
+    }
+}
+
+void ArbolProductos::getProductosCambiaronStock(NodoProducto *_raiz) {
+    if (raiz==NULL)return;
+    else {
+        if (raiz->getCantidadEnStock() != raiz->getCantidadAlInicio()) {
+            cout << " " << endl;
+            cout << "Nombre: " << raiz->getNombreProducto() << endl;
+            cout << "Codigo: " << raiz->getCodigoProducto() << endl;
+            cout << " " << endl;
+        }
+        getProductosCambiaronStock(_raiz->der);
+        getProductosCambiaronStock(_raiz->izq);
+    }
+}
+
 
 /*
  *

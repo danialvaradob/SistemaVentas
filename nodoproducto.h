@@ -52,6 +52,7 @@ public:
     void setBestScore(int v);
     bool cambioEnStock(){return (cantidadEnStock != cantidadAlInicio);};
     double calcularMonto(int cant, int descuento);
+    int getBestScore() {return bestScore;}
 
     // especiales para Nodos de un arbol AA
     NodoProducto* izq;
