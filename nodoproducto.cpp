@@ -38,7 +38,25 @@ void NodoProducto::setSiguiente(NodoProducto* _siguiente){
     anterior = _siguiente;
 }
 
-void NodoProducto::setCantidadEnStock(int _cantidadNueva){
-    cantidadEnStock = _cantidadNueva;
-
+void NodoProducto::setCantidadEnStock(int comprado) {
+    if (cantSuficiente(comprado)) {
+        cantidadEnStock = cantidadEnStock - comprado;
+        setBestScore(comprado);
+    }
 }
+
+void NodoProducto::setBestScore(int v){
+    bestScore = bestScore + v;
+}
+
+double NodoProducto::calcularMonto(int cant, int descuento){
+    double monto = cant * precioPorUnidad;
+    if(descuento == 0)
+        return monto;
+    else{
+        double _montoAdescontar = monto * 0.05;
+        monto = monto - _montoAdescontar;
+        return monto;
+    }
+}
+

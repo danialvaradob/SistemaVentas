@@ -23,6 +23,7 @@ public:
         cont = 0;
         nivel = 0;
         cantidadProductoVendido = 0;
+        bestScore = 0;
 
         padre = NULL;
         raiz = NULL;
@@ -47,7 +48,10 @@ public:
     int getCantidadAlInicio() { return cantidadAlInicio;}
     void aumentarCantidadProductosVendidos() {cantidadProductoVendido++;}
     int getCantidadProVend() {return cantidadProductoVendido;}
-
+    bool cantSuficiente(int cant_a_comprar){return (cantidadEnStock - cant_a_comprar) >= 0;};
+    void setBestScore(int v);
+    bool cambioEnStock(){return (cantidadEnStock != cantidadAlInicio);};
+    double calcularMonto(int cant, int descuento);
 
     // especiales para Nodos de un arbol AA
     NodoProducto* izq;
@@ -70,6 +74,7 @@ private:
     double precioPorUnidad;
     int cantidadEnStock;
     int cantidadAlInicio;
+    int bestScore;
 
     NodoProducto *siguiente;
     NodoProducto *anterior;
