@@ -54,6 +54,8 @@ public:
     // no se logro hacer
     ArbolCategorias* getArbolCategorias(int _codSuper,NodoSupermercado* _raiz);
     void getArbolCat(int _codSuper, NodoSupermercado* _raiz, ArbolCategorias*& _arbolCat);
+    void getNodoSupermercado(int _codSuper,NodoSupermercado* _raiz, NodoSupermercado*& _resultado);
+
 
 };
 

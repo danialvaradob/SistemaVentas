@@ -14,6 +14,19 @@ enum Color {RED, BLACK};
 
 class nodocategoria {
 public:
+
+    nodocategoria() {codigo = 0;
+        descripcion = " ";
+        bestScore = 0;
+        padre = NULL;
+        tio = NULL;
+        abuelo = NULL;
+        izq = NULL;
+        der = NULL;
+        color = RED;
+
+        punteroArbolProductos = NULL;};
+
     nodocategoria(int _codigo, string _desc){
         codigo = _codigo;
         descripcion = _desc;

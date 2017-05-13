@@ -30,6 +30,7 @@ public:
     string getProductoMasVend(NodoProducto* _raiz,int _codProducto);
     void PreordenI(NodoProducto *R);
     void cambiarStock(NodoProducto* &_raiz,int _codProducto, int _cantidad);
+    void getNodoProducto(int _codProducto, NodoProducto* _raiz,NodoProducto* &_nuevoNodo);
 
 
 

@@ -168,6 +168,19 @@ void ArbolProductos::cambiarStock(NodoProducto *&_raiz,int _codProducto, int _ca
 }
 
 
+void ArbolProductos::getNodoProducto(int _codProducto, NodoProducto* _raiz, NodoProducto *&_nuevoNodo) {
+    if (_raiz == NULL) return;
+
+    else if (_codProducto == _raiz->getCodigoProducto()) {
+            _nuevoNodo = _raiz;
+        }
+    else {
+        getNodoProducto(_codProducto, _raiz->izq,_nuevoNodo);
+        getNodoProducto(_codProducto, _raiz->der,_nuevoNodo);
+    }
+}
+
+
 /*
  *
  *

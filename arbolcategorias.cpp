@@ -213,20 +213,7 @@ void ArbolCategorias::agregarProducto(nodocategoria *raiz, int codProI, int codC
 
 }
 
-ArbolProductos* ArbolCategorias::getArbolProductos(nodocategoria *_raiz, int _codCat) {
-        if (_raiz == NULL) return NULL;
 
-        else if (_raiz->getCodigo() ==_codCat ) {
-            return _raiz->punteroArbolProductos;
-        } else {
-            if (_raiz->der != NULL) {
-                return getArbolProductos(_raiz->der,  _codCat);
-            }
-            if (_raiz->izq != NULL) {
-                return getArbolProductos(_raiz->izq,  _codCat);
-            }
-        }
-}
 
 void ArbolCategorias::getArbolProd(nodocategoria *_raiz, int codCat, ArbolProductos *&arbolProductos) {
     if (_raiz == NULL) return;
@@ -236,5 +223,17 @@ void ArbolCategorias::getArbolProd(nodocategoria *_raiz, int codCat, ArbolProduc
     } else {
         getArbolProd( _raiz->der,codCat,arbolProductos);
         getArbolProd(  _raiz->izq,codCat,arbolProductos);
+    }
+}
+
+void ArbolCategorias::getNodoCat(nodocategoria *_raiz, int _codCat, nodocategoria*&_nuevoNodo) {
+    if (_raiz == NULL) return;
+
+    else if (_raiz->getCodigo() == _codCat) {
+        _nuevoNodo = _raiz;
+
+    } else {
+        getNodoCat(_raiz->izq,_codCat, _nuevoNodo);
+        getNodoCat(_raiz->der,_codCat, _nuevoNodo);
     }
 }

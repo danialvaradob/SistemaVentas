@@ -28,8 +28,10 @@ public:
     nodocategoria *raiz;
 
     void agregarProducto(nodocategoria* _raiz,int codProI, int codCatI, string nombreProducto, int precioPorUnidad, int cantidadEnStock);
-    ArbolProductos* getArbolProductos(nodocategoria* _raiz,int codCat);
+
+
     void getArbolProd(nodocategoria* _raiz,int codCat,ArbolProductos* &arbolProductos);
+    void getNodoCat(nodocategoria*_raiz,int codCat,nodocategoria* &_nuevoNodo);
 
 
 };

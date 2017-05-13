@@ -307,9 +307,13 @@ int main() {
 
     ArbolCategorias* PAC = new ArbolCategorias();
     arbolSupermercados->getArbolCat(66,arbolSupermercados->raiz,PAC);
-    int SCORE = PAC->raiz->getBestScore();
+    //int SCORE = PAC->raiz->getBestScore();
 
+
+    nodocategoria* nodocate = new nodocategoria();
+    PAC->getNodoCat(PAC->raiz,45,nodocate);
 */
+
 
 
     cout << "Hello, World!" << endl;

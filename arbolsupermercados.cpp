@@ -304,6 +304,20 @@ void ArbolSupermercados::getArbolCat(int _codSuper, NodoSupermercado *_raiz, Arb
     }
 }
 
+void ArbolSupermercados::getNodoSupermercado(int _codSuper, NodoSupermercado *_raiz, NodoSupermercado *&_resultado) {
+    if (_raiz== NULL) return;
+
+    else {
+        if (_raiz->getCodSuper() == _codSuper) {
+            _resultado = _raiz;
+
+        } else {
+            getNodoSupermercado(_codSuper,_raiz->Hder,_resultado);
+            getNodoSupermercado(_codSuper,_raiz->Hizq,_resultado);
+
+        }
+    }
+}
 
 /*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++
  *
