@@ -249,31 +249,27 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
         cout << "Problemas al intentar abrir el archivo: " << nombreArchivo << endl;
     }
 
-    while (archivoEntrada >> lineaEnArchivo){
-        char * lineaValores = new char[lineaEnArchivo.length()+1];
+    while (archivoEntrada >> lineaEnArchivo) {
+        char *lineaValores = new char[lineaEnArchivo.length() + 1];
         strcpy(lineaValores, lineaEnArchivo.c_str());
 
 
-        string id(std::strtok (lineaValores, ";"));
-        string nombre(std::strtok (NULL, ";"));
-        string direccion(std::strtok (NULL, ";"));
-        string telefono(std::strtok (NULL, ";"));
+        string id(std::strtok(lineaValores, ";"));
+        string nombre(std::strtok(NULL, ";"));
+        string direccion(std::strtok(NULL, ";"));
+        string telefono(std::strtok(NULL, ";"));
 
         int idCliente = atoi(id.c_str());
 
         // ... crear el nodo
-        /*if ( _ArbolClientes->existeCliente(_ArbolClientes->raizB, idCliente)){
-            cout << "Entro1" << endl;
-            continue;
-        }else{
-         */
-            cout <<"Codigo Cliente: "<< id << "," << nombre << "," << direccion << "," << telefono << endl;
-            int intTelefono = atoi(telefono.c_str());
 
-            _ArbolClientes->IniciarInsercionB(idCliente,idCliente,nombre,direccion,intTelefono);
+        cout << "Codigo Cliente: " << id << "," << nombre << "," << direccion << "," << telefono << endl;
+        int intTelefono = atoi(telefono.c_str());
+
+        _ArbolClientes->IniciarInsercionB(idCliente, idCliente, nombre, direccion, intTelefono);
+
 
     }
-
     archivoEntrada.close();
 }
 
@@ -286,18 +282,19 @@ int main() {
     leerArchLugares(listaLugares);
 
     ArbolClientes *arbolClientes = new ArbolClientes();
-    //leerArchClientes(arbolClientes);
+    leerArchClientes(arbolClientes);
+    arbolClientes->RecorridoInordenB(arbolClientes->raizB);
 
     ArbolProveedores* arbolProveedores = new ArbolProveedores();
     //leerArchProveedores(arbolProveedores);
 
     ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
-    leerArchSupermercado(arbolSupermercados,listaLugares);
+    //leerArchSupermercado(arbolSupermercados,listaLugares);
 
-    leerArchCategorias(arbolSupermercados);
+    //leerArchCategorias(arbolSupermercados);
 
     //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
-    leerArchProductos(arbolSupermercados);
+    //leerArchProductos(arbolSupermercados);
 
     //PRUEBAS
 /*

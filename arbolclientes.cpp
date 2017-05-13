@@ -208,39 +208,22 @@ void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
         return;
     }
     else{
-        RecorridoInordenB(Raiz->Ramas->ObtenerRama(0));
         int I = 1;
         while(I <= Raiz->cuenta){
+
             pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
-            cout<< "idCliente: "<< Recorrido->getID() << endl;
             cout << "Nombre: " << Recorrido->getNombre()<< endl;
+            cout<< "Identificacion: "<< Recorrido->getID() << endl;
             cout << "Cantidad de Compras: " << Recorrido->getCantidadCompras()<< endl;
             cout << "Ciudad: " << Recorrido->getDireccion()<< endl;
             cout << "Telefono: " << Recorrido->getTelefono() << endl;
             cout << "\n" << endl;
 
-            RecorridoInordenB(Raiz->Ramas->ObtenerRama(I));
+            RecorridoInordenB(Raiz->Ramas->ObtenerRama(I-1));
 
             I++;
         }
     }
 }
 
-bool ArbolClientes::existeCliente(ApuntadorPagina Raiz ,int _Numero) {
-    if (Raiz == NULL) {
-        return false;
-
-    } else {
-        existeCliente(Raiz->Ramas->ObtenerRama(0), _Numero);
-        int I = 1;
-        while (I <= Raiz->cuenta) {
-            if (Raiz->Claves->ObtenerApuntadorClave(I)->getID() == _Numero) return true;
-
-            existeCliente(Raiz->Ramas->ObtenerRama(I),_Numero);
-            I++;
-        }
-
-    }
-
-}
