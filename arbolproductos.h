@@ -29,6 +29,7 @@ public:
     bool existeProducto(NodoProducto *_raiz,int codProducto);
     string getProductoMasVend(NodoProducto* _raiz,int _codProducto);
     void PreordenI(NodoProducto *R);
+    void cambiarStock(NodoProducto* &_raiz,int _codProducto, int _cantidad);
 
 
 
