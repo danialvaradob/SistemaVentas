@@ -32,6 +32,7 @@ public:
     int getCodigo() {return codigo;};
     string getDesc() {return descripcion;};
     void incBestScore(){bestScore++;};
+    int getBestScore() {return bestScore;}
 
     nodocategoria *padre;
     nodocategoria *tio;

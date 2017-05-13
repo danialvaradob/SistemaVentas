@@ -299,6 +299,19 @@ int main() {
     //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
     leerArchProductos(arbolSupermercados);
 
+    //PRUEBAS
+/*
+    ArbolCategorias* AC = new ArbolCategorias();
+    arbolSupermercados->getArbolCat(66,arbolSupermercados->raiz,AC);
+    AC->raiz->incBestScore();
+
+    ArbolCategorias* PAC = new ArbolCategorias();
+    arbolSupermercados->getArbolCat(66,arbolSupermercados->raiz,PAC);
+    int SCORE = PAC->raiz->getBestScore();
+
+*/
+
+
     cout << "Hello, World!" << endl;
 
 

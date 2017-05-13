@@ -157,14 +157,14 @@ void ArbolProductos::PreordenI(NodoProducto *R){
 
 void ArbolProductos::cambiarStock(NodoProducto *&_raiz,int _codProducto, int _cantidad) {
     if (_raiz == NULL) return;
-
+/*
     else {
         if (_raiz->getCodigoProducto() == _codProducto) {
             _raiz->getCantidadEnStock()
 
         }
 
-    }
+    }*/
 }
 
 
