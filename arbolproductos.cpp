@@ -70,7 +70,7 @@ void ArbolProductos::balancear(NodoProducto *& temp)
         }
         if (temp->padre != raiz)
         {
-            if (dividir(temp->padre) == false)
+            if (!dividir(temp->padre))
                 break;
         }
     }
@@ -127,18 +127,31 @@ bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
     }
 }
 
-void ArbolProductos::eliminar(NodoProducto *&_raiz, int _codigoProducto) {
+NodoProducto *ArbolProductos::eliminar(NodoProducto *&_raiz, int _codigoProducto) {
+    //_raiz = T
+    // L = L
+    //_codigoProducto = X
+
+    NodoProducto *L;
     if( _codigoProducto > _raiz->getCodigoProducto()) {
-        eliminar(_raiz->der, _codigoProducto);
+        _raiz->der = eliminar(_raiz->der, _codigoProducto);
     } else if(_codigoProducto < _raiz->getCodigoProducto()) {
+        _raiz->izq = eliminar(_raiz->izq, _codigoProducto);
+    } else {
         if (_raiz->izq == NULL && _raiz->der == NULL) {
-            return;
-        } else if (_raiz->izq == NULL) {
-            //
+            return NULL;
+        }else {
+            if(_raiz->izq == NULL){
+                L = _raiz->der;
+                _raiz->der = eliminar(_raiz->der, L->getCodigoProducto());
+                _raiz = L;
+            } else{
+                L = _raiz->padre;
+                _raiz->izq = eliminar(_raiz->izq, L->getCodigoProducto());
+                _raiz = L;
+            }
         }
-
     }
-
 }
 
 
