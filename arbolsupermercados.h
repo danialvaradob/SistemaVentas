@@ -55,8 +55,8 @@ public:
     ArbolCategorias* getArbolCategorias(int _codSuper,NodoSupermercado* _raiz);
     void getArbolCat(int _codSuper, NodoSupermercado* _raiz, ArbolCategorias*& _arbolCat);
     void getNodoSupermercado(int _codSuper,NodoSupermercado* _raiz, NodoSupermercado*& _resultado);
-
-
+    void getSuperMasVendido(NodoSupermercado *_raiz, NodoSupermercado *&NuevoNodo);
+    void getCatMasVendidaS(NodoSupermercado *_raiz, int _codSuper, nodocategoria *&NuevoNodo);
 };
 
 

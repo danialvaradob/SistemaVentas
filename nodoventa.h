@@ -17,7 +17,6 @@ public:
         monto = _monto;
         siguiente = NULL;
         anterior = NULL;
-        primero = NULL;
 
     }
 
@@ -27,12 +26,15 @@ public:
     void setSiguiente(NodoVenta* _siguiente){siguiente = _siguiente;};
     NodoVenta *getAnterior(){ return anterior;};
     void setAnterior(NodoVenta* _anterior){anterior = _anterior ;};
-    NodoVenta *getPrimero(){return primero;}
-    void setPrimero( NodoVenta* _primerProducto){primero = _primerProducto;};
     int getCodClient(){ return codigoCliente;};
     int getCodProv(){ return codigoProv;};
     int getCant(){return cantidadComprada;};
-    string getNomClien() {return nombreCliente;};
+    int getCodCat(){return codCategoria;}
+    int getCodProd(){return codProd;}
+    int getPrecioPorUnidad(){return precioPorUnidad;}
+    string getNomProd(){ return nombreProducto;}
+    string getDescCat(){return descCategoria;}
+    string getNomClient() {return nombreCliente;};
     string getNomProv() {return nombreProv;};
     double getMontoTotal() {return monto;};
 
@@ -42,11 +44,15 @@ private:
     int codigoCliente;
     string nombreCliente;
     int cantidadComprada;
+    int codCategoria;
+    string descCategoria;
+    int codProd;
+    string nombreProducto;
+    int precioPorUnidad;
     double monto;
 
     NodoVenta* siguiente;
     NodoVenta* anterior;
-    NodoVenta* primero;
 
     friend class ListaVentas;
 

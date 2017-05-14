@@ -27,7 +27,6 @@ public:
 
     // retorna true si en un determinado arbol de productos existe (el arbol de productos todos tienen la misma categoria)
     bool existeProducto(NodoProducto *_raiz,int codProducto);
-    string getProductoMasVend(NodoProducto* _raiz,int _codProducto);
     void PreordenI(NodoProducto *R);
     void cambiarStock(NodoProducto* &_raiz,int _codProducto, int _cantidad);
     void getNodoProducto(int _codProducto, NodoProducto* _raiz,NodoProducto* &_nuevoNodo);

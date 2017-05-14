@@ -237,3 +237,15 @@ void ArbolCategorias::getNodoCat(nodocategoria *_raiz, int _codCat, nodocategori
         getNodoCat(_raiz->der,_codCat, _nuevoNodo);
     }
 }
+
+void ArbolCategorias::getCategoriaMasVendida(nodocategoria *_raiz, nodocategoria *&NuevoNodo) {
+    if (_raiz == NULL) return;
+
+    else if (_raiz->getBestScore() > NuevoNodo->getBestScore()) {
+        NuevoNodo = _raiz;
+
+    } else {
+        getCategoriaMasVendida(_raiz->izq, NuevoNodo);
+        getCategoriaMasVendida(_raiz->der, NuevoNodo);
+    }
+}

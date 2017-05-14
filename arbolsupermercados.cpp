@@ -304,16 +304,46 @@ void ArbolSupermercados::getArbolCat(int _codSuper, NodoSupermercado *_raiz, Arb
     }
 }
 
-void ArbolSupermercados::getNodoSupermercado(int _codSuper, NodoSupermercado *_raiz, NodoSupermercado *&_resultado) {
+void ArbolSupermercados::getNodoSupermercado(int _codSuper, NodoSupermercado *_raiz, NodoSupermercado *&NuevoNodo) {
     if (_raiz== NULL) return;
 
     else {
         if (_raiz->getCodSuper() == _codSuper) {
-            _resultado = _raiz;
+            NuevoNodo = _raiz;
 
         } else {
-            getNodoSupermercado(_codSuper,_raiz->Hder,_resultado);
-            getNodoSupermercado(_codSuper,_raiz->Hizq,_resultado);
+            getNodoSupermercado(_codSuper,_raiz->Hder,NuevoNodo);
+            getNodoSupermercado(_codSuper,_raiz->Hizq,NuevoNodo);
+
+        }
+    }
+}
+
+void ArbolSupermercados::getSuperMasVendido(NodoSupermercado *_raiz, NodoSupermercado *&NuevoNodo) {
+    if (_raiz== NULL) return;
+
+    else {
+        if (_raiz->getCantidadVentas() > NuevoNodo->getCantidadVentas()) {
+            NuevoNodo = _raiz;
+
+        } else {
+            getSuperMasVendido(_raiz->Hder,NuevoNodo);
+            getSuperMasVendido(_raiz->Hizq,NuevoNodo);
+
+        }
+    }
+}
+
+void ArbolSupermercados::getCatMasVendidaS(NodoSupermercado *_raiz, int _codSuper,nodocategoria *&NuevoNodo) {
+    if (_raiz== NULL) return;
+
+    else {
+        if (_raiz->getCodSuper() == _codSuper) {
+            _raiz->punteroCategorias->getCategoriaMasVendida(_raiz->punteroCategorias->raiz, NuevoNodo);
+
+        } else {
+            getCatMasVendidaS(_raiz->Hder,_codSuper, NuevoNodo);
+            getCatMasVendidaS(_raiz->Hizq,_codSuper, NuevoNodo);
 
         }
     }
