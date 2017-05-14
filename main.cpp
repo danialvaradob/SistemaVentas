@@ -4,7 +4,6 @@
 #include "listalugares.h"
 #include "arbolproveedores.h"
 #include <fstream>
-#include <cstring>
 
 using namespace std;
 

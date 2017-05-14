@@ -11,6 +11,23 @@ using namespace std;
 class NodoProveedor {
 public:
 
+    NodoProveedor() {
+            numero = 0;
+            nombre = " ";
+            direccion = " ";
+            telefono = 0;
+
+            siguiente = NULL;
+            anterior = NULL;
+
+            cantidadDeVentas = 0;
+            Hizq=NULL;
+            Hder=NULL;
+
+
+
+    }
+
     NodoProveedor(int _codP, string _nombre, string _dir, int _tel){
         numero = _codP;
         nombre = _nombre;

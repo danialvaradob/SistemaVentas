@@ -9,6 +9,18 @@ using namespace std;
 class NodoSupermercado {
 public:
 
+    NodoSupermercado() {
+            codSuper = 0;
+            codLugar = 0;
+            nombre = " ";
+            FB = 0;
+            cantidadVentas = 0;
+            Hder = NULL;
+            Hizq = NULL;
+            punteroProductos = NULL;
+            punteroCategorias = NULL;
+
+    }
 
     NodoSupermercado(int _codSuper,int _codLugar, string _nombre ){
         codSuper = _codSuper;

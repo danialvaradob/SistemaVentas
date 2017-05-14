@@ -9,6 +9,19 @@ using namespace std;
 class NodoCliente {
 public:
 
+    NodoCliente() {
+        numero = 0;
+        idx = 0;
+        nombre = " ";
+        direccion = " ";
+        telefono = 0;
+        siguiente = NULL;
+        anterior = NULL;
+        izq = NULL;
+        der = NULL;
+        cantidadDeCompras = 0;
+
+    }
 
     NodoCliente(int _numero, int _id, string _nombre, string _direccion, int _telefono)
     {
