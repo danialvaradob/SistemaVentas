@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "nodolugar.h"
-using namespace std;
+
 
 
 //LISTA CIRCULAR DOBLE
@@ -16,7 +16,7 @@ public:
     bool listaVacia() {return primero == NULL;}
 
     int largoLista();
-    void insertarLugar(int _codigo, string _nombre);
+    void insertarLugar(int _codigo, std::string _nombre);
     bool existeLugar(int _codigo);
     void aumentarCantidadDeSupermercados(int codLugar);
 

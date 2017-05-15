@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-using namespace std;
 
 
 
@@ -30,7 +29,7 @@ public:
         der = NULL;
     }
 
-    NodoProducto(int _codigoProducto, int _codigoCategoria, string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock){
+    NodoProducto(int _codigoProducto, int _codigoCategoria, std::string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock){
 
         codigoProducto = _codigoProducto;
         codigoCategoria = _codigoCategoria;
@@ -61,7 +60,7 @@ public:
 
     int getCodigoProducto();
     int getCodigoCategoria();
-    string getNombreProducto();
+    std::string getNombreProducto();
     double getPrecioPorUnidad();
     int getCantidadEnStock();
     void setCantidadEnStock(int _cantidadNueva);
@@ -91,7 +90,7 @@ private:
     int cantidadProductoVendido;
     int codigoProducto;
     int codigoCategoria;
-    string nombreProducto;
+    std::string nombreProducto;
     double precioPorUnidad;
     int cantidadEnStock;
     int cantidadAlInicio;

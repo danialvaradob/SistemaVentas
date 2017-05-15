@@ -4,11 +4,11 @@
 #include <stdlib.h>
 
 #include <string>
-using namespace std;
+
 
 class NodoVenta {
 public:
-    NodoVenta(int _codP, string _nombreP, int _codC, string _nombreC, int cant, double _monto){
+    NodoVenta(int _codP, std::string _nombreP, int _codC, std::string _nombreC, int cant, double _monto){
         codigoProv = _codP;
         nombreProv = _nombreP;
         codigoCliente = _codC;
@@ -20,7 +20,7 @@ public:
 
     }
 
-    string toString();
+    std::string toString();
 
     NodoVenta *getSiguiente(){ return siguiente;};
     void setSiguiente(NodoVenta* _siguiente){siguiente = _siguiente;};
@@ -32,22 +32,22 @@ public:
     int getCodCat(){return codCategoria;}
     int getCodProd(){return codProd;}
     int getPrecioPorUnidad(){return precioPorUnidad;}
-    string getNomProd(){ return nombreProducto;}
-    string getDescCat(){return descCategoria;}
-    string getNomClient() {return nombreCliente;};
-    string getNomProv() {return nombreProv;};
+    std::string getNomProd(){ return nombreProducto;}
+    std::string getDescCat(){return descCategoria;}
+    std::string getNomClient() {return nombreCliente;};
+    std::string getNomProv() {return nombreProv;};
     double getMontoTotal() {return monto;};
 
 private:
     int codigoProv;
-    string nombreProv;
+    std::string nombreProv;
     int codigoCliente;
-    string nombreCliente;
+    std::string nombreCliente;
     int cantidadComprada;
     int codCategoria;
-    string descCategoria;
+    std::string descCategoria;
     int codProd;
-    string nombreProducto;
+    std::string nombreProducto;
     int precioPorUnidad;
     double monto;
 

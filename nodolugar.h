@@ -7,10 +7,10 @@
 
 #include <string>
 #include <iostream>
-using namespace std;
+
 
 class NodoLugar {
-    NodoLugar(int _codigo, string _nombre) {
+    NodoLugar(int _codigo, std::string _nombre) {
         codigo = _codigo;
         nombre = _nombre;
         cantidadSupermercados = 0;
@@ -21,7 +21,7 @@ class NodoLugar {
     }
 
     int getCodigo() {return codigo;}
-    string getNombre() {return nombre;}
+    std::string getNombre() {return nombre;}
     NodoLugar* getAnteior() {return anterior;}
     NodoLugar* getSiguiente() {return siguiente;}
     int getCantidad() {return cantidadSupermercados;}
@@ -30,7 +30,7 @@ class NodoLugar {
 
 private:
     int codigo;
-    string nombre;
+    std::string nombre;
     int cantidadSupermercados;
     NodoLugar* siguiente;
     NodoLugar* anterior;

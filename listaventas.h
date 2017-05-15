@@ -8,7 +8,6 @@
 #include "arbolsupermercados.h"
 #include "arbolproveedores.h"
 #include <string>
-using namespace std;
 
 class ListaVentas {
 public:
