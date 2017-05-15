@@ -104,11 +104,12 @@ public:
     ApuntadorPagina DividirNodoB(ApuntadorPagina Raiz,  int _id, std::string _nombre, std::string _direccion, int _telefono);
     void IniciarRecorridoB();
     void RecorridoInordenB(ApuntadorPagina Raiz);
-    bool existeCliente(ApuntadorPagina Raiz,int _Numero);
+    void existeCliente(ApuntadorPagina Raiz,int _Numero,bool _existe);
 
     void getClienteMasCompras(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras);
     void agregarCompra(ApuntadorPagina Raiz,int _codCliente);
     void getCliente(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras, int _id);
+
 
     // Funcion que simplemente agrega un cliente usando IniciarInsercionB(para Numero se utiliza el mismo _id, son 2 _id
     // en total)

@@ -160,18 +160,19 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
         if (bandera == OPCION_VENTA) {
+            //ArbolSupermercados *_arbolSupermercados = new ArbolSupermercados();
+            ArbolCategorias *_arbolCategorias = new ArbolCategorias();
+            ArbolProductos *_arbolProductos = new ArbolProductos();
+            NodoSupermercado *_nodoSup = new NodoSupermercado();
+            nodocategoria *_nodoCat = new nodocategoria();
+            NodoProducto *_nodoProd = new NodoProducto();
+            NodoProveedor *_nodoProv = new NodoProveedor();
+            NodoCliente *_nodoCliente = new NodoCliente();
 
             //4 veces para poder obtener lo de la venta
             for (int i = 0; i < 4; i++) {
 
-                //ArbolSupermercados *_arbolSupermercados = new ArbolSupermercados();
-                ArbolCategorias *_arbolCategorias = new ArbolCategorias();
-                ArbolProductos *_arbolProductos = new ArbolProductos();
-                NodoSupermercado *_nodoSup = new NodoSupermercado();
-                nodocategoria *_nodoCat = new nodocategoria();
-                NodoProducto *_nodoProd = new NodoProducto();
-                NodoProveedor *_nodoProv = new NodoProveedor();
-                NodoCliente *_nodoCliente = new NodoCliente();
+
 
                 bzero(buffer, 256);
                 n = read(newsockfd, buffer, 255);

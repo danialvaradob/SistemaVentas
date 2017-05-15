@@ -227,6 +227,27 @@ void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
     }
 }
 
+void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool _existe) {
+    if(Raiz == NULL){
+        return;
+    }
+    else{
+        int I = 1;
+        while(I <= Raiz->cuenta){
+
+            pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
+
+            if (Recorrido->)
+
+            existeCliente(Raiz->Ramas->ObtenerRama(I-1), _Numero, _existe);
+
+            I++;
+        }
+    }
+
+}
+
+
 void ArbolClientes::agregarCompra(ApuntadorPagina Raiz, int _codCliente) {
     if(Raiz == NULL){
         return;
