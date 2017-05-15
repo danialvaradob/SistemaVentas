@@ -10,7 +10,7 @@
 
 
 class NodoLugar {
-
+public:
     NodoLugar() {
             codigo = 0;
             nombre = " ";

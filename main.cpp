@@ -4,7 +4,7 @@
 #include "listalugares.h"
 #include "arbolproveedores.h"
 #include <fstream>
-
+//#include "server.cpp"
 
 
 
@@ -143,6 +143,7 @@ void leerArchSupermercado(ArbolSupermercados * _supermercado, ListaLugares* _lug
             continue;
         }else{
             std::cout << "Codigo Supermercado: " << codSuper << " Nombre: "<< nombre << std::endl;
+            //std::cout << "Codigo LUGAR: " << codLugar << std::endl;
             //_supermercado->insertarNodoSupermercado(codSint,codLint,nombre);
 
             _supermercado->insertarBalanceado(_supermercado->raiz, Hh,codSint,codLint,nombre);
@@ -282,23 +283,25 @@ int main() {
 
 
 
-/*    ListaLugares* listaLugares = new ListaLugares();
-    leerArchLugares(listaLugares);
+    ListaLugares* listaLugares = new ListaLugares();
+    //leerArchLugares(listaLugares);
 
     ArbolClientes *arbolClientes = new ArbolClientes();
-    leerArchClientes(arbolClientes);
+    //leerArchClientes(arbolClientes);
     //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
 
     ArbolProveedores* arbolProveedores = new ArbolProveedores();
     leerArchProveedores(arbolProveedores);
 
     ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
-    leerArchSupermercado(arbolSupermercados,listaLugares);
+    //leerArchSupermercado(arbolSupermercados,listaLugares);
 
-    leerArchCategorias(arbolSupermercados);
+    //leerArchCategorias(arbolSupermercados);
 
-    leerArchProductos(arbolSupermercados);
-*/
+    //leerArchProductos(arbolSupermercados);
+
+    //socketMain(arbolSupermercados,arbolProveedores,arbolClientes,listaLugares);
+
 
     //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
     //leerArchProductos(arbolSupermercados);

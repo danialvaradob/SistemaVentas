@@ -18,7 +18,7 @@ public:
     void insertarLugar(int _codigo, std::string _nombre);
     bool existeLugar(int _codigo);
     void aumentarCantidadDeSupermercados(int codLugar);
-    void getLugarMasSuper();
+    void getLugarMasSuper(NodoLugar*&_lugarMasSupermercados);
 
 private:
     NodoLugar* primero;

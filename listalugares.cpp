@@ -69,6 +69,18 @@ void ListaLugares::aumentarCantidadDeSupermercados(int _codLugar) {
 
 }
 
-void ListaLugares::getLugarMasSuper() {
-
+void ListaLugares::getLugarMasSuper(NodoLugar*&_lugarMasSupermercados) {
+    NodoLugar* aux = primero;
+    while (aux->siguiente!= primero) {
+        if (aux == primero) {
+            //primera vez, hace el que tiene mayor cantidad de supermercados al primero
+            _lugarMasSupermercados = primero;
+        }
+        else {
+            if (aux->cantidadSupermercados > _lugarMasSupermercados->cantidadSupermercados) {
+                _lugarMasSupermercados = aux;
+            }
+        }
+        aux = aux->siguiente;
+    }
 }
