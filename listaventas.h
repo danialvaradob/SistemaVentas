@@ -15,10 +15,6 @@ public:
 
     void insertar(NodoVenta *_venta);
     bool listaVacia() {return primero == NULL;}
-    string getProveedorMasVentas(ArbolProveedores* _ListaProveedores);
-    string getClienteMasCompras(ArbolClientes * _arbolClientes);
-    string getProductoMasVendido(ArbolSupermercados* _arbolSuper, int _codCategoria, int _codProducto);
-    string getCategoriaMasVendida(ArbolSupermercados* _arbolSuper, int _codCategoria);
 
 
     NodoVenta* getPrimero() {return primero;};

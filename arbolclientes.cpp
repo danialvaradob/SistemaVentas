@@ -227,6 +227,27 @@ void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
     }
 }
 
+void ArbolClientes::agregarCompra(ApuntadorPagina Raiz, int _codCliente) {
+    if(Raiz == NULL){
+        return;
+    }
+    else{
+        int I = 1;
+        while(I <= Raiz->cuenta){
+
+            pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
+
+            if (Recorrido->getID() == _codCliente){
+                Recorrido->aumentarVentas();
+            }
+
+            agregarCompra(Raiz->Ramas->ObtenerRama(I-1),_codCliente);
+
+            I++;
+        }
+    }
+
+}
 
 
 void ArbolClientes::getClienteMasCompras(ApuntadorPagina Raiz, NodoCliente *&_clienteMasCompras) {

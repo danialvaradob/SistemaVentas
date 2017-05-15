@@ -1,21 +1,21 @@
 #include "nodoventa.h"
 #include <sstream>
 
-string NodoVenta::toString() {
-    stringstream flujo;
-    stringstream flujo1;
-    stringstream flujo2;
-    stringstream flujo3;
-    stringstream flujo4;
-    stringstream flujo5;
-    stringstream flujo6;
-    string _codProv;
-    string _codCliente;
-    string _cant;
-    string _monto;
-    string _codProd;
-    string _codCat;
-    string _precioXunidad;
+std::string NodoVenta::toString() {
+    std::stringstream flujo;
+    std::stringstream flujo1;
+    std::stringstream flujo2;
+    std::stringstream flujo3;
+    std::stringstream flujo4;
+    std::stringstream flujo5;
+    std::stringstream flujo6;
+    std::string _codProv;
+    std::string _codCliente;
+    std::string _cant;
+    std::string _monto;
+    std::string _codProd;
+    std::string _codCat;
+    std::string _precioXunidad;
 
     flujo << codigoProv;
     _codProv = flujo.str();

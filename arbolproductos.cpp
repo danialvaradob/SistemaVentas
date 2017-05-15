@@ -209,10 +209,10 @@ void ArbolProductos::getProductosCambiaronStock(NodoProducto *_raiz) {
     if (raiz==NULL)return;
     else {
         if (raiz->getCantidadEnStock() != raiz->getCantidadAlInicio()) {
-            cout << " " << endl;
-            cout << "Nombre: " << raiz->getNombreProducto() << endl;
-            cout << "Codigo: " << raiz->getCodigoProducto() << endl;
-            cout << " " << endl;
+            std::cout << " " << endl;
+            std::cout << "Nombre: " << raiz->getNombreProducto() << endl;
+            std::cout << "Codigo: " << raiz->getCodigoProducto() << endl;
+            std::cout << " " << endl;
         }
         getProductosCambiaronStock(_raiz->der);
         getProductosCambiaronStock(_raiz->izq);

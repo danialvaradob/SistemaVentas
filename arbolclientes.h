@@ -107,6 +107,7 @@ public:
     bool existeCliente(ApuntadorPagina Raiz,int _Numero);
 
     void getClienteMasCompras(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras);
+    void agregarCompra(ApuntadorPagina Raiz,int _codCliente);
 
     // Funcion que simplemente agrega un cliente usando IniciarInsercionB(para Numero se utiliza el mismo _id, son 2 _id
     // en total)

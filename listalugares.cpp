@@ -14,7 +14,7 @@ ListaLugares::~ListaLugares() {
     actual = NULL;
 }
 
-void ListaLugares::insertarLugar(int _codigo, string _nombre) {
+void ListaLugares::insertarLugar(int _codigo, std::string _nombre) {
 
     if (listaVacia()){
         NodoLugar* nuevo = new  NodoLugar( _codigo,  _nombre);
@@ -66,5 +66,9 @@ void ListaLugares::aumentarCantidadDeSupermercados(int _codLugar) {
         aux = aux->getSiguiente();
     } while (aux != primero);
 
+
+}
+
+void ListaLugares::getLugarMasSuper() {
 
 }

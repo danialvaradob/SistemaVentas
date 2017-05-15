@@ -32,7 +32,7 @@ public:
     void getNodoProducto(int _codProducto, NodoProducto* _raiz,NodoProducto* &_nuevoNodo);
 
     void getProductoMasVendido( NodoProducto* _raiz,NodoProducto* &_nuevoNodo);
-    void getProductosCambiaronStock(NodoProducto* _raiz);
+    void getProductosCambiaronStock(NodoProducto* _raizx);
 
 
 

@@ -1,7 +1,7 @@
 #include "nodosupermercado.h"
 
 
-void NodoSupermercado::insertarNodo(int _codSuper, int _codLugar, string _nombre) {
+void NodoSupermercado::insertarNodo(int _codSuper, int _codLugar, std::string _nombre) {
 
     if(_codSuper<codSuper){
         if(Hizq==NULL){

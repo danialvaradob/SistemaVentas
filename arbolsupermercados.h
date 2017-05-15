@@ -5,7 +5,7 @@
 #include "arbolproductos.h"
 #include "nodosupermercado.h"
 #include <string>
-using namespace std;
+
 
 //ARBOL AVL
 
@@ -20,7 +20,7 @@ public:
 
     //CAMBIAR ESTAS
     void preordenI(NodoSupermercado *k);
-    string inordenI();
+    std::string inordenI();
     void postordenI();
 
     bool Hh;
@@ -29,7 +29,7 @@ public:
     //ESCRIBIR ESTAS EN CODIGO
     void equilibrar1(NodoSupermercado *&n, bool);
     void equilibrar2(NodoSupermercado *&n, bool);
-    void insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int _codSuper,int _codLugar, string _nombre );
+    void insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int _codSuper,int _codLugar, std::string _nombre );
     void rotacionDobleIzquierda(NodoSupermercado *&n1, NodoSupermercado *&n2);
     void rotacionDobleDerecha(NodoSupermercado *&n1, NodoSupermercado *&n2);
     void rotacionSimpleIzquierda(NodoSupermercado *&n1, NodoSupermercado *&n2);
@@ -43,9 +43,9 @@ public:
 
     //Agregar Categoria (a un arbol de categorias)
 
-    void agregarCategoria(NodoSupermercado* nodoSupermercado,int _codSuper,int _codCat, string _descCat); // inserta un nodo a un arbol RN
+    void agregarCategoria(NodoSupermercado* nodoSupermercado,int _codSuper,int _codCat, std::string _descCat); // inserta un nodo a un arbol RN
     void agregarProducto(NodoSupermercado* nodoSupermercado, int _codSuper, int _codCat,
-                         int _codProducto , string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock);  // inserta un nodo a un arbol AA
+                         int _codProducto , std::string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock);  // inserta un nodo a un arbol AA
     bool existeSupermercado(int _codNuevoSuper, NodoSupermercado* _raiz);
 
     bool existeCategoria(int _codSuper,int _codCat, NodoSupermercado* _raiz);

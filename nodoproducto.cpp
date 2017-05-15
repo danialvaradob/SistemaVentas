@@ -10,7 +10,7 @@ int NodoProducto::getCodigoCategoria(){
     return codigoCategoria;
 }
 
-string NodoProducto::getNombreProducto(){
+std::string NodoProducto::getNombreProducto(){
     return nombreProducto;
 }
 

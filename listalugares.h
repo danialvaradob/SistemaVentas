@@ -1,7 +1,6 @@
 #ifndef LISTALUGARES_H
 #define LISTALUGARES_H
 
-#include <iostream>
 #include "nodolugar.h"
 
 
@@ -19,6 +18,7 @@ public:
     void insertarLugar(int _codigo, std::string _nombre);
     bool existeLugar(int _codigo);
     void aumentarCantidadDeSupermercados(int codLugar);
+    void getLugarMasSuper();
 
 private:
     NodoLugar* primero;

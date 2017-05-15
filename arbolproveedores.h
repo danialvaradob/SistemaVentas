@@ -18,7 +18,7 @@ public:
 
    //++++Insersion al arbol+++++++++++++++++++++
 
-    void insertarNodoProveedor(int idProveedor,string nombre,string direccion,int tel);
+    void insertarNodoProveedor(int idProveedor,std::string nombre,std::string direccion,int tel);
     //++++++++++++ Ordenes ++++++++++++++++++++++++
     void PreordenI(NodoProveedor *R);
     void InordenI(NodoProveedor *R);
@@ -32,7 +32,7 @@ public:
     //Aumenta las ventas de un proveedor determinado
     void aumentarVentas(int _id, NodoProveedor *_raiz);
 
-    string getNombreProveedor(int _id, NodoProveedor *_raiz);
+    std::string getNombreProveedor(int _id, NodoProveedor *_raiz);
     void getNodoProveedor(int _id,NodoProveedor *_raiz, NodoProveedor* &_nuevoNodo);
 
     bool encontrado = false;
