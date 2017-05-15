@@ -28,6 +28,7 @@ void ListaLugares::insertarLugar(int _codigo, string _nombre) {
         nuevo->anterior = primero->anterior;
         primero->anterior->siguiente = nuevo;
         primero->anterior = nuevo;
+
     }
 }
 

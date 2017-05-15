@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-using namespace std;
+
 
 
 
@@ -28,7 +28,7 @@ public:
 
     }
 
-    NodoProveedor(int _codP, string _nombre, string _dir, int _tel){
+    NodoProveedor(int _codP, std::string _nombre, std::string _dir, int _tel){
         numero = _codP;
         nombre = _nombre;
         direccion = _dir;
@@ -43,22 +43,22 @@ public:
 
     }
 
-    string toString();
+    std::string toString();
 
     NodoProveedor *getSiguiente();
     void setSiguiente(NodoProveedor* _siguiente);
     NodoProveedor *getAnterior();
     void setAnterior(NodoProveedor* _anterior);
 
-    string getNombre();
-    string getDireccion();
+    std::string getNombre();
+    std::string getDireccion();
     int getID();
     int getTelefono();
     int getCantidadDeVentas();
     void aumentarVentas(){cantidadDeVentas++;}
 
     // Metodo utilizado para agregar un nodo de forma correcta
-    void insertarProveedor(int idProveedor,string nombre,string direccion,int intTel);
+    void insertarProveedor(int idProveedor,std::string nombre,std::string direccion,int intTel);
 
     NodoProveedor *Hizq;
     NodoProveedor *Hder;
@@ -68,8 +68,8 @@ public:
 
 private:
     int numero;
-    string nombre;
-    string direccion;
+    std::string nombre;
+    std::string direccion;
     int telefono;
     int bestScore;
     NodoProveedor *siguiente;
