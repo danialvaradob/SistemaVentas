@@ -465,49 +465,31 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
         }else if (bandera == OPCION_CATEGORIA_MAS_VENDIDA) {
+            ArbolCategorias *_arbolCategorias = new ArbolCategorias();
+            nodocategoria *_nodoCat = new nodocategoria();
             //OBTENER CATEGORIA MAS VENDIDA
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 1; i++) {
 
                 if (i == 0 ) {
                     // ademas aca la primera vez, saca todos los nodos para asi revisarlos
 
-
-                    //funcion que verifica el codigo del super
-
-
-                    //existe
+                    //verifica que existe
                     codSuper = atoi(buffer);
-
-                    //Verifica si existe dicho codigo
-                    // if (!arbolSupermercados->existeCategoria(arbolSupermercados->raiz,codSuper))
-                    // aca pone
-                    //n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
-                    //
-                    n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
-                    n = write(newsockfd, "Por favor digite el codigo de la categoria que desea: ", strlen("Por favor digite el codigo de la categoria que desea: "));
-
-                }else if ( i == 1) {
-
-
-
-                    //aca es donde se van metiendo en los valores los codigos
-                    codCat = atoi(buffer);
-                    //
-                    //ArbolCategorias* arbolCategorias = new ArbolCategorias()
-                    //arbolSupermercados->getArbolCat(codSuper, arbolSupermecados->raiz, ArbolCategorias*& arbolCategorias);
-                    //Verifica si existe dicho codigo
-                    // if (!arbolCategorias->existeCategoria(arbolCategorias->raiz,codCat))
-                    // aca pone
-                    // nodocategoria* categoria = new nodocategoria()
-                    //
-                    n = write(newsockfd, "Codigo de Categoria recibido", strlen("Codigo de Categoria recibido"));
-                    n = write(newsockfd, "Categoria Mas Vendida", strlen("Categoria Mas Vendida"));
-
+                    if(!_arbolSupermercados->existeSupermercado(codSuper, _arbolSupermercados->raiz)){
+                        n = write(newsockfd, "Error en el codigo de Supermercado\n", strlen("Error en el codigo de Supermercado\n"));
+                    }
+                    _arbolSupermercados->getCatMasVendidaS(_arbolSupermercados->raiz, codSuper, _nodoCat);
+                    std::string nombre = _nodoCat->getDesc();
+                    std::vector<char> v(nombre.begin(), nombre.end());
+                    v.push_back('\0'); // Make sure we are null-terminated
+                    char* msgCodSR = &v[0];
+                    n = write(newsockfd, msgCodSR, strlen(msgCodSR));
                 }
+            }
                 bandera = 0;
 
-            }
+
 
 
 
