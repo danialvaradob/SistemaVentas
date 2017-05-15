@@ -1,6 +1,7 @@
 #include "arbolproductos.h"
 #include <string>
 #include <iostream>
+#include <sstream>
 //ARBOL ArbolProductos
 
 using namespace std;
@@ -205,17 +206,18 @@ void ArbolProductos::getProductoMasVendido(NodoProducto *_raiz, NodoProducto *&_
     }
 }
 
-void ArbolProductos::getProductosCambiaronStock(NodoProducto *_raiz) {
-    if (raiz==NULL)return;
+void ArbolProductos::getProductosCambiaronStock(NodoProducto *_raiz, std::string &_string) {
+    if (_raiz==NULL)return;
     else {
-        if (raiz->getCantidadEnStock() != raiz->getCantidadAlInicio()) {
-            std::cout << " " << endl;
-            std::cout << "Nombre: " << raiz->getNombreProducto() << endl;
-            std::cout << "Codigo: " << raiz->getCodigoProducto() << endl;
-            std::cout << " " << endl;
+        if (_raiz->getCantidadEnStock() != _raiz->getCantidadAlInicio()) {
+            std::stringstream flujo;
+            std::string _codP;
+            flujo << _raiz->getCodigoProducto();
+            _codP = flujo.str();
+            _string+="\nNombre: "+_raiz->getNombreProducto()+"\nCodigo: "+_codP+"\n";
         }
-        getProductosCambiaronStock(_raiz->der);
-        getProductosCambiaronStock(_raiz->izq);
+        getProductosCambiaronStock(_raiz->der, _string);
+        getProductosCambiaronStock(_raiz->izq, _string);
     }
 }
 
