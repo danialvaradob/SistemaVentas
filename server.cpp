@@ -552,8 +552,11 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     //aca es donde se van metiendo en los valores los codigos
                     codPro = atoi(buffer);
 
-                    n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
-                    n = write(newsockfd,"Desea ELIMINAR el producto? (S/N)",strlen("Desea ELIMINAR el producto? (S/N)"));
+                    arbolCategorias->existeProducto(codPro,codCat,arbolCategorias->raiz);
+
+                    char msgAccept[] = "Codigo de Producto recibido\nDesea ELIMINAR el producto? (S/N)";
+
+                    n = write(newsockfd, msgAccept, strlen(msgAccept);
 
                     //
                     //ArbolProductos* arbolProductos = new ArbolProductos()
