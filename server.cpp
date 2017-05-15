@@ -604,6 +604,20 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
         }else if (bandera == OPCION_IMPRIMIR_ARBOL_PREORDEN) {
+            //COMPARA TODOS
+            if (( memcmp( buffer, "1", strlen( "1"))) == 0 ) {
+                //OPCION
+            }
+            else if (( memcmp( buffer, "2", strlen( "1"))) == 0 ) {
+                //OPCION 2
+            } else if (( memcmp( buffer, "3", strlen( "1"))) == 0 ) {
+                //OPCION3
+
+            }else if (( memcmp( buffer, "4", strlen( "1"))) == 0 ) {
+                //OPCION 4
+            } else if (( memcmp( buffer, "5", strlen( "1"))) == 0 ) {
+                //OPCION 5
+            }
 
 
 
@@ -678,7 +692,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
                 char msgPreorden[] = "Digite 1 si desea un arbol de supermercados\nDigite 2 si desea un arbol de categorias\n"
                         "Digite 3 si desea un arbol de proveedores\nDigite 4 si desea un arbol de clientes\n"
-                        "Digite 4 si desea un arbol de clientes\nDigite 5 si desea el arbol de proveedores";
+                        "Digite 5 si desea un arbol de productos";
                 n = write(newsockfd,msgPreorden, strlen(msgPreorden));
 
                 bandera = OPCION_IMPRIMIR_ARBOL_PREORDEN;

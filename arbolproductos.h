@@ -1,7 +1,7 @@
 #ifndef ARBOLPRODUCTOS_H
 #define ARBOLPRODUCTOS_H
 
-#include <string>
+//#include <string>
 #include "nodoproducto.h"
 
 //ARBOL AA
