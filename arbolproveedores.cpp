@@ -101,3 +101,15 @@ void ArbolProveedores::getNodoProveedor(int _id, NodoProveedor *_raiz, NodoProve
 
     }
 }
+
+void ArbolProveedores::getNodoProveedorMasVentas(NodoProveedor *_raiz, NodoProveedor *&_nuevoNodo) {
+    if (_raiz ==NULL) return;
+    else if (_raiz->getCantidadDeVentas() > _nuevoNodo->getCantidadDeVentas()) {
+        _nuevoNodo = _raiz;
+    } else {
+        getNodoProveedorMasVentas( _raiz->Hizq,_nuevoNodo);
+        getNodoProveedorMasVentas( _raiz->Hder,_nuevoNodo);
+
+    }
+}
+

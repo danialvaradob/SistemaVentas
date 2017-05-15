@@ -18,6 +18,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <vector>
 #include "arbolproveedores.h"
 #include "arbolclientes.h"
 #include "arbolsupermercados.h"
@@ -147,7 +148,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     n = write(newsockfd, "Telefono guardado", strlen("Telefono guardada"));
 
                     //Agrega el cliente por completo con todos sus datos ya obtenidos
-                    _arbolClientes->IniciarInsercionB(idCliente,idCliente,nombreCliente,dirCliente,telefonoCliente);
+                    //_arbolClientes->IniciarInsercionB(idCliente,idCliente,nombreCliente,dirCliente,telefonoCliente);
                     //dirCliente,telefonoCliente)
                     //
 
@@ -155,8 +156,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                 bandera = 0;
 
             }
-
         }
+
 
         if (bandera == OPCION_VENTA) {
 
@@ -241,7 +242,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                 }
             }
             bandera = 0;
-        }
+
 /*
                     bzero(buffer,256);
                 n = read(newsockfd,buffer,255);
@@ -298,7 +299,9 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             n = write(newsockfd, "El proveedor con mas ventas es:  ", strlen("El proveedor con mas ventas es: "));
 
             //Entra en un ciclo donde determina el proveedor con mas ventas
-            //arbolProveedores
+            NodoProveedor* proveedorMasVentas = new NodoProveedor();
+            _arbolProveedores->getNodoProveedorMasVentas(_arbolProveedores->raiz,proveedorMasVentas);
+
             //
 
 
@@ -340,9 +343,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                         break;
                     }
 
-                    n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
-                    n = write(newsockfd, "Por favor digite el codigo de la categoria que desea: ", strlen("Por favor digite el codigo de la categoria que desea: "));
-
+                    char msgSuperR[] = "Codigo del Super recibido\nDigite el Codigo de Categoria";
+                    n = write(newsockfd, msgSuperR, strlen(msgSuperR));
                 }else if ( i == 1) {
 
 
@@ -358,9 +360,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                          break;
                      }
                     // aca pone
-
-                    n = write(newsockfd, "Codigo de Categoria recibido\n", strlen("Codigo de Categoria recibido\n"));
-                    n = write(newsockfd, "Digite el Codigo de Producto", strlen("Digite el Codigo de Producto"));
+                    char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
+                    n = write(newsockfd, msgCodR, strlen(msgCodR));
 
                 }else if (i == 2) {
 
@@ -376,13 +377,14 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     }
                     NodoProducto* productoMasVendido = new NodoProducto();
                     arbolProductos->getProductoMasVendido(arbolProductos->raiz,productoMasVendido);
-                    //
+
                     //productoMasVendido->
-
-                    n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
-
-
-
+                    std::string nombre = productoMasVendido->getNombreProducto() + '\n' + "de codigo: "+
+                            productoMasVendido->getCodigoProducto();
+                    std::vector<char> v(nombre.begin(), nombre.end());
+                    v.push_back('\0'); // Make sure we are null-terminated
+                    char* productoCh = &v[0];
+                    n = write(newsockfd,productoCh , strlen(productoCh));
 
                 }
 
@@ -392,7 +394,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
 
-        } else if (bandera == 5) {
+        } else if (bandera == OPCION_PRODUCTOS_CAMBIARON_STOCK) {
             //Productos que cambiaron el stock
 
             for (int i = 0; i < 3; i++) {
@@ -450,7 +452,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
 
-        }else if (bandera == 6) {
+        }else if (bandera == OPCION_CATEGORIA_MAS_VENDIDA) {
             //OBTENER CATEGORIA MAS VENDIDA
 
             for (int i = 0; i < 2; i++) {
@@ -505,7 +507,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
 
-        }else if (bandera == 10) {
+        }else if (bandera == OPCION_ELIMINAR_PRODUCTO) {
 
             for (int i = 0; i < 4; i++) {
 
