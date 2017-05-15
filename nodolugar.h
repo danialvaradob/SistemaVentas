@@ -10,6 +10,17 @@
 
 
 class NodoLugar {
+
+    NodoLugar() {
+            codigo = 0;
+            nombre = " ";
+            cantidadSupermercados = 0;
+
+            siguiente = NULL;
+            anterior = NULL;
+
+    }
+
     NodoLugar(int _codigo, std::string _nombre) {
         codigo = _codigo;
         nombre = _nombre;

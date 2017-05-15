@@ -237,7 +237,8 @@ void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool _exist
 
             pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
-            if (Recorrido->)
+            if (Recorrido->getID() == _Numero)
+                _existe = true;
 
             existeCliente(Raiz->Ramas->ObtenerRama(I-1), _Numero, _existe);
 
