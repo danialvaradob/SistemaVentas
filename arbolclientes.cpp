@@ -268,3 +268,21 @@ void ArbolClientes::getClienteMasCompras(ApuntadorPagina Raiz, NodoCliente *&_cl
     }
 
 }
+
+void ArbolClientes::getCliente(ApuntadorPagina Raiz, NodoCliente *&_cliente, int _id) {
+    if(Raiz == NULL){
+        return;
+    }
+    else{
+        int I = 1;
+        while(I <= Raiz->cuenta){
+
+            pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
+
+            if (Recorrido->getID() == _id) _cliente = Recorrido;
+            getClienteMasCompras(Raiz->Ramas->ObtenerRama(I-1),_cliente);
+
+            I++;
+        }
+    }
+}

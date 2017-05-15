@@ -51,11 +51,11 @@ void error(const char *msg)
 }
 const int portno = 9090;
 
-void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _arbolProveedores, ArbolClientes*& arbolClientes
+void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _arbolProveedores, ArbolClientes*& _arbolClientes,
                       ListaLugares*& _listaLugares) {
 
 
-    ListaVentas* listaVentas = new
+    ListaVentas* listaVentas = new  ListaVentas();
 
     int sockfd, newsockfd;
     socklen_t clilen;
@@ -147,7 +147,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     n = write(newsockfd, "Telefono guardado", strlen("Telefono guardada"));
 
                     //Agrega el cliente por completo con todos sus datos ya obtenidos
-                    //arbolClientes->iniciarInsercionB(idCliente,idCliente,nombreCliente
+                    _arbolClientes->IniciarInsercionB(idCliente,idCliente,nombreCliente,dirCliente,telefonoCliente);
                     //dirCliente,telefonoCliente)
                     //
 
@@ -240,24 +240,27 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             //determina el Producto con mas Ventas
             bzero(buffer,256);
             n = read(newsockfd,buffer,255);
+            char msgNoExiste[] = "Codigo NO EXISTE";
+
+
+            ArbolCategorias* arbolCategorias = new ArbolCategorias();
+            ArbolProductos* arbolProductos = new ArbolProductos();
+
 
             for (int i = 0; i < 3; i++) {
 
                 if (i == 0 ) {
                     // ademas aca la primera vez, saca todos los nodos para asi revisarlos
 
-
-                    //funcion que verifica el codigo del super
-
-
-                    //existe
                     codSuper = atoi(buffer);
 
                     //Verifica si existe dicho codigo
-                    // if (!arbolSupermercados->existeCategoria(arbolSupermercados->raiz,codSuper))
-                    // aca pone
-                    //n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
-                    //
+                    if (!_arbolSupermercados->existeCategoria(codSuper,codCat,_arbolSupermercados->raiz)) {
+                        char msgNoExiste[] = "Codigo NO EXISTE";
+                        n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                        break;
+                    }
+
                     n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
                     n = write(newsockfd, "Por favor digite el codigo de la categoria que desea: ", strlen("Por favor digite el codigo de la categoria que desea: "));
 
@@ -268,10 +271,13 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     //aca es donde se van metiendo en los valores los codigos
                     codCat = atoi(buffer);
                     //
-                    //ArbolCategorias* arbolCategorias = new ArbolCategorias()
-                    //arbolSupermercados->getArbolCat(codSuper, arbolSupermecados->raiz, ArbolCategorias*& arbolCategorias);
+
+                    _arbolSupermercados->getArbolCat(codSuper,_arbolSupermercados->raiz,arbolCategorias);
                     //Verifica si existe dicho codigo
-                    // if (!arbolCategorias->existeCategoria(arbolCategorias->raiz,codCat))
+                     if (!arbolCategorias->existeCategoria(codCat,arbolCategorias->raiz)) {
+                         n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                         break;
+                     }
                     // aca pone
 
                     n = write(newsockfd, "Codigo de Categoria recibido\n", strlen("Codigo de Categoria recibido\n"));
@@ -281,14 +287,20 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
                     //aca es donde se van metiendo en los valores los codigos
                     codPro = atoi(buffer);
-                    n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
+
                     //
-                    //ArbolProductos* arbolProductos = new ArbolProductos()
-                    //arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
-                    //NodoProducto productoMasVendido = new NodoProducto();
-                    //arbolProductos->getProductoMasVendido(arbolProductos->raiz,NodoProducto* &_nuevoNodo)
+
+                    arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
+                    if (!arbolProductos->existeProducto(arbolProductos->raiz,codPro)) {
+                        n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                        break;
+                    }
+                    NodoProducto* productoMasVendido = new NodoProducto();
+                    arbolProductos->getProductoMasVendido(arbolProductos->raiz,productoMasVendido);
                     //
                     //productoMasVendido->
+
+                    n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
 
 
 

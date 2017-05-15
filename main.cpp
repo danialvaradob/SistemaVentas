@@ -280,14 +280,7 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
 
 int main() {
 
-    for (int i = 0;i < 5;i++) {
-        if (i == 1) continue;
-        std::cout << "HOLA" << std::endl;
 
-
-
-
-    }
 
 /*    ListaLugares* listaLugares = new ListaLugares();
     leerArchLugares(listaLugares);
