@@ -2,18 +2,23 @@
 #define NODOVENTA_H
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <string>
 
 
 class NodoVenta {
 public:
-    NodoVenta(int _codP, std::string _nombreP, int _codC, std::string _nombreC, int cant, double _monto){
-        codigoProv = _codP;
-        nombreProv = _nombreP;
-        codigoCliente = _codC;
-        nombreCliente = _nombreC;
+    NodoVenta(int _codProv, std::string _nombreProv, int _codClient, std::string _nombreClient, int _codCat, std::string _descCat,
+              int _codProdu, std::string _nombreProdud, int _precioxuni, int cant, double _monto){
+        codigoProv = _codProv;
+        nombreProv = _nombreProv;
+        codigoCliente = _codClient;
+        nombreCliente = _nombreClient;
+        codCategoria = _codCat;
+        descCategoria = _descCat;
+        codProd = _codProdu;
+        nombreProducto = _nombreProdud;
         cantidadComprada = cant;
+        precioPorUnidad = _precioxuni;
         monto = _monto;
         siguiente = NULL;
         anterior = NULL;

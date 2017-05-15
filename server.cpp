@@ -161,10 +161,89 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
         if (bandera == OPCION_VENTA) {
 
             //4 veces para poder obtener lo de la venta
-            for (int i = 0;i<4;i++) {
+            for (int i = 0; i < 4; i++) {
+
+                //ArbolSupermercados *_arbolSupermercados = new ArbolSupermercados();
+                ArbolCategorias *_arbolCategorias = new ArbolCategorias();
+                ArbolProductos *_arbolProductos = new ArbolProductos();
+                NodoSupermercado *_nodoSup = new NodoSupermercado();
+                nodocategoria *_nodoCat = new nodocategoria();
+                NodoProducto *_nodoProd = new NodoProducto();
+                NodoProveedor *_nodoProv = new NodoProveedor();
+                NodoCliente *_nodoCliente = new NodoCliente();
+
+                bzero(buffer, 256);
+                n = read(newsockfd, buffer, 255);
+
+                if (i == 0) {
+                    //se esta tomando el codigo del Super
+                    //
+                    // Y se crean todos los nodos la primera vez para despues utilizarlos
+
+                    codSuper = atoi(buffer);
+                    if (!_arbolSupermercados->existeSupermercado(codSuper, _arbolSupermercados->raiz)) {
+                        n = write(newsockfd, "El codigo de supermercado no existe\n",
+                                  strlen("El codigo de supermercado no existe"));
+                        break;
+                    }
+
+                    _arbolSupermercados->getNodoSupermercado(codSuper, _arbolSupermercados->raiz, _nodoSup);
+                    char msgSuperR[] = "Codigo del Super recibido\nDigite el Codigo de Categoria";
+                    n = write(newsockfd, msgSuperR, strlen(msgSuperR));
+
+                } else if (i == 1) {
+
+                    codCat = atoi(buffer);
+
+                    _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, _arbolCategorias);
+                    if (!_arbolCategorias->existeCategoria(codCat, _arbolCategorias->raiz)) {
+                        n = write(newsockfd, "El codigo de categoria no existe\n",
+                                  strlen("El codigo de categoria no existe"));
+                        break;
+                    }
+                    char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
+                    n = write(newsockfd, msgCodR, strlen(msgCodR));
+                    _arbolCategorias->getNodoCat(_arbolCategorias->raiz, codCat, _nodoCat);
+
+                } else if (i == 2) {
+
+                    codPro = atoi(buffer);
+                    _arbolCategorias->getArbolProd(_arbolCategorias->raiz, codCat, _arbolProductos);
+                    if (!_arbolProductos->existeProducto(_arbolProductos->raiz, codPro)) {
+                        n = write(newsockfd, "El codigo de producto no existe\n",
+                                  strlen("El codigo de producto no existe"));
+                        break;
+                    }
+                    char msgProductoR[] = "Codigo de Producto recibido\nDigite la cantidad que desea";
+                    n = write(newsockfd, msgProductoR, strlen(msgProductoR));
+                    _arbolProductos->getNodoProducto(codPro, _arbolProductos->raiz, _nodoProd);
 
 
-                bzero(buffer,256);
+                } else if (i == 3) {
+                    cantidad = atoi(buffer);
+                    _arbolProveedores->getNodoProveedor(codPro, _arbolProveedores->raiz, _nodoProv);
+                    _arbolClientes->getCliente(_arbolClientes->raizB, _nodoCliente, idCliente);
+                    _nodoCliente->aumentarVentas();
+                    _nodoProv->aumentarVentas();
+                    _nodoProd->setCantidadEnStock(cantidad);
+                    _nodoCat->incBestScore();
+                    _nodoSup->aumentarVentas();
+                    NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
+                                                          _nodoCliente->getID(),
+                                                          _nodoCliente->getNombre(), _nodoCat->getCodigo(),
+                                                          _nodoCat->getDesc(),
+                                                          _nodoProd->getCodigoProducto(),
+                                                          _nodoProd->getNombreProducto(),
+                                                          _nodoProd->getPrecioPorUnidad(), cantidad,
+                                                          (_nodoProd->getPrecioPorUnidad() * cantidad) * 0.05);
+
+                    n = write(newsockfd, "VENTA REALIZADA", strlen("VENTA REALIZADA"));
+                }
+            }
+            bandera = 0;
+        }
+/*
+                    bzero(buffer,256);
                 n = read(newsockfd,buffer,255);
 
                 if (i == 0) {
@@ -209,7 +288,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             }
 
             bandera = 0;
-
+*/
         }else if (bandera == OPCION_PROVEEDOR_MAS_VENTAS ) {
             //determina el Proveedor con mas ventas
 
