@@ -3,7 +3,8 @@
 #include <iostream>
 #include <iostream>
 #include <stdio.h>
-using namespace std;
+#include <sstream>
+
 //ARBOL AVL
 
 
@@ -15,7 +16,7 @@ PadreAB: Mantiene un puntero al nodo anterior para referirse a el como el padre 
 Funciones involucradas:
 Recursivamente se llama así mismo hasta encontrar la ubicación donde se guardará el nuevo nodo, envío como parámetros (La dirección del lado del árbol hacía donde entrará, La nueva hoja, Referencia al padre).
 */
-void ArbolSupermercados::insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int _codSuper, int _codLugar, string _nombre) {
+void ArbolSupermercados::insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int _codSuper, int _codLugar, std::string _nombre) {
     NodoSupermercado *n1;
 
     if(ra==NULL){
@@ -192,7 +193,7 @@ void ArbolSupermercados::preordenI(NodoSupermercado *R) {
     if(R==NULL){
         return;
     }else{
-        cout<<R->obtenerValor()<<endl;
+        std::cout<<R->obtenerValor()<<std::endl;
         preordenI(R->Hizq);
         preordenI(R->Hder);
     }
@@ -214,7 +215,7 @@ bool ArbolSupermercados::existeSupermercado(int _codNuevoSuper, NodoSupermercado
     }
 }
 
-void ArbolSupermercados::agregarCategoria(NodoSupermercado *raiz,int _codSuper,int _codCat, string _descCat) {
+void ArbolSupermercados::agregarCategoria(NodoSupermercado *raiz,int _codSuper,int _codCat, std::string _descCat) {
     if (raiz == NULL) {
         return;
     } else if (raiz->codSuper == _codSuper){
@@ -237,7 +238,7 @@ void ArbolSupermercados::agregarCategoria(NodoSupermercado *raiz,int _codSuper,i
 }
 
 void ArbolSupermercados::agregarProducto(NodoSupermercado *raiz, int _codSuper,
-                                         int _codCat, int _codProducto, string _nombreProducto, double _precioPorUnidad,
+                                         int _codCat, int _codProducto, std::string _nombreProducto, double _precioPorUnidad,
                                          int _cantidadEnStock) {
     if (raiz == NULL) {
         return;
@@ -347,6 +348,21 @@ void ArbolSupermercados::getCatMasVendidaS(NodoSupermercado *_raiz, int _codSupe
 
         }
     }
+}
+
+void ArbolSupermercados::PreordenSocket(NodoSupermercado *_raiz, std::string &_string) {
+    if(_raiz == NULL)
+        return;
+    else{
+        std::stringstream flujo;
+        std::string nombre;
+        flujo << _raiz->getCodSuper();
+        nombre = flujo.str();
+        _string+=nombre+"\n";
+        PreordenSocket(_raiz->Hizq, _string);
+        PreordenSocket(_raiz->Hder, _string);
+    }
+
 }
 
 /*/++++++++++++++++++++ inserciones de archivo+++++++++++++++++++++++++++++

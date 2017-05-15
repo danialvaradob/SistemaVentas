@@ -20,6 +20,7 @@ public:
 
     //CAMBIAR ESTAS
     void preordenI(NodoSupermercado *k);
+    void PreordenSocket(NodoSupermercado *_raiz, std::string &_string);
     std::string inordenI();
     void postordenI();
 

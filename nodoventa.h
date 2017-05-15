@@ -8,7 +8,7 @@
 class NodoVenta {
 public:
     NodoVenta(int _codProv, std::string _nombreProv, int _codClient, std::string _nombreClient, int _codCat, std::string _descCat,
-              int _codProdu, std::string _nombreProdud, int _precioxuni, int cant, double _monto){
+              int _codProdu, std::string _nombreProdud, double _precioxuni, int cant, double _monto){
         codigoProv = _codProv;
         nombreProv = _nombreProv;
         codigoCliente = _codClient;

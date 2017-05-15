@@ -24,6 +24,7 @@ public:
     nodocategoria* InsertarNodoRN(nodocategoria* RaizRN, nodocategoria *pt);
     bool existeCategoria(int _id, nodocategoria *_raiz);
     bool existeProducto(int _codProducto, int _codCategoria, nodocategoria* _raiz); //utilizado para buscar un producto
+    void PreordenSocket(nodocategoria *_raiz, std::string &_string);
     void InordenRN(nodocategoria *T);
     nodocategoria *raiz;
 

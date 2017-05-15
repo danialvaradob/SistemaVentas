@@ -221,6 +221,18 @@ void ArbolProductos::getProductosCambiaronStock(NodoProducto *_raiz, std::string
     }
 }
 
+void ArbolProductos::PreordenSocket(NodoProducto *_raiz, std::string &_string) {
+    if (_raiz==NULL)return;
+    else {
+        std::stringstream flujo;
+        std::string nombre;
+        flujo << _raiz->getCodigoProducto();
+        nombre = flujo.str();
+        _string+=nombre+"\n";
+        PreordenSocket(_raiz->der, _string);
+        PreordenSocket(_raiz->izq, _string);
+    }
+}
 
 /*
  *

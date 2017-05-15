@@ -1,3 +1,4 @@
+#include <sstream>
 #include "arbolclientes.h"
 ///#include <iostream>
 ///#include <string>
@@ -303,9 +304,30 @@ void ArbolClientes::getCliente(ApuntadorPagina Raiz, NodoCliente *&_cliente, int
             pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
             if (Recorrido->getID() == _id) _cliente = Recorrido;
-            getClienteMasCompras(Raiz->Ramas->ObtenerRama(I-1),_cliente);
+            getCliente(Raiz->Ramas->ObtenerRama(I-1), _cliente, _id);
 
             I++;
         }
     }
 }
+
+void ArbolClientes::PreordenSocket(ApuntadorPagina _raiz, std::string &_string) {
+    if(_raiz == NULL){
+        return;
+    }
+    else{
+        int I = 1;
+        while(I <= _raiz->cuenta){
+
+            pNodoCliente Recorrido = _raiz->Claves->ObtenerApuntadorClave(I);
+            std::stringstream flujo;
+            flujo << Recorrido->getID();
+            std::string nombre = flujo.str();
+            _string += nombre + "\n";
+            PreordenSocket(_raiz->Ramas->ObtenerRama(I-1), _string);
+            I++;
+        }
+    }
+
+}
+

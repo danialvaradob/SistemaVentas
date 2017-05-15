@@ -19,6 +19,7 @@ public:
     void insertarNodoProveedor(int idProveedor,std::string nombre,std::string direccion,int tel);
     //++++++++++++ Ordenes ++++++++++++++++++++++++
     void PreordenI(NodoProveedor *R);
+    void PreordenSocket(NodoProveedor *_raiz, std::string &string);
     void InordenI(NodoProveedor *R);
     void PostordenI(NodoProveedor *R);
 

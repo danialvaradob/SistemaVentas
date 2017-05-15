@@ -605,19 +605,91 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
         }else if (bandera == OPCION_IMPRIMIR_ARBOL_PREORDEN) {
             //COMPARA TODOS
-            if (( memcmp( buffer, "1", strlen( "1"))) == 0 ) {
-                //OPCION
-            }
-            else if (( memcmp( buffer, "2", strlen( "1"))) == 0 ) {
-                //OPCION 2
-            } else if (( memcmp( buffer, "3", strlen( "1"))) == 0 ) {
-                //OPCION3
+            if ((memcmp(buffer, "1", strlen("1"))) == 0) {
+                std::string nombre = "Arbol de Supermercados: \n";
+                _arbolSupermercados->PreordenSocket(_arbolSupermercados->raiz, nombre);
+                std::vector<char> v(nombre.begin(), nombre.end());
+                v.push_back('\0'); // Make sure we are null-terminated
+                char *msgCodSR = &v[0];
+                n = write(newsockfd, msgCodSR, strlen(msgCodSR));
 
-            }else if (( memcmp( buffer, "4", strlen( "1"))) == 0 ) {
-                //OPCION 4
-            } else if (( memcmp( buffer, "5", strlen( "1"))) == 0 ) {
-                //OPCION 5
+            } else if ((memcmp(buffer, "2", strlen("1"))) == 0) {
+                ArbolCategorias *_arbolCategorias;
+                n = write(newsockfd, "Digite el codigo de Supermercado: \n", strlen("Digite el codigo de Supermercado: \n"));
+                for (int i = 0; i < 1; i++) {
+                    bzero(buffer, TAMANHO_BUFFER);
+                    n = read(newsockfd, buffer, TAMANHO_BUFFER - 1);
+
+                    if (i == 0) {
+                        //verifica que existe
+                        codSuper = atoi(buffer);
+                        if (!_arbolSupermercados->existeSupermercado(codSuper, _arbolSupermercados->raiz)) {
+                            n = write(newsockfd, "Error en el codigo de Supermercado\n",
+                                      strlen("Error en el codigo de Supermercado\n"));
+                            break;
+                        }
+                        std::string nombre = "Arbol de Categorias: \n";;
+                        _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, _arbolCategorias);
+                        _arbolCategorias->PreordenSocket(_arbolCategorias->raiz, nombre);
+                        std::vector<char> v(nombre.begin(), nombre.end());
+                        v.push_back('\0'); // Make sure we are null-terminated
+                        char *msgCodCatPreorden = &v[0];
+                        n = write(newsockfd, msgCodCatPreorden, strlen(msgCodCatPreorden));
+                    }
+                }
+
+            } else if ((memcmp(buffer, "3", strlen("1"))) == 0) {
+                ArbolCategorias *_arbolCategorias;
+                ArbolProductos *_arbolProductos;
+                n = write(newsockfd, "Digite el codigo de Supermercado: \n", strlen("Digite el codigo de Supermercado: \n"));
+                for (int i = 0; i <= 1; i++) {
+                    bzero(buffer, TAMANHO_BUFFER);
+                    n = read(newsockfd, buffer, TAMANHO_BUFFER - 1);
+
+                    if (i == 0) {
+                        codSuper = atoi(buffer);
+                        //verifica que existe el codigo de super
+                        if (!_arbolSupermercados->existeSupermercado(codSuper, _arbolSupermercados->raiz)) {
+                            n = write(newsockfd, "Error en el codigo de Supermercado\n", strlen("Error en el codigo de Supermercado\n"));
+                            break;
+                        }
+                        _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, _arbolCategorias);
+                        n = write(newsockfd, "Codigo de supermercado valido\nDigite el codigo de Categoria: \n", strlen("Digite el codigo de Categoria: \n"));
+
+                    }else if(i == 1){
+                        codCat = atoi(buffer);
+                        //verifica que existe el codigo de categoria
+                        if(!_arbolCategorias->existeCategoria(codCat, _arbolCategorias->raiz)){
+                            n = write(newsockfd, "Error en el codigo de Categoria\n", strlen("Error en el codigo de Categoria\n"));
+                            break;
+                        }
+                        std::string nombre = "Arbol de productos: \n";
+                        _arbolCategorias->getArbolProd(_arbolCategorias->raiz, codCat, _arbolProductos);
+                        _arbolProductos->PreordenSocket(_arbolProductos->raiz, nombre);
+                        std::vector<char> v(nombre.begin(), nombre.end());
+                        v.push_back('\0'); // Make sure we are null-terminated
+                        char *msgCodProdPreorden = &v[0];
+                        n = write(newsockfd, msgCodProdPreorden, strlen(msgCodProdPreorden));
+                    }
+                }
+
+            } else if ((memcmp(buffer, "4", strlen("1"))) == 0) {
+                std::string nombre = "Arbol de Clientes: \n";
+                _arbolClientes->PreordenSocket(_arbolClientes->raizB, nombre);
+                std::vector<char> v(nombre.begin(), nombre.end());
+                v.push_back('\0'); // Make sure we are null-terminated
+                char *msgCodClientPreorden = &v[0];
+                n = write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+
+            } else if ((memcmp(buffer, "5", strlen("1"))) == 0) {
+                std::string nombre = "Arbol de Proveedores: \n";
+                _arbolProveedores->PreordenSocket(_arbolProveedores->raiz, nombre);
+                std::vector<char> v(nombre.begin(), nombre.end());
+                v.push_back('\0'); // Make sure we are null-terminated
+                char *msgCodProvPreorden = &v[0];
+                n = write(newsockfd, msgCodProvPreorden, strlen(msgCodProvPreorden));
             }
+            bandera = 0;
 
 
 
@@ -691,8 +763,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                 //Determina arbol que desea imprimir
 
                 char msgPreorden[] = "Digite 1 si desea un arbol de supermercados\nDigite 2 si desea un arbol de categorias\n"
-                        "Digite 3 si desea un arbol de proveedores\nDigite 4 si desea un arbol de clientes\n"
-                        "Digite 5 si desea un arbol de productos";
+                        "Digite 3 si desea un arbol de productos\nDigite 4 si desea un arbol de clientes\n"
+                        "Digite 5 si desea un arbol de proveedores\n";
                 n = write(newsockfd,msgPreorden, strlen(msgPreorden));
 
                 bandera = OPCION_IMPRIMIR_ARBOL_PREORDEN;

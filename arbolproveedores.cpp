@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "arbolproveedores.h"
 
 
@@ -112,3 +113,15 @@ void ArbolProveedores::getNodoProveedorMasVentas(NodoProveedor *_raiz, NodoProve
     }
 }
 
+void ArbolProveedores::PreordenSocket(NodoProveedor *_raiz, std::string &_string) {
+    if (_raiz == NULL) return;
+    else {
+        std::stringstream flujo;
+        std::string nombre;
+        flujo << _raiz->getID();
+        nombre = flujo.str();
+        _string+=nombre+"\n";
+        PreordenSocket(_raiz->Hizq, _string);
+        PreordenSocket(_raiz->Hder, _string);
+    }
+}

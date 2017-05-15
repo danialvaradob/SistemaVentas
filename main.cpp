@@ -39,7 +39,7 @@ void leerArchProductos(ArbolSupermercados* _supermercados) {
         int codCatI = atoi(codigoCategoria.c_str());
         int codSupI = atoi(codSuper.c_str());
 
-        float precioPorUnidad = atof(precioPorUnidadSt.c_str());
+        double precioPorUnidad = atof(precioPorUnidadSt.c_str());
         int cantidadEnStock = atoi(cantidadEnStockSt.c_str());
 
 

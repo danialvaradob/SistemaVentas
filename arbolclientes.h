@@ -105,7 +105,7 @@ public:
     void IniciarRecorridoB();
     void RecorridoInordenB(ApuntadorPagina Raiz);
     void existeCliente(ApuntadorPagina Raiz,int _Numero,bool _existe);
-
+    void PreordenSocket(ApuntadorPagina _raiz, std::string &_string);
     void getClienteMasCompras(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras);
     void agregarCompra(ApuntadorPagina Raiz,int _codCliente);
     void getCliente(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras, int _id);

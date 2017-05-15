@@ -21,6 +21,7 @@ public:
     NodoProducto* insertarNodo(NodoProducto *& temp, NodoProducto *& ins); // se utiliza insert en ingles
     void print(NodoProducto*H);
     NodoProducto *eliminar(NodoProducto*& _raiz,int _codigoProducto); //estaba intenandola
+    void PreordenSocket(NodoProducto *_raiz, std::string &_string);
 
     //void preordenI(NodoProducto *R); //funcion utilizada para recorrer el arbol e ir imprimiendo en preorden la info
 

@@ -1,5 +1,6 @@
 #include "arbolcategorias.h"
 #include <iostream>
+#include <sstream>
 //Arbol ROJINEGRO
 
 bool ArbolCategorias::existeCategoria(int _id, nodocategoria *_raiz) {
@@ -247,5 +248,18 @@ void ArbolCategorias::getCategoriaMasVendida(nodocategoria *_raiz, nodocategoria
     } else {
         getCategoriaMasVendida(_raiz->izq, NuevoNodo);
         getCategoriaMasVendida(_raiz->der, NuevoNodo);
+    }
+}
+
+void ArbolCategorias::PreordenSocket(nodocategoria *_raiz, std::string &_string) {
+    if (_raiz == NULL) return;
+
+    else {
+        std::stringstream flujo;
+        flujo << _raiz->getCodigo();
+        std::string nombre = flujo.str();
+        _string += nombre + "\n";
+        PreordenSocket(_raiz->izq, _string);
+        PreordenSocket(_raiz->der, _string);
     }
 }
