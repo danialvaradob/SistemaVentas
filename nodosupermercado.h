@@ -2,8 +2,8 @@
 #define NODOSUPERMERCADO_H
 
 #include "arbolcategorias.h"
-#include "arbolproductos.h"
-#include <string>
+//#include "arbolproductos.h"
+
 
 
 class NodoSupermercado {

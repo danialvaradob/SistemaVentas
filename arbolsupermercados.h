@@ -1,10 +1,10 @@
 #ifndef SISTEMAVENTAS2_ARBOLSUPERMERCADOS_H
 #define SISTEMAVENTAS2_ARBOLSUPERMERCADOS_H
 
-#include "arbolcategorias.h"
-#include "arbolproductos.h"
+//#include "arbolcategorias.h"
+//#include "arbolproductos.h"
 #include "nodosupermercado.h"
-#include <string>
+
 
 
 //ARBOL AVL

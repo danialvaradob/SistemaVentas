@@ -1,7 +1,7 @@
 #ifndef ARBOLCLIENTES_H
 #define ARBOLCLIENTES_H
 #include <iostream>
-#include <string>
+//#include <string>
 #include "nodocliente.h"
 
 //ARBOL B

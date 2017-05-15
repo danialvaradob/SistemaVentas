@@ -1,7 +1,7 @@
 #ifndef NODOVENTA_H
 #define NODOVENTA_H
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
 #include <string>
 
 

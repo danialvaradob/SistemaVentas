@@ -1,6 +1,6 @@
 #ifndef NODOCLIENTE_H
 #define NODOCLIENTE_H
-#include <stdio.h>
+//#include <stdio.h>
 
 #include <string>
 

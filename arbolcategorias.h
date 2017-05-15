@@ -1,7 +1,7 @@
 #ifndef ARBOLCATEGORIAS_H
 #define ARBOLCATEGORIAS_H
 
-#include <iostream>
+//#include <iostream>
 #include "nodocategoria.h"
 //ARBOL ROJINEGRO
 

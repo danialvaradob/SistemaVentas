@@ -2,12 +2,12 @@
 #define LISTAVENTAS_H
 
 #include "nodoventa.h"
-#include "arbolcategorias.h"
-#include "arbolclientes.h"
-#include "arbolproductos.h"
-#include "arbolsupermercados.h"
-#include "arbolproveedores.h"
-#include <string>
+//#include "arbolcategorias.h"
+//#include "arbolclientes.h"
+//#include "arbolproductos.h"
+//#include "arbolsupermercados.h"
+//#include "arbolproveedores.h"
+//#include <string>
 
 class ListaVentas {
 public:

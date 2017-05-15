@@ -6,7 +6,7 @@
 #define SISTEMAVENTAS2_NODOLUGAR_H
 
 #include <string>
-#include <iostream>
+//#include <iostream>
 
 
 class NodoLugar {

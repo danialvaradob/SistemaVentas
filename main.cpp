@@ -1,10 +1,10 @@
 
-#include "arbolsupermercados.h"
-#include "arbolclientes.h"
-#include "listalugares.h"
-#include "arbolproveedores.h"
+//#include "arbolsupermercados.h"
+//#include "arbolclientes.h"
+//#include "listalugares.h"
+//#include "arbolproveedores.h"
 #include <fstream>
-//#include "server.cpp"
+#include "server.cpp"
 
 
 

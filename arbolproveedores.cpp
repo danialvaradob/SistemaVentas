@@ -1,13 +1,12 @@
 #include <iostream>
 #include "arbolproveedores.h"
 
-using namespace std;
 
 //ARBOL BINARIO DE BUSQUEDA
 
 //+++++++++++++++++++++ Insertar Nodo +++++++++++++++++++++++
 
-void ArbolProveedores::insertarNodoProveedor(int idProveedor,string nombre,string direccion,int tel) {
+void ArbolProveedores::insertarNodoProveedor(int idProveedor,std::string nombre,std::string direccion,int tel) {
     if(raiz==NULL){
         raiz = new NodoProveedor(idProveedor,nombre,direccion,tel);
     }else{
@@ -18,13 +17,13 @@ void ArbolProveedores::insertarNodoProveedor(int idProveedor,string nombre,strin
 // funcion utilizada para verificar si ya existe un proveedor
 bool ArbolProveedores::existeProveedor(int _id, NodoProveedor *_raiz){
     if(_raiz==NULL){
-        cout << "Final de un nodo" << endl;
+        //cout << "Final de un nodo" << endl;
         return false;
     }else if (_raiz->getID() == _id) {
-        cout << "Encontrado" << endl;
+        //cout << "Encontrado" << endl;
         return true;
     }else{
-        cout << "buscando" << endl;
+        //cout << "buscando" << endl;
         return  existeProveedor(_id,_raiz->Hizq) || existeProveedor(_id,_raiz->Hder);
         //existeProveedor(_id,_raiz->Hizq);
         //existeProveedor(_id,_raiz->Hder);
@@ -46,7 +45,7 @@ void ArbolProveedores::aumentarVentas(int _id, NodoProveedor *_raiz) {
     }
 }
 //retorna el nombre de un _id dado
-string ArbolProveedores::getNombreProveedor(int _id, NodoProveedor *_raiz) {
+std::string ArbolProveedores::getNombreProveedor(int _id, NodoProveedor *_raiz) {
     if (_raiz == NULL) {
         return "";
     }
@@ -64,7 +63,7 @@ void ArbolProveedores::PreordenI(NodoProveedor *R){
     if(R==NULL){
         return;
     }else{
-        cout<<R->getID()<<endl;
+        std::cout<<R->getID()<<std::endl;
         PreordenI(R->Hizq);
         PreordenI(R->Hder);
     }
@@ -75,7 +74,7 @@ void ArbolProveedores::InordenI(NodoProveedor *R){
         return;
     }else{
         InordenI(R->Hizq);
-        cout<<R->getID()<<endl;
+        std::cout<<R->getID()<<std::endl;
         InordenI(R->Hder);
     }
 }
@@ -86,7 +85,7 @@ void ArbolProveedores::PostordenI(NodoProveedor *R){
     }else{
         PostordenI(R->Hizq);
         PostordenI(R->Hder);
-        cout<<R->getID()<<"-";
+         std::cout<<R->getID()<<"-";
 
     }
 }

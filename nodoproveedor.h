@@ -1,7 +1,5 @@
 #ifndef NODOPROVEEDOR_H
 #define NODOPROVEEDOR_H
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
 
 

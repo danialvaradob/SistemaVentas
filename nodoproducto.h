@@ -1,7 +1,5 @@
 #ifndef NODOPRODUCTO_H
 #define NODOPRODUCTO_H
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
 
 

@@ -94,6 +94,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
         bzero(buffer,TAMANHO_BUFFER);
         n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
+
         if (( memcmp( buffer, "END", strlen( "END"))) == 0) {
             bzero(buffer,TAMANHO_BUFFER);
             n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
@@ -307,7 +308,7 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     codSuper = atoi(buffer);
 
                     //Verifica si existe dicho codigo
-                    if (!_arbolSupermercados->existeCategoria(codSuper,codCat,_arbolSupermercados->raiz)) {
+                    if (!_arbolSupermercados->existeSupermercado(codSuper, _arbolSupermercados->raiz)) {
                         char msgNoExiste[] = "Codigo NO EXISTE";
                         n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
                         break;
@@ -370,27 +371,32 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
         } else if (bandera == OPCION_PRODUCTOS_CAMBIARON_STOCK) {
             //Productos que cambiaron el stock
 
+            ArbolCategorias *arbolCategorias = new ArbolCategorias();
+            ArbolProductos *arbolProductos = new ArbolProductos();
+            NodoSupermercado *_nodoSup = new NodoSupermercado();
+            NodoProducto *_nodoProd = new NodoProducto();
+
+            char msgNoExiste[] = "Codigo NO EXISTE";
+
             for (int i = 0; i < 3; i++) {
                 bzero(buffer,TAMANHO_BUFFER);
                 n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
+
                 if (i == 0 ) {
-                    // ademas aca la primera vez, saca todos los nodos para asi revisarlos
-
-
-                    //funcion que verifica el codigo del super
-
 
                     //existe
                     codSuper = atoi(buffer);
 
                     //Verifica si existe dicho codigo
-                    // if (!arbolSupermercados->existeCategoria(arbolSupermercados->raiz,codSuper))
-                    // aca pone
-                    //n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
-                    //
-                    n = write(newsockfd, "Codigo de Super recibido", strlen("Codigo de Super recibido"));
-                    n = write(newsockfd, "Por favor digite el codigo de la categoria que desea: ", strlen("Por favor digite el codigo de la categoria que desea: "));
+                    if (!_arbolSupermercados->existeSupermercado(codSuper, _arbolSupermercados->raiz)) {
+                        n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                        break;
+                    }
+
+                    char msgSuperR[] = "Codigo del Super recibido\nDigite el Codigo de Categoria";
+                    n = write(newsockfd, msgSuperR, strlen(msgSuperR));
+
 
                 }else if ( i == 1) {
 
@@ -399,26 +405,34 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
                     //aca es donde se van metiendo en los valores los codigos
                     codCat = atoi(buffer);
                     //
-                    //ArbolCategorias* arbolCategorias = new ArbolCategorias()
-                    //arbolSupermercados->getArbolCat(codSuper, arbolSupermecados->raiz, ArbolCategorias*& arbolCategorias);
+                    _arbolSupermercados->getArbolCat(codSuper,_arbolSupermercados->raiz,arbolCategorias);
                     //Verifica si existe dicho codigo
-                    // if (!arbolCategorias->existeCategoria(arbolCategorias->raiz,codCat))
+                    if (!arbolCategorias->existeCategoria(codCat,arbolCategorias->raiz)) {
+                        n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                        break;
+                    }
                     // aca pone
+                    char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
+                    n = write(newsockfd, msgCodR, strlen(msgCodR));
 
-                    n = write(newsockfd, "Codigo de Categoria recibido\n", strlen("Codigo de Categoria recibido\n"));
-                    n = write(newsockfd, "Digite el Codigo de Producto", strlen("Digite el Codigo de Producto"));
 
                 }else if (i == 2) {
 
                     //aca es donde se van metiendo en los valores los codigos
                     codPro = atoi(buffer);
-                    n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
-                    //
-                    //ArbolProductos* arbolProductos = new ArbolProductos()
-                    //arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
-                    //NodoProducto productoMasVendido = new NodoProducto();
-                    //arbolProductos->
-                    //
+                    //n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
+                    arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
+                    if (!arbolProductos->existeProducto(arbolProductos->raiz,codPro)) {
+                        n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                        break;
+                    }
+                    std::string productosCambiaronStock = "";
+                    arbolProductos->getProductosCambiaronStock(arbolProductos->raiz,productosCambiaronStock);
+                    std::vector<char> v(productosCambiaronStock.begin(), productosCambiaronStock.end());
+                    v.push_back('\0'); // Make sure we are null-terminated
+                    char* msgCodSR = &v[0];
+                    n = write(newsockfd, msgCodSR, strlen(msgCodSR));
+
 
                 }
                 bandera = 0;
