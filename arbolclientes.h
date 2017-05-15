@@ -4,7 +4,6 @@
 #include <string>
 #include "nodocliente.h"
 
-using namespace std;
 //ARBOL B
 
 
@@ -97,12 +96,12 @@ public:
     }
     bool BVacio(){return raizB == NULL;}
     void EstablecerRaizB(ApuntadorPagina Raiz);
-    void IniciarInsercionB(int Numero, int _id, string _nombre, string _direccion, int _telefono);
-    ApuntadorPagina InsertarB(ApuntadorPagina Raiz, int Numero,  int _id, string _nombre, string _direccion, int _telefono);
-    ApuntadorPagina EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, int _telefono);
+    void IniciarInsercionB(int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono);
+    ApuntadorPagina InsertarB(ApuntadorPagina Raiz, int Numero,  int _id, std::string _nombre, std::string _direccion, int _telefono);
+    ApuntadorPagina EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono);
     ApuntadorPagina BuscarNodoB(ApuntadorPagina Raiz, int Numero);
-    ApuntadorPagina MeterHojaB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, int _telefono);
-    ApuntadorPagina DividirNodoB(ApuntadorPagina Raiz,  int _id, string _nombre, string _direccion, int _telefono);
+    ApuntadorPagina MeterHojaB(ApuntadorPagina Raiz, int _id, std::string _nombre, std::string _direccion, int _telefono);
+    ApuntadorPagina DividirNodoB(ApuntadorPagina Raiz,  int _id, std::string _nombre, std::string _direccion, int _telefono);
     void IniciarRecorridoB();
     void RecorridoInordenB(ApuntadorPagina Raiz);
     bool existeCliente(ApuntadorPagina Raiz,int _Numero);

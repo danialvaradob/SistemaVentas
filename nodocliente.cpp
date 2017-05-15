@@ -1,13 +1,13 @@
 #include "nodocliente.h"
 #include <sstream>
 
-string NodoCliente::toString() {
-    stringstream flujo;
-    stringstream flujo2;
-    stringstream flujo3;
-    string _idCliente;
-    string _telefono;
-    string _bestScore;
+std::string NodoCliente::toString() {
+    std::stringstream flujo;
+    std::stringstream flujo2;
+    std::stringstream flujo3;
+    std::string _idCliente;
+    std::string _telefono;
+    std::string _bestScore;
 
     flujo << idx;
     _idCliente = flujo.str();

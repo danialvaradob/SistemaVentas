@@ -1,14 +1,13 @@
 #include "nodoproveedor.h"
 #include <sstream>
-using namespace std;
 
-string NodoProveedor::toString() {
-    stringstream flujo;
-    stringstream flujo1;
-    stringstream flujo2;
-    string _codP;
-    string _telefono;
-    string _bestScore;
+std::string NodoProveedor::toString() {
+    std::stringstream flujo;
+    std::stringstream flujo1;
+    std::stringstream flujo2;
+    std::string _codP;
+    std::string _telefono;
+    std::string _bestScore;
 
     flujo << numero;
     _codP = flujo.str();
@@ -23,7 +22,7 @@ string NodoProveedor::toString() {
 
 
 
-void NodoProveedor::insertarProveedor(int idProveedor,string nombre,string direccion,int intTel) {
+void NodoProveedor::insertarProveedor(int idProveedor,std::string nombre,std::string direccion,int intTel) {
     if(idProveedor < numero){
         if(Hizq==NULL){
             Hizq = new NodoProveedor(idProveedor,nombre,direccion,intTel);
@@ -46,11 +45,11 @@ int NodoProveedor::getID(){
     return numero;
 }
 
-string NodoProveedor::getNombre(){
+std::string NodoProveedor::getNombre(){
     return nombre;
 }
 
-string NodoProveedor::getDireccion(){
+std::string NodoProveedor::getDireccion(){
     return direccion;
 }
 

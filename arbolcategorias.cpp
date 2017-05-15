@@ -4,13 +4,13 @@
 
 bool ArbolCategorias::existeCategoria(int _id, nodocategoria *_raiz) {
     if(_raiz==NULL){
-        cout << "Final de un nodo" << endl;
+        std::cout << "Final de un nodo" << std::endl;
         return false;
     }else if (_raiz->getCodigo() == _id) {
-        cout << "Encontrado" << endl;
+        std::cout << "Encontrado" << std::endl;
         return true;
     }else{
-        cout << "buscando" << endl;
+        std::cout << "buscando" << std::endl;
         return  existeCategoria(_id,_raiz->izq) || existeCategoria(_id,_raiz->der);
     }
 }
@@ -132,7 +132,7 @@ void ArbolCategorias ::aplicarReglas(nodocategoria *&RaizRN, nodocategoria *&pt)
                    pt is left child of its parent
                    Right-rotation required */
                 rotarDerecha(RaizRN, abuelo_pt);
-                swap(padre_pt->color, abuelo_pt->color);
+                std::swap(padre_pt->color, abuelo_pt->color);
                 pt = padre_pt;
             }
         }
@@ -165,7 +165,7 @@ void ArbolCategorias ::aplicarReglas(nodocategoria *&RaizRN, nodocategoria *&pt)
                    pt is right child of its parent
                    Left-rotation required */
                 rotarIzquierda(RaizRN, abuelo_pt);
-                swap(padre_pt->color, abuelo_pt->color);
+                std::swap(padre_pt->color, abuelo_pt->color);
                 pt = padre_pt;
             }
         }
@@ -174,7 +174,7 @@ void ArbolCategorias ::aplicarReglas(nodocategoria *&RaizRN, nodocategoria *&pt)
     RaizRN->color = BLACK;
 }
 
-void ArbolCategorias ::insertarValorNodoRN(int _id,string _desc){
+void ArbolCategorias ::insertarValorNodoRN(int _id,std::string _desc){
 
     nodocategoria *pt = new nodocategoria (_id,_desc);
 
@@ -184,7 +184,7 @@ void ArbolCategorias ::insertarValorNodoRN(int _id,string _desc){
 
 }
 
-void ArbolCategorias::agregarProducto(nodocategoria *raiz, int codProI, int codCatI, string nombreProducto,
+void ArbolCategorias::agregarProducto(nodocategoria *raiz, int codProI, int codCatI, std::string nombreProducto,
                                       int precioPorUnidad, int cantidadEnStock) {
 
     if (raiz == NULL) {

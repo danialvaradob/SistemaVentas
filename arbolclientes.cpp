@@ -39,13 +39,13 @@ void ArbolClientes::EstablecerRaizB(ApuntadorPagina Raiz)
     raizB = Raiz;
 }
 
-void ArbolClientes::IniciarInsercionB(int Numero, int _id, string _nombre, string _direccion, int _telefono)
+void ArbolClientes::IniciarInsercionB(int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
 {
     ApuntadorPagina Raiz = raizB;
     raizB = InsertarB(Raiz,Numero,  _id,  _nombre,  _direccion,  _telefono);
 }
 
-ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, int _telefono)
+ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
 {
     ApuntadorPagina P = NULL;
 
@@ -74,7 +74,7 @@ ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _
 
 }
 
-ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, string _nombre, string _direccion, int _telefono)
+ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
 {
     if(Raiz == NULL){
         Raiz = new Pagina();
@@ -88,7 +88,7 @@ ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _i
     else{
         Raiz = BuscarNodoB(Raiz,Numero);
         if(Raiz->Esta){
-            cout << "Elemento Repetido" << endl;
+            std::cout << "Elemento Repetido" << std::endl;
             return Raiz;
 
         }
@@ -136,7 +136,7 @@ ApuntadorPagina ArbolClientes::BuscarNodoB(ApuntadorPagina Raiz, int Numero)
     return Raiz;
 }
 
-ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, int _telefono)
+ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, std::string _nombre, std::string _direccion, int _telefono)
 {
     int I;
     I = Raiz->cuenta;
@@ -156,7 +156,7 @@ ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, string 
 
 }
 
-ApuntadorPagina ArbolClientes::DividirNodoB(ApuntadorPagina Raiz, int _id, string _nombre, string _direccion, int _telefono)
+ApuntadorPagina ArbolClientes::DividirNodoB(ApuntadorPagina Raiz, int _id, std::string _nombre, std::string _direccion, int _telefono)
 {
     int I;
     int Posmda;
@@ -213,12 +213,12 @@ void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
 
             pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
-            cout << "Nombre: " << Recorrido->getNombre()<< endl;
-            cout<< "Identificacion: "<< Recorrido->getID() << endl;
-            cout << "Cantidad de Compras: " << Recorrido->getCantidadCompras()<< endl;
-            cout << "Ciudad: " << Recorrido->getDireccion()<< endl;
-            cout << "Telefono: " << Recorrido->getTelefono() << endl;
-            cout << "\n" << endl;
+            std::cout << "Nombre: " << Recorrido->getNombre()<< std::endl;
+            std::cout<< "Identificacion: "<< Recorrido->getID() << std::endl;
+            std::cout << "Cantidad de Compras: " << Recorrido->getCantidadCompras()<< std::endl;
+            std::cout << "Ciudad: " << Recorrido->getDireccion()<< std::endl;
+            std::cout << "Telefono: " << Recorrido->getTelefono() << std::endl;
+            std::cout << "\n" << std::endl;
 
             RecorridoInordenB(Raiz->Ramas->ObtenerRama(I-1));
 

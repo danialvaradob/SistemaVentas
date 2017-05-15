@@ -14,7 +14,7 @@ public:
         raiz = NULL;
     }
 
-    void insertarValorNodoRN (int _idCategoria, string _descrip);
+    void insertarValorNodoRN (int _idCategoria, std::string _descrip);
     void inordenRN(nodocategoria *R);
     void levelOrder();
 
@@ -27,7 +27,7 @@ public:
     void InordenRN(nodocategoria *T);
     nodocategoria *raiz;
 
-    void agregarProducto(nodocategoria* _raiz,int codProI, int codCatI, string nombreProducto, int precioPorUnidad, int cantidadEnStock);
+    void agregarProducto(nodocategoria* _raiz,int codProI, int codCatI, std::string nombreProducto, int precioPorUnidad, int cantidadEnStock);
     void getCategoriaMasVendida(nodocategoria *_raiz, nodocategoria *&NuevoNodo);
     void getArbolProd(nodocategoria* _raiz,int codCat,ArbolProductos* &arbolProductos);
     void getNodoCat(nodocategoria*_raiz,int codCat,nodocategoria* &_nuevoNodo);

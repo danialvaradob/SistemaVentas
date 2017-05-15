@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include "arbolproductos.h"
-using namespace std;
 
 enum Color {RED, BLACK};
 
@@ -27,7 +26,7 @@ public:
 
         punteroArbolProductos = NULL;};
 
-    nodocategoria(int _codigo, string _desc){
+    nodocategoria(int _codigo, std::string _desc){
         codigo = _codigo;
         descripcion = _desc;
         bestScore = 0;
@@ -41,9 +40,9 @@ public:
         punteroArbolProductos = NULL;
     }
 
-    string toString();
+    std::string toString();
     int getCodigo() {return codigo;};
-    string getDesc() {return descripcion;};
+    std::string getDesc() {return descripcion;};
     void incBestScore(){bestScore++;};
     int getBestScore() {return bestScore;}
 
@@ -59,7 +58,7 @@ public:
 private:
 
     int codigo;
-    string descripcion;
+    std::string descripcion;
     int bestScore;
 
 };

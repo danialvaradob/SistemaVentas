@@ -5,11 +5,11 @@
 #include "nodocategoria.h"
 #include <sstream>
 
-string nodocategoria::toString() {
-    stringstream flujo;
-    stringstream flujo2;
-    string _cod;
-    string _bestScore;
+std::string nodocategoria::toString() {
+    std::stringstream flujo;
+    std::stringstream flujo2;
+    std::string _cod;
+    std::string _bestScore;
 
     flujo << codigo;
     _cod = flujo.str();

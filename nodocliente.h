@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include <string>
-using namespace std;
+
 
 
 class NodoCliente {
@@ -23,7 +23,7 @@ public:
 
     }
 
-    NodoCliente(int _numero, int _id, string _nombre, string _direccion, int _telefono)
+    NodoCliente(int _numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
     {
         numero = _numero;
         idx = _id;
@@ -37,7 +37,7 @@ public:
         cantidadDeCompras = 0;
     }
 
-    string toString();
+    std::string toString();
 
     void setHIzq(NodoCliente *nodo);
     NodoCliente *getHIzq(){return izq;};
@@ -49,8 +49,8 @@ public:
     NodoCliente *getAnterior(){return anterior;}
 
     int getNumero(){return numero;};
-    string getNombre(){return nombre;};
-    string getDireccion(){ return direccion;};
+    std::string getNombre(){return nombre;};
+    std::string getDireccion(){ return direccion;};
     int getID(){ return idx;};
     int getTelefono(){ return telefono;};
     int getCantidadCompras(){ return cantidadDeCompras;};
@@ -59,8 +59,8 @@ public:
 private:
     int numero;
     int idx;
-    string nombre;
-    string direccion;
+    std::string nombre;
+    std::string direccion;
     int telefono;
     int cantidadDeCompras;
     NodoCliente* izq;
