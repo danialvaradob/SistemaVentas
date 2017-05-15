@@ -91,10 +91,12 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
         error("ERROR on accept");
 
     while (1) {
-
+        bzero(buffer,TAMANHO_BUFFER);
+        n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
         if (( memcmp( buffer, "END", strlen( "END"))) == 0) {
-
+            bzero(buffer,TAMANHO_BUFFER);
+            n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
             n = write(newsockfd, "Proceso Terminado", strlen("Proceso Terminado"));
             break;
         }
@@ -256,11 +258,15 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             bzero(buffer,TAMANHO_BUFFER);
             n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
-            n = write(newsockfd, "El proveedor con mas ventas es:  ", strlen("El proveedor con mas ventas es: "));
-
             //Entra en un ciclo donde determina el proveedor con mas ventas
             NodoProveedor* proveedorMasVentas = new NodoProveedor();
             _arbolProveedores->getNodoProveedorMasVentas(_arbolProveedores->raiz,proveedorMasVentas);
+
+            std::string nombre = proveedorMasVentas->getNombre();
+            std::vector<char> v(nombre.begin(), nombre.end());
+            v.push_back('\0'); // Make sure we are null-terminated
+            char* msgCodSR = &v[0];
+            n = write(newsockfd, msgCodSR, strlen(msgCodSR));
 
             //
 
@@ -269,6 +275,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             //determina el Cliente con mas ventas
             bzero(buffer, TAMANHO_BUFFER);
             n = read(newsockfd, buffer, TAMANHO_BUFFER - 1);
+
+
             n = write(newsockfd, "El cliente con mas ventas es:  ", strlen("El cliente con mas ventas es: "));
             //
 
@@ -290,6 +298,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
             for (int i = 0; i < 3; i++) {
+                bzero(buffer,TAMANHO_BUFFER);
+                n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
                 if (i == 0 ) {
                     // ademas aca la primera vez, saca todos los nodos para asi revisarlos
@@ -361,6 +371,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             //Productos que cambiaron el stock
 
             for (int i = 0; i < 3; i++) {
+                bzero(buffer,TAMANHO_BUFFER);
+                n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
                 if (i == 0 ) {
                     // ademas aca la primera vez, saca todos los nodos para asi revisarlos
@@ -421,6 +433,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
             //OBTENER CATEGORIA MAS VENDIDA
 
             for (int i = 0; i < 1; i++) {
+                bzero(buffer,TAMANHO_BUFFER);
+                n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
                 if (i == 0 ) {
                     // ademas aca la primera vez, saca todos los nodos para asi revisarlos
@@ -445,6 +459,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
         }else if (bandera == OPCION_SUPERMERCADO_MAS_VENTAS) {
+            bzero(buffer,TAMANHO_BUFFER);
+            n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
             //Supermercado con mas ventas
             //NodoSupermercado* supermercado = new NodoSupermercado()
 
@@ -461,6 +477,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
 
         }else if (bandera == OPCION_LUGAR_CON_MAS_SUPERMERCADOS) {
+            bzero(buffer,TAMANHO_BUFFER);
+            n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
             NodoLugar* lugar = new NodoLugar();
             _listaLugares->getLugarMasSuper(lugar);
             std::string nombre = lugar->getNombre();
@@ -479,7 +497,8 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
             char msgNoExiste[] = "Codigo NO EXISTE";
             for (int i = 0; i < 4; i++) {
-
+                bzero(buffer,TAMANHO_BUFFER);
+                n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
                 if (i == 0) {
                     // ademas aca la primera vez, saca todos los nodos para asi revisarlos
 
