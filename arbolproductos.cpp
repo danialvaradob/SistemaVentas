@@ -119,7 +119,7 @@ bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
         //cout << "Final de un nodo" << endl;
         return false;
     }else if (_raiz->getCodigoProducto() == _codProducto) {
-        //cout << "Encontrado" << endl;
+        std::cout << "PRODUCTO ENCONTRADO" << std::endl;
         return true;
     }else{
         //cout << "buscando" << endl;

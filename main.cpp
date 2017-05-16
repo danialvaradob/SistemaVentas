@@ -313,31 +313,30 @@ const int portno = 8888;
 
 int main() {
 
-/*
-void socketServer(ArbolSupermercados*& _arbolSupermercados,
-                  ArbolProveedores*& _arbolProveedores,
-                  ArbolClientes*& _arbolClientes,
-                  ListaLugares*& _listaLugares) {
-*/
-
-
     ListaLugares* _listaLugares = new ListaLugares();
     leerArchLugares(_listaLugares);
 
     ArbolClientes *_arbolClientes = new ArbolClientes();
     leerArchClientes(_arbolClientes);
-    //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
 
     ArbolProveedores* _arbolProveedores = new ArbolProveedores();
     leerArchProveedores(_arbolProveedores);
 
     ArbolSupermercados *_arbolSupermercados = new ArbolSupermercados();
     leerArchSupermercado(_arbolSupermercados,_listaLugares);
-
     leerArchCategorias(_arbolSupermercados);
-
     leerArchProductos(_arbolSupermercados);
 
+    int codProveedor;
+    while (1) {
+        std::cin >> codProveedor;
+        if (_arbolProveedores->existeProveedor(codProveedor, _arbolProveedores->raiz)){
+            std::cout << "Sistema ACTIVADO" << std::endl;
+            break;
+        }else {
+            std::cout << "DIGITE UN PROVEEDOR VALIDO" << std::endl;
+        }
+    }
 
     ListaVentas* listaVentas = new  ListaVentas();
 
@@ -378,7 +377,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
     while (1) {
         //bzero(buffer,TAMANHO_BUFFER);
         //n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
-
+        int codSuper,codCat,codPro;
 
         if (( memcmp( buffer, "END", strlen( "END"))) == 0) {
             bzero(buffer,TAMANHO_BUFFER);
@@ -437,14 +436,12 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
                     // registra la direccion
 
                     std::string dirCliente(buffer);
-
-                    n = write(newsockfd, "Direccion guardado", strlen("Direccion guardada"));
-                    n = write(newsockfd, "Digite su numero de telefono", strlen("Digite su numero de telefono"));
+                    n = write(newsockfd, "Direccion Guardada\nDigite su numero de telefono", strlen("Direccion Guardada\nDigite su numero de telefono"));
 
                 }else if (i == 3) {
                     // registra el telefono
                     int telefonoCliente = atoi(buffer);
-                    n = write(newsockfd, "CLIENTE GUARDADO", strlen("CLIENTE GUARDADO"));
+                    n = write(newsockfd, "CLIENTE GUARDADO\nDigite una opcion", strlen("CLIENTE GUARDADO\nDigite una opcion"));
 
                     //Agrega el cliente por completo con todos sus datos ya obtenidos
                     _arbolClientes->IniciarInsercionB(idCliente,idCliente,nombreCliente,dirCliente,telefonoCliente);
@@ -517,7 +514,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
 
                 } else if (i == 3) {
                     cantidad = atoi(buffer);
-                    _arbolProveedores->getNodoProveedor(codPro, _arbolProveedores->raiz, _nodoProv);
+                    _arbolProveedores->getNodoProveedor(codProveedor, _arbolProveedores->raiz, _nodoProv);
                     _arbolClientes->getCliente(_arbolClientes->raizB, _nodoCliente, idCliente);
                     _nodoCliente->aumentarVentas();
                     _nodoProv->aumentarVentas();
@@ -666,7 +663,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
 
             char msgNoExiste[] = "Codigo NO EXISTE";
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 bzero(buffer,TAMANHO_BUFFER);
                 n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
@@ -700,20 +697,20 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
                         break;
                     }
                     // aca pone
-                    char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
-                    n = write(newsockfd, msgCodR, strlen(msgCodR));
+                    //char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
+                    //n = write(newsockfd, msgCodR, strlen(msgCodR));
 
 
-                }else if (i == 2) {
+
 
                     //aca es donde se van metiendo en los valores los codigos
-                    codPro = atoi(buffer);
+                    //codPro = atoi(buffer);
                     //n = write(newsockfd, "Codigo de Producto recibido\n", strlen("Codigo de Producto recibido\n"));
-                    arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
-                    if (!arbolProductos->existeProducto(arbolProductos->raiz,codPro)) {
-                        n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
-                        break;
-                    }
+                    //arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
+                    //if (!arbolProductos->existeProducto(arbolProductos->raiz,codPro)) {
+                    //    n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
+                    //    break;
+                    //}
                     std::string productosCambiaronStock = "";
                     arbolProductos->getProductosCambiaronStock(arbolProductos->raiz,productosCambiaronStock);
                     std::vector<char> v(productosCambiaronStock.begin(), productosCambiaronStock.end());
