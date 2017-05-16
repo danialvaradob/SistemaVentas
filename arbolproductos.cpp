@@ -16,7 +16,7 @@ void ArbolProductos::buscar(int _codigoProducto, int _codigoCategoria, std::stri
     temp=insertarNodo(raiz, temp);
 }
 
-void ArbolProductos::girar(NodoProducto  *&temp)
+void ArbolProductos::girar(NodoProducto  *temp)
 {
     NodoProducto *ptr = temp->izq;
     if (temp->padre->izq == temp)
@@ -32,7 +32,7 @@ void ArbolProductos::girar(NodoProducto  *&temp)
     temp->nivel = (temp->izq ? temp->izq->nivel + 1 : 1);
 }
 
-bool ArbolProductos::dividir(NodoProducto  *&temp)
+bool ArbolProductos::dividir(NodoProducto  *temp)
 {
     NodoProducto * ptr = temp->der;
     if (ptr && ptr->der && (ptr->der->nivel == temp->nivel))
@@ -53,7 +53,7 @@ bool ArbolProductos::dividir(NodoProducto  *&temp)
     return false;
 }
 
-void ArbolProductos::balancear(NodoProducto *& temp)
+void ArbolProductos::balancear(NodoProducto * temp)
 {
     temp->izq = NULL;
     temp->der = NULL;
@@ -76,7 +76,7 @@ void ArbolProductos::balancear(NodoProducto *& temp)
     }
 }
 
-NodoProducto* ArbolProductos::insertarNodo(NodoProducto * &temp, NodoProducto * &ins)
+NodoProducto* ArbolProductos::insertarNodo(NodoProducto * temp, NodoProducto * ins)
 {
     if (raiz == NULL)
     {
@@ -123,8 +123,9 @@ bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
         return true;
     }else{
         //cout << "buscando" << endl;
-        return  existeProducto(_raiz->izq,_codProducto) || existeProducto(_raiz->der,_codProducto)
-                || existeProducto(_raiz->padre,_codProducto)  ;
+        return  existeProducto(_raiz->izq,_codProducto) || existeProducto(_raiz->der,_codProducto);
+
+
     }
 }
 
@@ -191,7 +192,6 @@ void ArbolProductos::getNodoProducto(int _codProducto, NodoProducto* _raiz, Nodo
     else {
         getNodoProducto(_codProducto, _raiz->izq,_nuevoNodo);
         getNodoProducto(_codProducto, _raiz->der,_nuevoNodo);
-        getNodoProducto(_codProducto, _raiz->padre,_nuevoNodo);
 
     }
 }
@@ -204,8 +204,6 @@ void ArbolProductos::getProductoMasVendido(NodoProducto *_raiz, NodoProducto *&_
     } else {
         getProductoMasVendido(_raiz->izq,_nuevoNodo);
         getProductoMasVendido(_raiz->der,_nuevoNodo);
-        getProductoMasVendido(_raiz->padre,_nuevoNodo);
-
 
     }
 }
@@ -222,7 +220,6 @@ void ArbolProductos::getProductosCambiaronStock(NodoProducto *_raiz, std::string
         }
         getProductosCambiaronStock(_raiz->der, _string);
         getProductosCambiaronStock(_raiz->izq, _string);
-        getProductosCambiaronStock(_raiz->padre, _string);
 
     }
 }
@@ -237,8 +234,6 @@ void ArbolProductos::PreordenSocket(NodoProducto *_raiz, std::string &_string) {
         _string+=nombre+"\n";
         PreordenSocket(_raiz->der, _string);
         PreordenSocket(_raiz->izq, _string);
-        PreordenSocket(_raiz->padre, _string);
-
     }
 }
 

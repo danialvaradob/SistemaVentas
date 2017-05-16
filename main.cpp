@@ -308,7 +308,7 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
     archivoEntrada.close();
 }
 
-const int portno = 8888;
+const int portno = 7777;
 
 
 int main() {
@@ -328,6 +328,7 @@ int main() {
     leerArchProductos(_arbolSupermercados);
 
     int codProveedor;
+    std::cout << "\nDIGITE EL CODIGO DE PROVEEDOR: ";
     while (1) {
         std::cin >> codProveedor;
         if (_arbolProveedores->existeProveedor(codProveedor, _arbolProveedores->raiz)){
@@ -367,6 +368,7 @@ int main() {
     int codSuper,codCat,codPro,cantidad,idCliente;
     std::string nombreCliente,dirCliente;
 
+    bool banderaCLIENTENUEVO = false;
 
     newsockfd = accept(sockfd,
                        (struct sockaddr *) &cli_addr,
@@ -418,7 +420,7 @@ int main() {
 
                     char msgIdguardada[] = "Identificacion guardada\nDigite su nombre para ser registrado ";
                     n = write(newsockfd,msgIdguardada, strlen(msgIdguardada));
-
+                    banderaCLIENTENUEVO = true;
 
 
 
@@ -521,15 +523,31 @@ int main() {
                     _nodoProd->setCantidadEnStock(cantidad);
                     _nodoCat->incBestScore();
                     _nodoSup->aumentarVentas();
-                    NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
-                                                          _nodoCliente->getID(),
-                                                          _nodoCliente->getNombre(), _nodoCat->getCodigo(),
-                                                          _nodoCat->getDesc(),
-                                                          _nodoProd->getCodigoProducto(),
-                                                          _nodoProd->getNombreProducto(),
-                                                          _nodoProd->getPrecioPorUnidad(), cantidad,
-                                                          (_nodoProd->getPrecioPorUnidad() * cantidad) * 0.05);
-                    listaVentas->insertar(_nodoVenta);
+
+                    if (banderaCLIENTENUEVO) {
+                        NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
+                                                              _nodoCliente->getID(),
+                                                              _nodoCliente->getNombre(), _nodoCat->getCodigo(),
+                                                              _nodoCat->getDesc(),
+                                                              _nodoProd->getCodigoProducto(),
+                                                              _nodoProd->getNombreProducto(),
+                                                              _nodoProd->getPrecioPorUnidad(), cantidad,
+                                                              _nodoProd->getPrecioPorUnidad() * cantidad);
+                        listaVentas->insertar(_nodoVenta);
+
+                    }else {
+
+                        NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
+                                                              _nodoCliente->getID(),
+                                                              _nodoCliente->getNombre(), _nodoCat->getCodigo(),
+                                                              _nodoCat->getDesc(),
+                                                              _nodoProd->getCodigoProducto(),
+                                                              _nodoProd->getNombreProducto(),
+                                                              _nodoProd->getPrecioPorUnidad(), cantidad,
+                                                              (_nodoProd->getPrecioPorUnidad() * cantidad) * 0.05);
+                        listaVentas->insertar(_nodoVenta);
+                    }
+
                     n = write(newsockfd, "VENTA REALIZADA", strlen("VENTA REALIZADA"));
                 }
             }
@@ -658,8 +676,8 @@ int main() {
 
             ArbolCategorias *arbolCategorias = new ArbolCategorias();
             ArbolProductos *arbolProductos = new ArbolProductos();
-            NodoSupermercado *_nodoSup = new NodoSupermercado();
-            NodoProducto *_nodoProd = new NodoProducto();
+            //NodoSupermercado *_nodoSup = new NodoSupermercado();
+           //NodoProducto *_nodoProd = new NodoProducto();
 
             char msgNoExiste[] = "Codigo NO EXISTE";
 
@@ -711,8 +729,12 @@ int main() {
                     //    n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
                     //    break;
                     //}
+                    arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
+
                     std::string productosCambiaronStock = "";
                     arbolProductos->getProductosCambiaronStock(arbolProductos->raiz,productosCambiaronStock);
+                    std::cout << productosCambiaronStock << std::endl;
+
                     std::vector<char> v(productosCambiaronStock.begin(), productosCambiaronStock.end());
                     v.push_back('\0'); // Make sure we are null-terminated
                     char* msgCodSR = &v[0];
@@ -892,7 +914,12 @@ int main() {
 
 
         }else if (bandera == OPCION_IMPRIMIR_ARBOL_PREORDEN) {
+
             //COMPARA TODOS
+            bzero(buffer,TAMANHO_BUFFER);
+            n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
+
+
             if ((memcmp(buffer, "1", strlen("1"))) == 0) {
                 std::string nombre = "Arbol de Supermercados: \n";
                 _arbolSupermercados->PreordenSocket(_arbolSupermercados->raiz, nombre);
@@ -900,6 +927,7 @@ int main() {
                 v.push_back('\0'); // Make sure we are null-terminated
                 char *msgCodSR = &v[0];
                 n = write(newsockfd, msgCodSR, strlen(msgCodSR));
+                std::cout << nombre << std::endl;
 
             } else if ((memcmp(buffer, "2", strlen("1"))) == 0) {
                 ArbolCategorias *_arbolCategorias;
@@ -923,6 +951,7 @@ int main() {
                         v.push_back('\0'); // Make sure we are null-terminated
                         char *msgCodCatPreorden = &v[0];
                         n = write(newsockfd, msgCodCatPreorden, strlen(msgCodCatPreorden));
+                        std::cout << nombre << std::endl;
                     }
                 }
 
@@ -944,6 +973,7 @@ int main() {
                         _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, _arbolCategorias);
                         n = write(newsockfd, "Codigo de supermercado valido\nDigite el codigo de Categoria: \n", strlen("Digite el codigo de Categoria: \n"));
 
+
                     }else if(i == 1){
                         codCat = atoi(buffer);
                         //verifica que existe el codigo de categoria
@@ -958,6 +988,7 @@ int main() {
                         v.push_back('\0'); // Make sure we are null-terminated
                         char *msgCodProdPreorden = &v[0];
                         n = write(newsockfd, msgCodProdPreorden, strlen(msgCodProdPreorden));
+                        std::cout << nombre << std::endl;
                     }
                 }
 
@@ -968,6 +999,7 @@ int main() {
                 v.push_back('\0'); // Make sure we are null-terminated
                 char *msgCodClientPreorden = &v[0];
                 n = write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+                std::cout << nombre << std::endl;
 
             } else if ((memcmp(buffer, "5", strlen("1"))) == 0) {
                 std::string nombre = "Arbol de Proveedores: \n";
@@ -976,6 +1008,7 @@ int main() {
                 v.push_back('\0'); // Make sure we are null-terminated
                 char *msgCodProvPreorden = &v[0];
                 n = write(newsockfd, msgCodProvPreorden, strlen(msgCodProvPreorden));
+                std::cout << nombre << std::endl;
             }
             bandera = 0;
 
@@ -1094,6 +1127,14 @@ int main() {
                 n = write(newsockfd,msgPreorden, strlen(msgPreorden));
 
                 bandera = OPCION_IMPRIMIR_ARBOL_PREORDEN;
+
+
+            }else if (( memcmp( buffer, "CAMBIAR", strlen( "CAMBIAR"))) == 0 ) {
+                char msgCambiarCliente[] = "Porfavor digite el nuevo ID";
+                n = write(newsockfd,msgCambiarCliente, strlen(msgCambiarCliente));
+
+                bandera = PRIMERA_VEZ;
+
 
             }else {
                 n = write(newsockfd, "OTRO", strlen("OTRO"));
