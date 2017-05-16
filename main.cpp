@@ -534,7 +534,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
                                                           _nodoProd->getNombreProducto(),
                                                           _nodoProd->getPrecioPorUnidad(), cantidad,
                                                           (_nodoProd->getPrecioPorUnidad() * cantidad) * 0.05);
-
+                    listaVentas->insertar(_nodoVenta);
                     n = write(newsockfd, "VENTA REALIZADA", strlen("VENTA REALIZADA"));
                 }
             }
@@ -980,6 +980,15 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
 
 
 
+        }else if(bandera == OPCION_FACTURA) {
+            if(!listaVentas->listaVacia()){
+                listaVentas->crearFactura();
+                n = write(newsockfd, "FACTURA CREADA\n", strlen("FACTURA CREADA\n"));
+            }else{
+                n = write(newsockfd, "No hay ventas para facturar\n", strlen("No hay ventas para facturar\n"));
+                break;
+            }
+
         }else{
 
             /* newsockfd = accept(sockfd,
@@ -1064,13 +1073,19 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
 
                 bandera = OPCION_ELIMINAR_PRODUCTO;
 
-            }if (( memcmp( buffer, "11", strlen( "11"))) == 0 ) {
+            }else if (( memcmp( buffer, "11", strlen( "11"))) == 0 ) {
                 char msgEliminarCl[] = "ELIMINANDO CLIENTE\nDigite el codigo del cliente";
                 n = write(newsockfd, msgEliminarCl, strlen(msgEliminarCl));
 
                 bandera = OPCION_ELIMINAR_PRODUCTO;
 
 
+
+            }else if(( memcmp( buffer, "12", strlen( "12"))) == 0 ){
+                char msgFact[] = "CREANDO FACTURA\n";
+                n = write(newsockfd, msgFact, strlen(msgFact));
+
+                bandera = OPCION_FACTURA;
 
             }else {
                 n = write(newsockfd, "OTRO", strlen("OTRO"));
