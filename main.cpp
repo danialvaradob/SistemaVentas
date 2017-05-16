@@ -43,6 +43,18 @@ void error(const char *msg) {
 }
 
 
+
+std::string retrieveString( char* buf, int max ) {
+
+    size_t len = 0;
+    while( (len < max) && (buf[ len ] != '\0') ) {
+        len++;
+    }
+
+    return std::string( buf, len );
+
+}
+
 //// PARA PRUEBA A VER SI REGISTRA BIEN UN PRODUCTO
 void leerArchProductos(ArbolSupermercados* _supermercados) {
 
@@ -391,7 +403,8 @@ int main() {
         if (bandera == PRIMERA_VEZ) {
             //la primera vez entra aca para verificar el cliente, obtiene el ID del cliente
             //Si no esta se prepara para almacenar los datos
-            printf("Esto mando el usuario %s",buffer);
+            //printf("Esto mando el usuario %s",buffer);
+            banderaCLIENTENUEVO = false;
 
             for (int i = 0; i < 4; i++) {
                 bzero(buffer, TAMANHO_BUFFER);
@@ -427,7 +440,12 @@ int main() {
                 }else if (i == 1) {
                     // registra el nombre
                     //transforma de caracter a str
-                    std::string nombreCliente(buffer);
+                    //std::string nombreCliente(buffer);
+
+                    nombreCliente.assign(buffer, buffer + 16);
+                    //std::string strNombre(buffer, std::find(buffer,buffer + 16, '\n'));
+
+
 
                     //std::cout << nombreCliente << std::endl;
 
@@ -437,7 +455,7 @@ int main() {
                 }else if (i == 2) {
                     // registra la direccion
 
-                    std::string dirCliente(buffer);
+                    dirCliente.assign(buffer, buffer + 16);
                     n = write(newsockfd, "Direccion Guardada\nDigite su numero de telefono", strlen("Direccion Guardada\nDigite su numero de telefono"));
 
                 }else if (i == 3) {
@@ -852,10 +870,13 @@ int main() {
 
                     //_arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, arbolCategorias);
                     //Verifica si existe dicho codigo
+                    _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, arbolCategorias);
                     if (!arbolCategorias->existeCategoria(codCat, arbolCategorias->raiz)) {
-                        n = write(newsockfd, msgNoExiste, strlen(msgNoExiste));
+                        n = write(newsockfd, "El codigo de categoria no existe\n",
+                                  strlen("El codigo de categoria no existe"));
                         break;
                     }
+
                     // aca pone
                     _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, arbolCategorias);
                     char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
@@ -971,7 +992,7 @@ int main() {
                             break;
                         }
                         _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, _arbolCategorias);
-                        n = write(newsockfd, "Codigo de supermercado valido\nDigite el codigo de Categoria: \n", strlen("Digite el codigo de Categoria: \n"));
+                        n = write(newsockfd, "Codigo de supermercado valido\nDigite el codigo de Categoria:", strlen("Codigo de supermercado valido\nDigite el codigo de Categoria:"));
 
 
                     }else if(i == 1){
@@ -995,11 +1016,15 @@ int main() {
             } else if ((memcmp(buffer, "4", strlen("1"))) == 0) {
                 std::string nombre = "Arbol de Clientes: \n";
                 _arbolClientes->PreordenSocket(_arbolClientes->raizB, nombre);
-                std::vector<char> v(nombre.begin(), nombre.end());
-                v.push_back('\0'); // Make sure we are null-terminated
-                char *msgCodClientPreorden = &v[0];
-                n = write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+                //std::vector<char> v(nombre.begin(), nombre.end());
+                //v.push_back('\0'); // Make sure we are null-terminated
+                //char *msgCodClientPreorden = &v[0];
+                //n = write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
                 std::cout << nombre << std::endl;
+
+                char msgCodClientPreorden[] = "REVISAR SERVIDOR";
+                write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+
 
             } else if ((memcmp(buffer, "5", strlen("1"))) == 0) {
                 std::string nombre = "Arbol de Proveedores: \n";
@@ -1022,6 +1047,7 @@ int main() {
                 n = write(newsockfd, "No hay ventas para facturar\n", strlen("No hay ventas para facturar\n"));
                 break;
             }
+            bandera = 0;
 
         }else{
 
@@ -1049,7 +1075,7 @@ int main() {
                 char msgEliminarCl[] = "ELIMINANDO CLIENTE\nDigite el codigo del cliente";
                 n = write(newsockfd, msgEliminarCl, strlen(msgEliminarCl));
 
-                bandera = OPCION_ELIMINAR_PRODUCTO;
+                bandera = OPCION_ELIMINAR_CLIENTE;
 
 
 
