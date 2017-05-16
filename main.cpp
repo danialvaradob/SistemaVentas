@@ -405,7 +405,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
                     _arbolClientes->existeCliente(_arbolClientes->raizB,idCliente,existeCliente);
                     if (existeCliente) {
                         std::cout << "ENTRO ACA" << std::endl;
-                        char msgIdguardada[] = "CLIENTE EXISTE";
+                        char msgIdguardada[] = "CLIENTE EXISTE\nPorfavor digite la OPCION deseada";
                         write(newsockfd,msgIdguardada, strlen(msgIdguardada));
                         bandera = 0;
                         break;
@@ -553,7 +553,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
             v.push_back('\0'); // Make sure we are null-terminated
             char* msgCodSR = &v[0];
             n = write(newsockfd, msgCodSR, strlen(msgCodSR));
-
+            bandera = 0;
             //
 
 
@@ -562,10 +562,13 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
             bzero(buffer, TAMANHO_BUFFER);
             n = read(newsockfd, buffer, TAMANHO_BUFFER - 1);
 
-
-            n = write(newsockfd, "El cliente con mas ventas es:  ", strlen("El cliente con mas ventas es: "));
-            //
-
+            NodoCliente* Clmascompro = new NodoCliente();
+            _arbolClientes->getClienteMasCompras(_arbolClientes->raizB,Clmascompro);
+            std::string nombre = Clmascompro->getNombre();
+            std::vector<char> v(nombre.begin(), nombre.end());
+            v.push_back('\0'); // Make sure we are null-terminated
+            char* msgCodSR = &v[0];
+            n = write(newsockfd, msgCodSR, strlen(msgCodSR));
 
 
             bandera = 0;
@@ -574,8 +577,8 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
 
         }else if (bandera == OPCION_PRODUCTO_MAS_VENDIDO) {
             //determina el Producto con mas Ventas
-            bzero(buffer,TAMANHO_BUFFER);
-            n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
+            //bzero(buffer,TAMANHO_BUFFER);
+            //n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
             char msgNoExiste[] = "Codigo NO EXISTE";
 
 
@@ -774,6 +777,8 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
             n = write(newsockfd, msgCodSR, strlen(msgCodSR));
 
 
+            bandera = 0;
+
 
         }else if (bandera == OPCION_LUGAR_CON_MAS_SUPERMERCADOS) {
             bzero(buffer,TAMANHO_BUFFER);
@@ -786,6 +791,7 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
             char* msgCodSR = &v[0];
             n = write(newsockfd, msgCodSR, strlen(msgCodSR));
 
+            bandera = 0;
 
         }else if (bandera == OPCION_ELIMINAR_PRODUCTO) {
 
@@ -1000,68 +1006,6 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
             if (( memcmp( buffer, "END", strlen( "END"))) == 0 )  {
                 n = write(newsockfd, "Proceso Terminado", strlen("Proceso Terminado"));
                 break;
-                \
-            }else if (( memcmp( buffer, "1", strlen( "1"))) == 0 )  {
-
-                //
-                char msgVenta[] = "ESPERANDO VENTA\nDigite el codigo del super";
-                n = write(newsockfd, msgVenta, strlen(msgVenta));
-                bandera = OPCION_VENTA;
-
-            }else if (( memcmp( buffer, "2", strlen( "2"))) == 0 ) {
-                //proveedor con mas ventas
-                //n = write(newsockfd, "ESPERANDO VENTA", strlen("ESPERANDO VENTA"));
-                n = write(newsockfd, "Digite OK", strlen("Digite OK"));
-
-                bandera = OPCION_PROVEEDOR_MAS_VENTAS;
-
-
-            }else if (( memcmp( buffer, "3", strlen( "3"))) == 0 ) {
-                //Cliente que mas compro
-                //getCliente
-                n = write(newsockfd, "Digite OK", strlen("Digite OK"));
-
-                bandera = OPCION_CLIENTE_MAS_COMPRO;
-
-
-
-
-            }else if (( memcmp( buffer, "4", strlen( "4"))) == 0 ) {
-                //Producto mas vendido neceista cod del super y de la categoria
-                n = write(newsockfd, "Digite el codigo del super", strlen("Digite el codigo del super"));
-
-                bandera = OPCION_PRODUCTO_MAS_VENDIDO;
-
-            }else if (( memcmp( buffer, "5", strlen( "5"))) == 0 ) {
-                //Productos que el stock
-                n = write(newsockfd, "Digite el codigo del super", strlen("Digite el codigo del super"));
-                bandera = OPCION_PRODUCTOS_CAMBIARON_STOCK;
-
-
-            }else if (( memcmp( buffer, "6", strlen( "6"))) == 0 ) {
-                //Categoria mas vendid
-                n = write(newsockfd, "Digite el codigo del super", strlen("Digite el codigo del super"));
-                bandera = OPCION_CATEGORIA_MAS_VENDIDA;
-
-            }else if (( memcmp( buffer, "7", strlen( "7"))) == 0 ) {
-                //Supermercado con mas ventas
-                n = write(newsockfd, "Digite el codigo del super", strlen("Digite el codigo del super"));
-                bandera = OPCION_SUPERMERCADO_MAS_VENTAS;
-
-            }else if (( memcmp( buffer, "8", strlen( "8"))) == 0 ) {
-                //lugar con mas supermercados
-                n = write(newsockfd, "Digite OK", strlen("Digite OK"));
-                bandera = OPCION_LUGAR_CON_MAS_SUPERMERCADOS;
-
-            }else if (( memcmp( buffer, "9", strlen( "9"))) == 0 ) {
-                //Determina arbol que desea imprimir
-
-                char msgPreorden[] = "Digite 1 si desea un arbol de supermercados\nDigite 2 si desea un arbol de categorias\n"
-                        "Digite 3 si desea un arbol de productos\nDigite 4 si desea un arbol de clientes\n"
-                        "Digite 5 si desea un arbol de proveedores\n";
-                n = write(newsockfd,msgPreorden, strlen(msgPreorden));
-
-                bandera = OPCION_IMPRIMIR_ARBOL_PREORDEN;
 
             }else if (( memcmp( buffer, "10", strlen( "10"))) == 0 ) {
 
@@ -1084,6 +1028,75 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
                 n = write(newsockfd, msgFact, strlen(msgFact));
 
                 bandera = OPCION_FACTURA;
+
+            }else if (( memcmp( buffer, "1", strlen( "1"))) == 0 )  {
+
+                //
+                char msgVenta[] = "ESPERANDO VENTA\nDigite el codigo del super";
+                n = write(newsockfd, msgVenta, strlen(msgVenta));
+                bandera = OPCION_VENTA;
+
+            }else if (( memcmp( buffer, "2", strlen( "2"))) == 0 ) {
+                //proveedor con mas ventas
+                //n = write(newsockfd, "ESPERANDO VENTA", strlen("ESPERANDO VENTA"));
+                char msgPROVEE[] = "PROVEEDOR CON MAS VENTAS\nDigite ok";
+                n = write(newsockfd, msgPROVEE, strlen(msgPROVEE));
+
+                bandera = OPCION_PROVEEDOR_MAS_VENTAS;
+
+
+            }else if (( memcmp( buffer, "3", strlen( "3"))) == 0 ) {
+                //Cliente que mas compro
+                //getCliente
+                char msgCMC[] = "CLIENTE QUE MAS COMPRO\nDigite OK";
+                n = write(newsockfd, msgCMC, strlen(msgCMC));
+
+                bandera = OPCION_CLIENTE_MAS_COMPRO;
+
+
+
+
+            }else if (( memcmp( buffer, "4", strlen( "4"))) == 0 ) {
+                //Producto mas vendido neceista cod del super y de la categoria
+                char msgPMV[] = "PRODUCTO MAS VENDIDO\nDigite el codigo del super";
+                n = write(newsockfd, msgPMV, strlen(msgPMV));
+
+                bandera = OPCION_PRODUCTO_MAS_VENDIDO;
+
+            }else if (( memcmp( buffer, "5", strlen( "5"))) == 0 ) {
+                //Productos que el stock
+                char msgPQBS[] = "PRODUCTOS QUE BAJARON STOCK\nDigite el codigo del super";
+                n = write(newsockfd,msgPQBS, strlen(msgPQBS));
+                bandera = OPCION_PRODUCTOS_CAMBIARON_STOCK;
+
+
+            }else if (( memcmp( buffer, "6", strlen( "6"))) == 0 ) {
+                //Categoria mas vendid
+                char msgCMV[] = "CATEGORIA MAS VENDIDA\nDigite el codigo del super";
+                n = write(newsockfd, msgCMV, strlen(msgCMV));
+                bandera = OPCION_CATEGORIA_MAS_VENDIDA;
+
+            }else if (( memcmp( buffer, "7", strlen( "7"))) == 0 ) {
+                //Supermercado con mas ventas
+                char msgSUPER[] = "SUPERMERCADO CON MAS VENTAS\nDigite ok";
+                n = write(newsockfd, msgSUPER, strlen(msgSUPER));
+                bandera = OPCION_SUPERMERCADO_MAS_VENTAS;
+
+            }else if (( memcmp( buffer, "8", strlen( "8"))) == 0 ) {
+                //lugar con mas supermercados
+                char msgLUGARMS[] = "LUGAR CON MAS SUPERMERADOS\nDigite ok";
+                n = write(newsockfd, msgLUGARMS, strlen(msgLUGARMS));
+                bandera = OPCION_LUGAR_CON_MAS_SUPERMERCADOS;
+
+            }else if (( memcmp( buffer, "9", strlen( "9"))) == 0 ) {
+                //Determina arbol que desea imprimir
+
+                char msgPreorden[] = "Digite 1 si desea un arbol de supermercados\nDigite 2 si desea un arbol de categorias\n"
+                        "Digite 3 si desea un arbol de productos\nDigite 4 si desea un arbol de clientes\n"
+                        "Digite 5 si desea un arbol de proveedores\n";
+                n = write(newsockfd,msgPreorden, strlen(msgPreorden));
+
+                bandera = OPCION_IMPRIMIR_ARBOL_PREORDEN;
 
             }else {
                 n = write(newsockfd, "OTRO", strlen("OTRO"));
