@@ -41,8 +41,6 @@ void error(const char *msg) {
     perror(msg);
     exit(1);
 }
-const int portno = 9090;
-
 
 
 //// PARA PRUEBA A VER SI REGISTRA BIEN UN PRODUCTO
@@ -310,7 +308,7 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
     archivoEntrada.close();
 }
 
-
+const int portno = 8888;
 
 
 int main() {
@@ -378,8 +376,8 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
         error("ERROR on accept");
 
     while (1) {
-        bzero(buffer,TAMANHO_BUFFER);
-        n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
+        //bzero(buffer,TAMANHO_BUFFER);
+        //n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
 
         if (( memcmp( buffer, "END", strlen( "END"))) == 0) {
@@ -392,17 +390,13 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
         if (bandera == PRIMERA_VEZ) {
             //la primera vez entra aca para verificar el cliente, obtiene el ID del cliente
             //Si no esta se prepara para almacenar los datos
-
-
-
-
-            //si no entra en un ciclo para obtener los datos
-
+            printf("Esto mando el usuario %s",buffer);
 
             for (int i = 0; i < 4; i++) {
                 bzero(buffer, TAMANHO_BUFFER);
                 n = read(newsockfd, buffer, TAMANHO_BUFFER - 1);
                 if (i == 0) {
+
                     // registra el ID
                     //revisa si el cliente existe
                     //si existe continua y le agrega una compra
@@ -410,15 +404,19 @@ void socketServer(ArbolSupermercados*& _arbolSupermercados,
                     bool existeCliente = false;
                     _arbolClientes->existeCliente(_arbolClientes->raizB,idCliente,existeCliente);
                     if (existeCliente) {
+                        std::cout << "ENTRO ACA" << std::endl;
                         char msgIdguardada[] = "CLIENTE EXISTE";
                         write(newsockfd,msgIdguardada, strlen(msgIdguardada));
+                        bandera = 0;
                         break;
+
                     }
                     // le agrega una compra al cliente
                     //  agregar compra al cliente
                     // agregarCompra(idCliente)
                     // break
                     //}
+
                     char msgIdguardada[] = "Identificacion guardada\nDigite su nombre para ser registrado ";
                     n = write(newsockfd,msgIdguardada, strlen(msgIdguardada));
 

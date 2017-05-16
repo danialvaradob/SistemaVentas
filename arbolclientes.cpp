@@ -229,7 +229,7 @@ void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
     }
 }
 
-void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool _existe) {
+void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool& _existe) {
     if(Raiz == NULL){
         return;
     }
