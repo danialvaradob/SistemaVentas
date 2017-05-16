@@ -1,7 +1,7 @@
 #include <sstream>
 #include "arbolclientes.h"
-///#include <iostream>
-///#include <string>
+//#include <iostream>
+//#include <string>
 //ARBOL B
 
 void ArregloClaves::InsertarClave(pNodoCliente Clave, int Numero){

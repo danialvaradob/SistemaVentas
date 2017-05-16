@@ -1,4 +1,4 @@
-#include <iostream>
+//#include <iostream>
 #include <sstream>
 #include "arbolproveedores.h"
 
@@ -58,7 +58,7 @@ std::string ArbolProveedores::getNombreProveedor(int _id, NodoProveedor *_raiz) 
         getNombreProveedor(_id,_raiz->Hizq);
     }
 }
-
+/*
 // Recorridos
 void ArbolProveedores::PreordenI(NodoProveedor *R){
     if(R==NULL){
@@ -91,6 +91,7 @@ void ArbolProveedores::PostordenI(NodoProveedor *R){
     }
 }
 
+*/
 void ArbolProveedores::getNodoProveedor(int _id, NodoProveedor *_raiz, NodoProveedor *&_nuevoNodo) {
     if (_raiz ==NULL) return;
     else if (_raiz->getID() == _id) {

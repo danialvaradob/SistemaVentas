@@ -1,12 +1,11 @@
 #include "arbolproductos.h"
-#include <string>
-#include <iostream>
+//#include <string>
+//#include <iostream>
 #include <sstream>
 //ARBOL ArbolProductos
 
-using namespace std;
 
-void ArbolProductos::buscar(int _codigoProducto, int _codigoCategoria, string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock)
+void ArbolProductos::buscar(int _codigoProducto, int _codigoCategoria, std::string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock)
 {
     NodoProducto *temp = new NodoProducto( _codigoProducto,  _codigoCategoria,  _nombreProducto,  _precioPorUnidad,  _cantidadEnStock);
     temp->nivel = 1;
@@ -155,7 +154,7 @@ NodoProducto *ArbolProductos::eliminar(NodoProducto *&_raiz, int _codigoProducto
     }
 }
 
-
+/*
 void ArbolProductos::PreordenI(NodoProducto *R){
     if(R==NULL){
         return;
@@ -168,7 +167,7 @@ void ArbolProductos::PreordenI(NodoProducto *R){
         PreordenI(R->der);
     }
 }
-
+*/
 void ArbolProductos::cambiarStock(NodoProducto *&_raiz,int _codProducto, int _cantidad) {
     if (_raiz == NULL) return;
 /*

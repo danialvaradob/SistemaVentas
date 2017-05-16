@@ -20,7 +20,6 @@ public:
     void aumentarCantidadDeSupermercados(int codLugar);
     void getLugarMasSuper(NodoLugar*&_lugarMasSupermercados);
 
-private:
     NodoLugar* primero;
     NodoLugar* actual;
 

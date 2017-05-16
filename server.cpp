@@ -9,8 +9,9 @@
 //
 
 /* A simple server in the internet domain using TCP
- The port number is passed as an argument */
+ The port number is passed as an argument
 
+//#include "server.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,15 +44,13 @@ const int TAMANHO_BUFFER = 100000000;
 
 
 
-void error(const char *msg)
-{
+void error(const char *msg) {
     perror(msg);
     exit(1);
 }
 const int portno = 9090;
 
-void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _arbolProveedores, ArbolClientes*& _arbolClientes,
-                      ListaLugares*& _listaLugares) {
+void socketServer(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _arbolProveedores, ArbolClientes*& _arbolClientes,ListaLugares*& _listaLugares) {
 
 
     ListaVentas* listaVentas = new  ListaVentas();
@@ -695,10 +694,6 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 
         }else{
 
-            /* newsockfd = accept(sockfd,
-                               (struct sockaddr *) &cli_addr,
-                               &clilen);
-            */
 
             bzero(buffer,TAMANHO_BUFFER);
             n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
@@ -804,3 +799,4 @@ void socketMain(ArbolSupermercados*& _arbolSupermercados, ArbolProveedores*& _ar
 }
 
 
+*/

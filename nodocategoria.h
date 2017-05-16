@@ -6,7 +6,7 @@
 #define SISTEMAVENTAS2_NODOCATEGORIA_H
 
 
-#include <iostream>
+//#include <iostream>
 #include "arbolproductos.h"
 
 enum Color {RED, BLACK};

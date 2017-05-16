@@ -1,6 +1,7 @@
 #ifndef NODOPRODUCTO_H
 #define NODOPRODUCTO_H
 #include <string>
+#include <iostream>
 
 
 
