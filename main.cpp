@@ -835,7 +835,7 @@ int main() {
 
             ArbolCategorias* arbolCategorias = new ArbolCategorias();
             ArbolProductos* arbolProductos = new ArbolProductos();
-            NodoProducto* productoEliminar = new NodoProducto();
+            //NodoProducto* productoEliminar = new NodoProducto();
 
             char msgNoExiste[] = "Codigo NO EXISTE";
             for (int i = 0; i < 4; i++) {
@@ -880,7 +880,7 @@ int main() {
                     }
 
                     // aca pone
-                    _arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, arbolCategorias);
+                    //_arbolSupermercados->getArbolCat(codSuper, _arbolSupermercados->raiz, arbolCategorias);
                     char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
                     n = write(newsockfd, msgCodR, strlen(msgCodR));
 
@@ -896,7 +896,7 @@ int main() {
 
                     }
 
-                    char msgAccept[] = "Codigo de Producto recibido\nDesea ELIMINAR el producto? (S/N)";
+                    char msgAccept[] = "Codigo de Producto recibido\nDesea ELIMINAR el producto? (S/N)\n";
 
                     n = write(newsockfd, msgAccept, strlen(msgAccept));
 
@@ -912,15 +912,15 @@ int main() {
                         //productoEliminar
                         arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
                         //arbolProductos->eliminarProducto(codPro)
-                        arbolProductos->getNodoProducto(codPro ,arbolProductos->raiz,productoEliminar);
+                        //arbolProductos->getNodoProducto(codPro ,arbolProductos->raiz,productoEliminar);
                         arbolProductos->eliminar(arbolProductos->raiz,codPro);
-                        char msgEliminadoP[] = "El producto fue ELIMINADO con exito";
+                        char msgEliminadoP[] = "El producto fue ELIMINADO con exito\n";
                         n = write(newsockfd, msgEliminadoP, strlen(msgEliminadoP));
 
                         //
 
                     } else {
-                        char msgNoEliminado[] = "El produco NO fue eliminado";
+                        char msgNoEliminado[] = "El produco NO fue eliminado\n";
                         n = write(newsockfd, msgNoEliminado, strlen(msgNoEliminado));
                         bandera = 0;
                         break;

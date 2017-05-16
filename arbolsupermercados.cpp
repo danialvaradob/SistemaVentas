@@ -62,7 +62,7 @@ void ArbolSupermercados::insertarBalanceado(NodoSupermercado *&ra, bool &Hh, int
                             break;
                         case 1:
                             (n1 = ra->Hder);
-                            if (n1->FB = 1) {
+                            if (n1->FB == 1) {
                                 rotacionSimpleDerecha(ra, n1);
                             } else {
                                 rotacionDobleDerecha(ra, n1);
@@ -88,7 +88,7 @@ void ArbolSupermercados::equilibrar1(NodoSupermercado *&n, bool) {
             break;
         case 1: n1 = n->Hder;
             if(n1->FB>=0){
-                if(n1->FB=0){
+                if(n1->FB==0){
                     Hh = false;
                     rotacionSimpleDerecha(n, n1);
                 }else{
@@ -108,7 +108,7 @@ void ArbolSupermercados::equilibrar2(NodoSupermercado *&n, bool) {
             break;
         case -1: n1 = n->Hizq;
             if(n1->FB<=0){
-                if(n1->FB=0){
+                if(n1->FB==0){
                     Hh = false;
                     rotacionSimpleIzquierda(n, n1);
                 }else{
@@ -209,8 +209,6 @@ bool ArbolSupermercados::existeSupermercado(int _codNuevoSuper, NodoSupermercado
     } else {
 
         return existeSupermercado(_codNuevoSuper,_raiz->Hizq) || existeSupermercado(_codNuevoSuper,_raiz->Hder);
-        existeSupermercado(_codNuevoSuper, _raiz->Hizq);
-        existeSupermercado(_codNuevoSuper, _raiz->Hder);
 
     }
 }

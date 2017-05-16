@@ -186,7 +186,7 @@ void ArbolCategorias ::insertarValorNodoRN(int _id,std::string _desc){
 }
 
 void ArbolCategorias::agregarProducto(nodocategoria *raiz, int codProI, int codCatI, std::string nombreProducto,
-                                      int precioPorUnidad, int cantidadEnStock) {
+                                      double precioPorUnidad, int cantidadEnStock) {
 
     if (raiz == NULL) {
         return;
