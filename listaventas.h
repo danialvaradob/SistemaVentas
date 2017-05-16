@@ -15,7 +15,7 @@ public:
 
     void insertar(NodoVenta *_venta);
     bool listaVacia() {return primero == NULL;}
-
+    void crearFactura();
 
     NodoVenta* getPrimero() {return primero;};
 
