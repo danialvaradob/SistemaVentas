@@ -23,9 +23,8 @@ public:
     pNodoCliente ObtenerApuntadorClave(int Numero);
 
 
-private:
-
     pNodoCliente arregloClaves[5];
+private:
 
     friend class Pagina;
 };
@@ -48,9 +47,8 @@ public:
     void InsertarRama(ApuntadorPagina Rama, int Numero);
     ApuntadorPagina ObtenerRama(int Numero);
 
-private:
-
     ApuntadorPagina arregloRamas[5];
+private:
 
     friend class Pagina;
 };
@@ -109,6 +107,15 @@ public:
     void getClienteMasCompras(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras);
     void agregarCompra(ApuntadorPagina Raiz,int _codCliente);
     void getCliente(ApuntadorPagina Raiz,NodoCliente*& _clienteMasCompras, int _id);
+    void Combina(ApuntadorPagina P, int& K);
+    void MoverIzquierda (ApuntadorPagina P, int& K);
+    void MoverDerecha(ApuntadorPagina P, int& K);
+    void Restablecer (ApuntadorPagina P, int& K);
+    void Sucesor(ApuntadorPagina P, int& K);
+    void Quitar(ApuntadorPagina & P, int& K);
+    void EliminarRegistro(int C1, ApuntadorPagina Raiz, bool & Encontrado);
+    void Eliminar (int C1, ApuntadorPagina Raiz);
+    void BuscarNodo(int Clave, ApuntadorPagina P, bool & Encontrado, int & K);
 
 
     // Funcion que simplemente agrega un cliente usando IniciarInsercionB(para Numero se utiliza el mismo _id, son 2 _id

@@ -8,20 +8,17 @@
 
 class NodoProducto {
 public:
-    NodoProducto(){
+    NodoProducto() {
         codigoProducto = 0;
         codigoCategoria = 0;
         nombreProducto = "";
         precioPorUnidad = 0;
         cantidadEnStock = 0;
         cantidadAlInicio = 0;
-
-
         cont = 0;
         nivel = 0;
         cantidadProductoVendido = 0;
         bestScore = 0;
-
         padre = NULL;
         raiz = NULL;
         izq = NULL;
@@ -80,9 +77,6 @@ public:
 
     int cont;
     int nivel;
-
-
-
 
 
 private:
