@@ -129,7 +129,7 @@ bool ArbolProductos::existeProducto(NodoProducto *_raiz, int _codProducto) {
     }
 }
 
-NodoProducto *ArbolProductos::eliminar(NodoProducto *&_raiz, int _codigoProducto) {
+NodoProducto *ArbolProductos::eliminar(NodoProducto *_raiz, int _codigoProducto) {
     //_raiz = T
     // L = L
     //_codigoProducto = X

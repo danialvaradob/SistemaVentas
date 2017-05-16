@@ -854,6 +854,7 @@ int main() {
                     //Verifica si existe dicho codigo
                     if (!_arbolSupermercados->existeSupermercado(codSuper,_arbolSupermercados->raiz)) {
                         n = write(newsockfd, msgNoExiste, strlen(msgNoExiste));
+                        bandera = 0;
                         break;
                     }
 
@@ -874,6 +875,7 @@ int main() {
                     if (!arbolCategorias->existeCategoria(codCat, arbolCategorias->raiz)) {
                         n = write(newsockfd, "El codigo de categoria no existe\n",
                                   strlen("El codigo de categoria no existe"));
+                        bandera = 0;
                         break;
                     }
 
@@ -889,6 +891,7 @@ int main() {
 
                     if (!arbolCategorias->existeProducto(codPro, codCat, arbolCategorias->raiz)) {
                         n = write(newsockfd, msgNoExiste, strlen(msgNoExiste));
+                        bandera = 0;
                         break;
 
                     }
@@ -911,7 +914,7 @@ int main() {
                         //arbolProductos->eliminarProducto(codPro)
                         arbolProductos->getNodoProducto(codPro ,arbolProductos->raiz,productoEliminar);
                         arbolProductos->eliminar(arbolProductos->raiz,codPro);
-                        char msgEliminadoP[] = "El producto fue ELIMINADO con exite";
+                        char msgEliminadoP[] = "El producto fue ELIMINADO con exito";
                         n = write(newsockfd, msgEliminadoP, strlen(msgEliminadoP));
 
                         //
@@ -919,6 +922,7 @@ int main() {
                     } else {
                         char msgNoEliminado[] = "El produco NO fue eliminado";
                         n = write(newsockfd, msgNoEliminado, strlen(msgNoEliminado));
+                        bandera = 0;
                         break;
 
                     }
@@ -931,7 +935,16 @@ int main() {
 
 
         }else if (bandera == OPCION_ELIMINAR_CLIENTE) {
+            bzero(buffer,TAMANHO_BUFFER);
+            n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
+            int codCliente = atoi(buffer);
+
+            //_arbolClientes->Eliminar(codCliente,_arbolClientes->raizB);
+            char msgClienteElim[] = "NO FUNCIONA";
+            n = write(newsockfd, msgClienteElim, strlen(msgClienteElim));
+
+            bandera = 0;
 
 
         }else if (bandera == OPCION_IMPRIMIR_ARBOL_PREORDEN) {
@@ -949,6 +962,9 @@ int main() {
                 char *msgCodSR = &v[0];
                 n = write(newsockfd, msgCodSR, strlen(msgCodSR));
                 std::cout << nombre << std::endl;
+                //char msgCodClientPreorden[] = "REVISAR SERVIDOR";
+                //write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+
 
             } else if ((memcmp(buffer, "2", strlen("1"))) == 0) {
                 ArbolCategorias *_arbolCategorias;
@@ -973,6 +989,10 @@ int main() {
                         char *msgCodCatPreorden = &v[0];
                         n = write(newsockfd, msgCodCatPreorden, strlen(msgCodCatPreorden));
                         std::cout << nombre << std::endl;
+
+                        //char msgCodClientPreorden[] = "REVISAR SERVIDOR";
+                        //write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+
                     }
                 }
 
@@ -1010,6 +1030,11 @@ int main() {
                         char *msgCodProdPreorden = &v[0];
                         n = write(newsockfd, msgCodProdPreorden, strlen(msgCodProdPreorden));
                         std::cout << nombre << std::endl;
+                        //std::cout << nombre << std::endl;
+
+                        //char msgCodClientPreorden[] = "REVISAR SERVIDOR";
+                        //write(newsockfd, msgCodClientPreorden, strlen(msgCodClientPreorden));
+
                     }
                 }
 
