@@ -376,7 +376,7 @@ NodoProducto* ArbolProductos::insertar(NodoProducto *T, int _codigoProducto, int
 
 NodoProducto *ArbolProductos::decrementarNivel(NodoProducto *_raiz) {
     int debe_ser;
-    if (raiz->izq != NULL && raiz->der != NULL) {
+    if (_raiz->izq != NULL && _raiz->der != NULL) {
         //debe_ser = std::min(_raiz->izq->nivel,_raiz->der->nivel + 1);
         if (_raiz->izq->nivel < _raiz->der->nivel + 1) {
             debe_ser = _raiz->izq->nivel;
@@ -384,15 +384,15 @@ NodoProducto *ArbolProductos::decrementarNivel(NodoProducto *_raiz) {
             debe_ser = _raiz->der->nivel + 1;
         }
     }
-    else if (raiz->izq) {
-        debe_ser = raiz->izq->nivel;
-    }else if (raiz->der){
-        debe_ser = raiz->der->nivel;
+    else if (_raiz->izq) {
+        debe_ser = _raiz->izq->nivel;
+    }else if (_raiz->der){
+        debe_ser = _raiz->der->nivel;
     }
 
     if (debe_ser < _raiz->nivel) {
         _raiz->nivel = debe_ser;
-        if (debe_ser < raiz->der->nivel) {
+        if (debe_ser < _raiz->der->nivel) {
             _raiz->der->nivel = debe_ser;
         }
     }

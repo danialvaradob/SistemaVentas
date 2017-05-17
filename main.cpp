@@ -325,7 +325,7 @@ const int portno = 7777;
 
 int main() {
 
-    /*
+/*
 
     ArbolProductos* AA = new ArbolProductos();
 
@@ -336,11 +336,12 @@ int main() {
     AA->raiz = AA->insertar(AA->raiz,7,99,"K",10,10);
 
     AA->raiz = AA->borrar(AA->raiz,6);
+    AA->raiz = AA->borrar(AA->raiz,50);
 
     std::string preorden;
     AA->PreordenSocket(AA->raiz,preorden);
 
-    */
+*/
 
 
 
