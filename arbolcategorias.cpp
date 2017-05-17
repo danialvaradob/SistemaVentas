@@ -195,12 +195,24 @@ void ArbolCategorias::agregarProducto(nodocategoria *raiz, int codProI, int codC
         if (raiz->punteroArbolProductos == NULL) {
             //crea el arbol y le agrega la categoria
             raiz->punteroArbolProductos = new ArbolProductos();
-            raiz->punteroArbolProductos->buscar( codProI,  codCatI,  nombreProducto,
-                     precioPorUnidad,  cantidadEnStock);
+            //FUNCIONA FUNCIONA FUNCIONA
+            //raiz->punteroArbolProductos->buscar( codProI,  codCatI,  nombreProducto,
+              //       precioPorUnidad,  cantidadEnStock);
+
+            //PROBANDOOOOOO
+            raiz->punteroArbolProductos->raiz = raiz->punteroArbolProductos->insertar(raiz->punteroArbolProductos->raiz,
+                                                                                      codProI,codCatI,nombreProducto,precioPorUnidad, cantidadEnStock);
+
 
         } else {
-            raiz->punteroArbolProductos->buscar( codProI,  codCatI,  nombreProducto,
+            //FUNCIONA FUNCIONA FUNCIONA
+            /*raiz->punteroArbolProductos->buscar( codProI,  codCatI,  nombreProducto,
                                                  precioPorUnidad,  cantidadEnStock);
+        */
+            raiz->punteroArbolProductos->raiz = raiz->punteroArbolProductos->insertar(raiz->punteroArbolProductos->raiz,
+                                                                                      codProI,codCatI,nombreProducto,precioPorUnidad, cantidadEnStock);
+
+
         }
         //si no esta vacio lo agrega
 

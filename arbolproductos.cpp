@@ -32,6 +32,9 @@ void ArbolProductos::girar(NodoProducto  *temp)
     temp->nivel = (temp->izq ? temp->izq->nivel + 1 : 1);
 }
 
+
+
+
 bool ArbolProductos::dividir(NodoProducto  *temp)
 {
     NodoProducto * ptr = temp->der;
@@ -138,7 +141,9 @@ NodoProducto *ArbolProductos::eliminar(NodoProducto *_raiz, int _codigoProducto)
     if( _codigoProducto > _raiz->getCodigoProducto()) {
         _raiz->der = eliminar(_raiz->der, _codigoProducto);
     } else if(_codigoProducto < _raiz->getCodigoProducto()) {
+
         _raiz->izq = eliminar(_raiz->izq, _codigoProducto);
+
     } else {
         if (_raiz->izq == NULL && _raiz->der == NULL) {
             return NULL;
@@ -154,7 +159,18 @@ NodoProducto *ArbolProductos::eliminar(NodoProducto *_raiz, int _codigoProducto)
             }
         }
     }
+    raiz = decrementarNivel(raiz);
+    if (raiz->izq) girar(raiz);
+    if (raiz->der) girar(raiz->der);
+    if (raiz->der->der) girar(raiz->der->der);
+    dividir(raiz);
+    if (raiz->der) dividir(raiz->der);
+    return raiz;
+
 }
+
+
+
 
 /*
 void ArbolProductos::PreordenI(NodoProducto *R){
@@ -232,8 +248,8 @@ void ArbolProductos::PreordenSocket(NodoProducto *_raiz, std::string &_string) {
         flujo << _raiz->getCodigoProducto();
         nombre = flujo.str();
         _string+=nombre+"\n";
-        PreordenSocket(_raiz->der, _string);
         PreordenSocket(_raiz->izq, _string);
+        PreordenSocket(_raiz->der, _string);
     }
 }
 
@@ -307,4 +323,110 @@ int ArbolProductos::obtenerPrecioOferta(NodoProducto *O,int r,int ci,int cd){
 }
 
  */
+
+
+NodoProducto* ArbolProductos::torsion(NodoProducto *T) {
+    if (!T)
+        return NULL;
+    else if(T->izq && T->izq->nivel == T->nivel) {
+        NodoProducto* L = T->izq;
+        T->izq = L->der;
+        L->der = T;
+        return  L;
+    } else  {
+        return T;
+    }
+
+}
+
+NodoProducto* ArbolProductos::division(NodoProducto *T) {
+    if (!T) {
+        return NULL;
+    }else if (T->der && T->der->der &&  T->nivel == T->der->der->nivel) {
+        NodoProducto* R = T->der;
+        T->der = R->izq;
+        R->izq = T;
+        R->nivel++;
+        return R;
+    }else {
+        return T;
+    }
+}
+
+
+NodoProducto* ArbolProductos::insertar(NodoProducto *T, int _codigoProducto, int _codigoCategoria,
+                                       std::string _nombreProducto, double _precioPorUnidad, int _cantidadEnStock) {
+
+    if (!T) {
+        NodoProducto* X = new NodoProducto( _codigoProducto,  _codigoCategoria,  _nombreProducto,  _precioPorUnidad,  _cantidadEnStock);
+        return X;
+    }else if (_codigoProducto < T->getCodigoProducto()) {
+        T->izq = insertar(T->izq, _codigoProducto,_codigoCategoria
+                ,_nombreProducto,_precioPorUnidad,_cantidadEnStock);
+    } else if (_codigoProducto > T->getCodigoProducto()) {
+        T->der = insertar(T->der, _codigoProducto,_codigoCategoria
+                ,_nombreProducto,_precioPorUnidad,_cantidadEnStock);
+    }
+    T = torsion(T);
+    T = division(T);
+    return T;
+
+}
+
+
+NodoProducto *ArbolProductos::decrementarNivel(NodoProducto *_raiz) {
+    int debe_ser;
+    if (raiz->izq != NULL && raiz->der != NULL) {
+        //debe_ser = std::min(_raiz->izq->nivel,_raiz->der->nivel + 1);
+        if (_raiz->izq->nivel < _raiz->der->nivel + 1) {
+            debe_ser = _raiz->izq->nivel;
+        } else {
+            debe_ser = _raiz->der->nivel + 1;
+        }
+    }
+    else if (raiz->izq) {
+        debe_ser = raiz->izq->nivel;
+    }else if (raiz->der){
+        debe_ser = raiz->der->nivel;
+    }
+
+    if (debe_ser < _raiz->nivel) {
+        _raiz->nivel = debe_ser;
+        if (debe_ser < raiz->der->nivel) {
+            _raiz->der->nivel = debe_ser;
+        }
+    }
+    return _raiz;
+}
+
+NodoProducto* ArbolProductos::borrar(NodoProducto *T, int _codPro) {
+    //NodoProducto* L = new NodoProducto();
+    int L;
+    if (T && _codPro > T->getCodigoProducto()) {
+        T->der = borrar(T->der,_codPro);
+    } else if (T && _codPro < T->getCodigoProducto()) {
+        T->izq = borrar(T->izq,_codPro);
+    } else {
+        if (T->izq == NULL && T->der==NULL) {
+            return NULL;
+        } else if (T->izq == NULL) {
+            L = T->der->getCodigoProducto();
+            T->der = borrar(T->der,L);
+            T->setCodigo(L);
+        } else {
+            L = T->izq->getCodigoProducto();
+            T->izq = borrar(T->izq,L);
+            T->setCodigo(L);
+        }
+
+    }
+    T = decrementarNivel(T);
+    T = torsion(T);
+    if (T) T->der = torsion(T->der);
+    if (T && T->der)T->der->der = torsion(T->der->der);
+    T = division(T);
+    if(T->der) T->der = torsion(T->der);
+    return T;
+
+}
 

@@ -69,6 +69,8 @@ public:
     double calcularMonto(int cant, int descuento);
     int getBestScore() {return bestScore;}
 
+    void setCodigo(int _codPro) {codigoProducto = _codPro;}
+
     // especiales para Nodos de un arbol AA
     NodoProducto* izq;
     NodoProducto* der;

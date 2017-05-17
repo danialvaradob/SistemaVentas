@@ -325,6 +325,25 @@ const int portno = 7777;
 
 int main() {
 
+    /*
+
+    ArbolProductos* AA = new ArbolProductos();
+
+    AA->raiz = AA->insertar(AA->raiz,6,99,"K",10,10);
+    AA->raiz = AA->insertar(AA->raiz,50,99,"K",10,10);
+    AA->raiz = AA->insertar(AA->raiz,90,99,"K",10,10);
+    AA->raiz = AA->insertar(AA->raiz,1,99,"K",10,10);
+    AA->raiz = AA->insertar(AA->raiz,7,99,"K",10,10);
+
+    AA->raiz = AA->borrar(AA->raiz,6);
+
+    std::string preorden;
+    AA->PreordenSocket(AA->raiz,preorden);
+
+    */
+
+
+
     ListaLugares* _listaLugares = new ListaLugares();
     leerArchLugares(_listaLugares);
 
@@ -338,6 +357,10 @@ int main() {
     leerArchSupermercado(_arbolSupermercados,_listaLugares);
     leerArchCategorias(_arbolSupermercados);
     leerArchProductos(_arbolSupermercados);
+
+
+
+
 
     int codProveedor;
     std::cout << "\nDIGITE EL CODIGO DE PROVEEDOR: ";
@@ -913,7 +936,15 @@ int main() {
                         arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
                         //arbolProductos->eliminarProducto(codPro)
                         //arbolProductos->getNodoProducto(codPro ,arbolProductos->raiz,productoEliminar);
-                        arbolProductos->eliminar(arbolProductos->raiz,codPro);
+
+
+                        //arbolProductos->eliminar(arbolProductos->raiz,codPro);
+
+                        //arbolProductos->raiz = arbolProductos->eliminar(arbolProductos->raiz,codPro);
+
+                        arbolProductos->raiz = arbolProductos->borrar(arbolProductos->raiz,codPro);
+
+
                         char msgEliminadoP[] = "El producto fue ELIMINADO con exito\n";
                         n = write(newsockfd, msgEliminadoP, strlen(msgEliminadoP));
 
@@ -1232,7 +1263,7 @@ int main() {
 
     leerArchCategorias(arbolSupermercados);
 
-    leerArchProductos(arbolSupermercados);
+    leerAarchProductos(arbolSupermercados);
 
     //socketMain(arbolSupermercados,arbolProveedores,arbolClientes,listaLugares);
 
