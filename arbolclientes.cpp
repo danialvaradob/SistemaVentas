@@ -41,162 +41,122 @@ void ArbolClientes::EstablecerRaizB(ApuntadorPagina Raiz)
     raizB = Raiz;
 }
 
-void ArbolClientes::IniciarInsercionB(int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
+void ArbolClientes::IniciarInsercionB(NodoCliente *_C1)
 {
     ApuntadorPagina Raiz = raizB;
-    raizB = InsertarB(Raiz,Numero,  _id,  _nombre,  _direccion,  _telefono);
+    InsertarB(_C1, Raiz);
 }
 
-ApuntadorPagina ArbolClientes::InsertarB(ApuntadorPagina Raiz, int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
-{
-    ApuntadorPagina P = NULL;
+void ArbolClientes::InsertarB(NodoCliente *_C1, ApuntadorPagina Raiz){
+    bool EA;
+    NodoCliente *_X = NULL;
+    ApuntadorPagina Xr = NULL;
 
-    Raiz = EmpujarB(Raiz,Numero,  _id,  _nombre,  _direccion,  _telefono);
-    if (Raiz->Esta) {
+    EmpujarB(_C1, Raiz, EA, _X, Xr);
+    /*if (Raiz->Esta) {
         Raiz->Esta = false;
-        return Raiz;
-    }
-    if(Raiz->EmpujarArriba){
-        P = new Pagina();
+    }*/
+    if(EA){
+        ApuntadorPagina P = new Pagina();
         P->cuenta = 1;
-        pNodoCliente Auxiliar = new NodoCliente(Raiz->X,  _id,  _nombre,  _direccion, _telefono);
-        P->Claves->InsertarClave(Auxiliar,1);
-        P->Ramas->InsertarRama(Raiz->Xr,1);
-        if(Raiz->llamadas == 1){
-            P->Ramas->InsertarRama(NULL,0);
-        }
-        else{
-            P->Ramas->InsertarRama(Raiz,0);
-        }
+        P->Claves->arregloClaves[1] = _X;
+        P->Ramas->arregloRamas[0] = Raiz;
+        P->Ramas->arregloRamas[1] = Xr;
 
-        Raiz = P;
+        raizB = P;
     }
-    return Raiz;
 
 
 }
 
-ApuntadorPagina ArbolClientes::EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono)
+void ArbolClientes::EmpujarB(NodoCliente *_C1,ApuntadorPagina R, bool &EA, NodoCliente *&Mdana, ApuntadorPagina &Xr)
 {
-    if(Raiz == NULL){
-        Raiz = new Pagina();
-        Raiz->EmpujarArriba = true;
-        Raiz->X = Numero;
-        Raiz->Xr = NULL;
-        Raiz->llamadas++;
-        return Raiz;
-    }
+    int K = 0;
+    bool Esta = false;
 
-    else{
-        Raiz = BuscarNodoB(Raiz,Numero);
-        if(Raiz->Esta){
+    if(R == NULL){
+        EA = true;
+        Mdana = _C1;
+        Xr = NULL;
+
+    }else
+    {
+        BuscarNodoB(R ,_C1->getID(),Esta, K);
+        if(Esta){
             std::cout << "Elemento Repetido" << std::endl;
-            return Raiz;
-
-        }
-        if(Raiz->K == 0){
-
-        }
-        ApuntadorPagina Aux;
-        Aux = EmpujarB(Raiz->Ramas->ObtenerRama(Raiz->K),Numero,  _id,  _nombre,  _direccion,  _telefono);
-        Raiz->EmpujarArriba = Aux->EmpujarArriba;
-        Raiz->X = Aux -> X;
-        Raiz->Xr = Aux->Xr;
-        if(Raiz->EmpujarArriba){
-            if(Raiz->cuenta < 4){
-                Raiz->EmpujarArriba = false;
-                Raiz = MeterHojaB(Raiz,  _id,  _nombre,  _direccion,  _telefono);
+        }else{
+            EmpujarB(_C1, R->Ramas->ObtenerRama(K), EA, Mdana, Xr);
+            if(EA) {
+                if (R->cuenta < 4) {
+                    EA = false;
+                    MeterHojaB(Mdana, Xr, R, K);
+                } else {
+                    EA = true;
+                    DividirNodoB(Mdana, Xr, R, K, Mdana, Xr);
+                }
             }
         }
-        else{
-            Raiz->EmpujarArriba = true;
-            Raiz = DividirNodoB(Raiz,  _id,  _nombre,  _direccion,  _telefono);
-
-        }
-        return Raiz;
-
     }
 }
 
-ApuntadorPagina ArbolClientes::BuscarNodoB(ApuntadorPagina Raiz, int Numero)
+void ArbolClientes::BuscarNodoB(ApuntadorPagina P, int Clave, bool &Encontrado, int &K)
 {
-    int PClave1 = Raiz->Claves->ObtenerClave(1);
-    if(Numero < PClave1){
-        Raiz->Esta = false;
-        Raiz->K = 0;
+    if(Clave < P->Claves->arregloClaves[1]->getID()){
+        Encontrado = false;
+        K = 0;
     }
     else{
-        Raiz->K = Raiz->cuenta;
-        while(Numero < Raiz->Claves->ObtenerClave(Raiz->K) && Raiz->K > 1){
-            Raiz->K--;
+        K = P->cuenta;
+        while(Clave < P->Claves->arregloClaves[K]->getID() && K > 1){
+            K--;
         }
-        if(Numero == Raiz->Claves->ObtenerClave(Raiz->K)){
-            Raiz->Esta = true;
+        if(Clave == P->Claves->arregloClaves[K]->getID()){
+            Encontrado = true;
         }
     }
-    Raiz->llamadas++;
-    return Raiz;
 }
 
-ApuntadorPagina ArbolClientes::MeterHojaB(ApuntadorPagina Raiz, int _id, std::string _nombre, std::string _direccion, int _telefono)
+void ArbolClientes::MeterHojaB(NodoCliente *_X, ApuntadorPagina Xder, ApuntadorPagina &P, int K)
 {
     int I;
-    I = Raiz->cuenta;
-    while(I >= Raiz->K + 1){
-        Raiz->Claves->InsertarClave(Raiz->Claves->ObtenerApuntadorClave(I),I+1);
-        Raiz->Ramas->InsertarRama(Raiz->Ramas->ObtenerRama(I),I+1);
+    for(I=P->cuenta; I>=K+1; I--){
+        P->Claves->arregloClaves[I+1] = P->Claves->ObtenerApuntadorClave(I);
+        P->Ramas->arregloRamas[I+1] = P->Ramas->ObtenerRama(I);
         I--;
     }
-    pNodoCliente X = new NodoCliente(Raiz->X, _id,  _nombre,  _direccion,  _telefono);
-    Raiz->Claves->InsertarClave( X,Raiz->K + 1);
-    Raiz->Ramas->InsertarRama(Raiz->Xr ,Raiz->K + 1);
-    Raiz->cuenta++;
-
-
-    return Raiz;
-
+    P->Claves->arregloClaves[K+1] = _X;
+    P->Ramas->arregloRamas[K+1] = Xder;
+    P->cuenta++;
 
 }
 
-ApuntadorPagina ArbolClientes::DividirNodoB(ApuntadorPagina Raiz, int _id, std::string _nombre, std::string _direccion, int _telefono)
-{
+void ArbolClientes::DividirNodoB(NodoCliente *_X, ApuntadorPagina Xder, ApuntadorPagina &P, int K, NodoCliente *&Mda, ApuntadorPagina &Mder) {
     int I;
     int Posmda;
-    ApuntadorPagina Mder;
-    int Mda;
 
-    if(Raiz->K <= 2){
+    if(K <= 2){
         Posmda = 2;
     }
     else{
         Posmda = 3;
     }
-
     Mder = new Pagina();
-    I = Posmda + 1;
-    while(I <= 4){
-        Mder->Claves->InsertarClave(Raiz->Claves->ObtenerApuntadorClave(I) ,I - Posmda);
-        Mder->Ramas->InsertarRama(Raiz->Ramas->ObtenerRama(I) ,I - Posmda);
-        I++;
+    for(I=Posmda+1; I<=4; I++){
+        Mder->Claves->arregloClaves[I-Posmda] = P->Claves->ObtenerApuntadorClave(I);
+        Mder->Ramas->arregloRamas[I-Posmda] = P->Ramas->ObtenerRama(I);
     }
     Mder->cuenta = 4 - Posmda;
-    Raiz->cuenta = Posmda;
+    P->cuenta = Posmda;
 
-    if(Raiz->K <= 2){
-        Raiz = MeterHojaB(Raiz,   _id,  _nombre,  _direccion,  _telefono);
+    if(K <= 2){
+        MeterHojaB(_X, Xder, P,  K);
     }
     else{
-        Mder->X = Raiz->X;
-        Mder->Xr = Raiz->Xr;
-        Mder->K = Raiz->K - Posmda;
-        Mder = MeterHojaB(Mder,  _id,  _nombre,  _direccion,  _telefono);
+        MeterHojaB(_X, Xder, Mder,  K-Posmda);
     }
-    Mda = Raiz->Claves->ObtenerClave(Raiz->cuenta);
-    Raiz->X = Mda;
-    Mder->Ramas->InsertarRama(Raiz->Ramas->ObtenerRama(Raiz->cuenta),0);
-    Raiz->cuenta--;
-    Raiz->Xr = Mder;
-    return Raiz;
+    Mda = P->Claves->ObtenerApuntadorClave(P->cuenta);
+    Mder->Ramas->arregloRamas[0] = P->Ramas->ObtenerRama(P->cuenta);
+    P->cuenta--;
 }
 
 void ArbolClientes::IniciarRecorridoB()
@@ -205,29 +165,30 @@ void ArbolClientes::IniciarRecorridoB()
     RecorridoInordenB(Raiz);
 }
 
+
 void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
     if(Raiz == NULL){
         return;
     }
     else{
+        //RecorridoInordenB(Raiz->Ramas->ObtenerRama(0));
         int I = 1;
         while(I <= Raiz->cuenta){
+            NodoCliente* Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
-            pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
-
-            std::cout << "Nombre: " << Recorrido->getNombre()<< std::endl;
-            std::cout<< "Identificacion: "<< Recorrido->getID() << std::endl;
-            std::cout << "Cantidad de Compras: " << Recorrido->getCantidadCompras()<< std::endl;
-            std::cout << "Ciudad: " << Recorrido->getDireccion()<< std::endl;
-            std::cout << "Telefono: " << Recorrido->getTelefono() << std::endl;
+            std::cout<< "idCliente: "<< Recorrido->getID() << std::endl;
             std::cout << "\n" << std::endl;
 
-            RecorridoInordenB(Raiz->Ramas->ObtenerRama(I-1));
+            if(I==1){
+                RecorridoInordenB(Raiz->Ramas->ObtenerRama(I-1));
+            }
+            RecorridoInordenB(Raiz->Ramas->ObtenerRama(I));
 
             I++;
         }
     }
 }
+
 
 void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool& _existe) {
     if(Raiz == NULL){

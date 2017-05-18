@@ -63,12 +63,6 @@ public:
         cuenta = 0;
         Claves = new ArregloClaves();
         Ramas = new ArregloRamas();
-        EmpujarArriba = false;
-        X = 0;
-        Xr = NULL;
-        K = 0;
-        Esta = false;
-        llamadas = 0;
     }
 
     int cuenta;
@@ -94,12 +88,12 @@ public:
     }
     bool BVacio(){return raizB == NULL;}
     void EstablecerRaizB(ApuntadorPagina Raiz);
-    void IniciarInsercionB(int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono);
-    ApuntadorPagina InsertarB(ApuntadorPagina Raiz, int Numero,  int _id, std::string _nombre, std::string _direccion, int _telefono);
-    ApuntadorPagina EmpujarB(ApuntadorPagina Raiz, int Numero, int _id, std::string _nombre, std::string _direccion, int _telefono);
-    ApuntadorPagina BuscarNodoB(ApuntadorPagina Raiz, int Numero);
-    ApuntadorPagina MeterHojaB(ApuntadorPagina Raiz, int _id, std::string _nombre, std::string _direccion, int _telefono);
-    ApuntadorPagina DividirNodoB(ApuntadorPagina Raiz,  int _id, std::string _nombre, std::string _direccion, int _telefono);
+    void IniciarInsercionB(NodoCliente *_nuevoNodo);
+    void InsertarB(NodoCliente *_C1, ApuntadorPagina Raiz);
+    void EmpujarB(NodoCliente *_C1, ApuntadorPagina Raiz, bool &EA, NodoCliente *&_X, ApuntadorPagina &P);
+    void BuscarNodoB(ApuntadorPagina P, int _clave, bool &Esta, int &K);
+    void MeterHojaB(NodoCliente *_X, ApuntadorPagina Xder, ApuntadorPagina &P, int K);
+    void DividirNodoB(NodoCliente *_X, ApuntadorPagina Xder, ApuntadorPagina &P, int K, NodoCliente *&Mda, ApuntadorPagina &Mder);
     void IniciarRecorridoB();
     void RecorridoInordenB(ApuntadorPagina Raiz);
     void existeCliente(ApuntadorPagina Raiz,int _Numero,bool& _existe);

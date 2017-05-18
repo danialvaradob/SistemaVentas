@@ -312,8 +312,8 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
 
         std::cout << "Codigo Cliente: " << id << "," << nombre << "," << direccion << "," << telefono << std::endl;
         int intTelefono = atoi(telefono.c_str());
-
-        _ArbolClientes->IniciarInsercionB(idCliente, idCliente, nombre, direccion, intTelefono);
+        NodoCliente *_nuevo = new NodoCliente(idCliente, idCliente, nombre, direccion, intTelefono);
+        _ArbolClientes->IniciarInsercionB(_nuevo);
 
 
     }
@@ -1264,25 +1264,24 @@ int main() {
 
 
 
-
-
 /*
+
+
 int main() {
 
 
-
-    ListaLugares* listaLugares = new ListaLugares();
+    ListaLugares *listaLugares = new ListaLugares();
     leerArchLugares(listaLugares);
 
     ArbolClientes *arbolClientes = new ArbolClientes();
     leerArchClientes(arbolClientes);
     //arbolClientes->RecorridoInordenB(arbolClientes->raizB);
 
-    ArbolProveedores* arbolProveedores = new ArbolProveedores();
+    ArbolProveedores *arbolProveedores = new ArbolProveedores();
     leerArchProveedores(arbolProveedores);
 
     ArbolSupermercados *arbolSupermercados = new ArbolSupermercados();
-    leerArchSupermercado(arbolSupermercados,listaLugares);
+    leerArchSupermercado(arbolSupermercados, listaLugares);
 
     leerArchCategorias(arbolSupermercados);
 
@@ -1296,19 +1295,22 @@ int main() {
     //leerArchProductos(arbolSupermercados);
 
     //PRUEBAS
-    ArbolCategorias* AC = new ArbolCategorias();
-    arbolSupermercados->getArbolCat(66,arbolSupermercados->raiz,AC);
+    ArbolCategorias *AC = new ArbolCategorias();
+    arbolSupermercados->getArbolCat(66, arbolSupermercados->raiz, AC);
     AC->raiz->incBestScore();
 
-    ArbolCategorias* PAC = new ArbolCategorias();
-    arbolSupermercados->getArbolCat(66,arbolSupermercados->raiz,PAC);
+    ArbolCategorias *PAC = new ArbolCategorias();
+    arbolSupermercados->getArbolCat(66, arbolSupermercados->raiz, PAC);
     //int SCORE = PAC->raiz->getBestScore();
 
 
-    nodocategoria* nodocate = new nodocategoria();
-    PAC->getNodoCat(PAC->raiz,45,nodocate);
+    nodocategoria *nodocate = new nodocategoria();
+    PAC->getNodoCat(PAC->raiz, 45, nodocate);
+
+    arbolClientes->RecorridoInordenB(arbolClientes->raizB);
 
 
-
+    return 0;
+}
 
 */
