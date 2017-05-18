@@ -166,29 +166,6 @@ void ArbolClientes::IniciarRecorridoB()
 }
 
 
-void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
-    if(Raiz == NULL){
-        return;
-    }
-    else{
-        //RecorridoInordenB(Raiz->Ramas->ObtenerRama(0));
-        int I = 1;
-        while(I <= Raiz->cuenta){
-            NodoCliente* Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
-
-            std::cout<< "idCliente: "<< Recorrido->getID() << std::endl;
-            std::cout << "\n" << std::endl;
-
-            if(I==1){
-                RecorridoInordenB(Raiz->Ramas->ObtenerRama(I-1));
-            }
-            RecorridoInordenB(Raiz->Ramas->ObtenerRama(I));
-
-            I++;
-        }
-    }
-}
-
 
 void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool& _existe) {
     if(Raiz == NULL){
@@ -285,11 +262,38 @@ void ArbolClientes::PreordenSocket(ApuntadorPagina _raiz, std::string &_string) 
             flujo << Recorrido->getID();
             std::string nombre = flujo.str();
             _string += nombre + "\n";
-            PreordenSocket(_raiz->Ramas->ObtenerRama(I-1), _string);
+
+            if(I==1){
+                PreordenSocket(_raiz->Ramas->ObtenerRama(I-1), _string);
+            }
+            PreordenSocket(_raiz->Ramas->ObtenerRama(I), _string);
             I++;
         }
     }
 
+}
+
+void ArbolClientes::RecorridoInordenB(ApuntadorPagina Raiz){
+    if(Raiz == NULL){
+        return;
+    }
+    else{
+        //RecorridoInordenB(Raiz->Ramas->ObtenerRama(0));
+        int I = 1;
+        while(I <= Raiz->cuenta){
+            NodoCliente* Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
+
+            std::cout<< "idCliente: "<< Recorrido->getID() << std::endl;
+            std::cout << "\n" << std::endl;
+
+            if(I==1){
+                RecorridoInordenB(Raiz->Ramas->ObtenerRama(I-1));
+            }
+            RecorridoInordenB(Raiz->Ramas->ObtenerRama(I));
+
+            I++;
+        }
+    }
 }
 
 void ArbolClientes::BuscarNodo(int Clave, ApuntadorPagina P, bool & Encontrado, int & K)

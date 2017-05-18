@@ -488,7 +488,8 @@ int main() {
                     n = write(newsockfd, "CLIENTE GUARDADO\nDigite una opcion", strlen("CLIENTE GUARDADO\nDigite una opcion"));
 
                     //Agrega el cliente por completo con todos sus datos ya obtenidos
-                    _arbolClientes->IniciarInsercionB(idCliente,idCliente,nombreCliente,dirCliente,telefonoCliente);
+                    NodoCliente *nuevo = new NodoCliente(idCliente,idCliente,nombreCliente,dirCliente,telefonoCliente);
+                    _arbolClientes->IniciarInsercionB(nuevo);
 
 
                 }
