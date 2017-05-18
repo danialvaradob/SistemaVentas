@@ -579,6 +579,7 @@ int main() {
 
                     }else {
 
+
                         NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
                                                               _nodoCliente->getID(),
                                                               _nodoCliente->getNombre(), _nodoCat->getCodigo(),
@@ -586,7 +587,7 @@ int main() {
                                                               _nodoProd->getCodigoProducto(),
                                                               _nodoProd->getNombreProducto(),
                                                               _nodoProd->getPrecioPorUnidad(), cantidad,
-                                                              (_nodoProd->getPrecioPorUnidad() * cantidad) * 0.05);
+                                                              ((_nodoProd->getPrecioPorUnidad() * cantidad)) - (_nodoProd->getPrecioPorUnidad() * cantidad * 0.05));
                         listaVentas->insertar(_nodoVenta);
                     }
 
@@ -643,7 +644,7 @@ int main() {
             ArbolProductos* arbolProductos = new ArbolProductos();
 
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 bzero(buffer,TAMANHO_BUFFER);
                 n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
@@ -675,11 +676,12 @@ int main() {
                         n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
                         break;
                     }
+                    /*
                     // aca pone
                     char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
                     n = write(newsockfd, msgCodR, strlen(msgCodR));
 
-                }else if (i == 2) {
+
 
                     //aca es donde se van metiendo en los valores los codigos
                     codPro = atoi(buffer);
@@ -691,6 +693,7 @@ int main() {
                         n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
                         break;
                     }
+                    */
                     NodoProducto* productoMasVendido = new NodoProducto();
                     arbolProductos->getProductoMasVendido(arbolProductos->raiz,productoMasVendido);
 
