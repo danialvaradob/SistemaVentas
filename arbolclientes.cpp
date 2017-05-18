@@ -180,7 +180,10 @@ void ArbolClientes::existeCliente(ApuntadorPagina Raiz, int _Numero, bool& _exis
             if (Recorrido->getID() == _Numero)
                 _existe = true;
 
-            existeCliente(Raiz->Ramas->ObtenerRama(I-1), _Numero, _existe);
+            if(I==1){
+                existeCliente(Raiz->Ramas->ObtenerRama(I-1), _Numero, _existe);
+            }
+            existeCliente(Raiz->Ramas->ObtenerRama(I), _Numero, _existe);
 
             I++;
         }
@@ -203,7 +206,10 @@ void ArbolClientes::agregarCompra(ApuntadorPagina Raiz, int _codCliente) {
                 Recorrido->aumentarVentas();
             }
 
-            agregarCompra(Raiz->Ramas->ObtenerRama(I-1),_codCliente);
+            if(I==1){
+                agregarCompra(Raiz->Ramas->ObtenerRama(I-1),_codCliente);
+            }
+            agregarCompra(Raiz->Ramas->ObtenerRama(I),_codCliente);
 
             I++;
         }
@@ -223,7 +229,11 @@ void ArbolClientes::getClienteMasCompras(ApuntadorPagina Raiz, NodoCliente *&_cl
             pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
             if (Recorrido->cantidadDeCompras > _clienteMasCompras->cantidadDeCompras) _clienteMasCompras = Recorrido;
-            getClienteMasCompras(Raiz->Ramas->ObtenerRama(I-1),_clienteMasCompras);
+
+            if(I==1){
+                getClienteMasCompras(Raiz->Ramas->ObtenerRama(I-1),_clienteMasCompras);
+            }
+            getClienteMasCompras(Raiz->Ramas->ObtenerRama(I),_clienteMasCompras);
 
             I++;
         }
@@ -242,7 +252,11 @@ void ArbolClientes::getCliente(ApuntadorPagina Raiz, NodoCliente *&_cliente, int
             pNodoCliente Recorrido = Raiz->Claves->ObtenerApuntadorClave(I);
 
             if (Recorrido->getID() == _id) _cliente = Recorrido;
-            getCliente(Raiz->Ramas->ObtenerRama(I-1), _cliente, _id);
+
+            if(I==1){
+                getCliente(Raiz->Ramas->ObtenerRama(I-1), _cliente, _id);
+            }
+            getCliente(Raiz->Ramas->ObtenerRama(I), _cliente, _id);
 
             I++;
         }
