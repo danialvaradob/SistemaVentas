@@ -558,40 +558,48 @@ int main() {
 
                 } else if (i == 3) {
                     cantidad = atoi(buffer);
-                    _arbolProveedores->getNodoProveedor(codProveedor, _arbolProveedores->raiz, _nodoProv);
-                    _arbolClientes->getCliente(_arbolClientes->raizB, _nodoCliente, idCliente);
-                    _nodoCliente->aumentarVentas();
-                    _nodoProv->aumentarVentas();
-                    _nodoProd->setCantidadEnStock(cantidad);
-                    _nodoCat->incBestScore();
-                    _nodoSup->aumentarVentas();
 
-                    if (banderaCLIENTENUEVO) {
-                        NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
-                                                              _nodoCliente->getID(),
-                                                              _nodoCliente->getNombre(), _nodoCat->getCodigo(),
-                                                              _nodoCat->getDesc(),
-                                                              _nodoProd->getCodigoProducto(),
-                                                              _nodoProd->getNombreProducto(),
-                                                              _nodoProd->getPrecioPorUnidad(), cantidad,
-                                                              _nodoProd->getPrecioPorUnidad() * cantidad);
-                        listaVentas->insertar(_nodoVenta);
+                    if (cantidad <= _nodoProd->getCantidadEnStock()) {
 
-                    }else {
+                        _arbolProveedores->getNodoProveedor(codProveedor, _arbolProveedores->raiz, _nodoProv);
+                        _arbolClientes->getCliente(_arbolClientes->raizB, _nodoCliente, idCliente);
+                        _nodoCliente->aumentarVentas();
+                        _nodoProv->aumentarVentas();
+                        _nodoProd->setCantidadEnStock(cantidad);
+                        _nodoCat->incBestScore();
+                        _nodoSup->aumentarVentas();
+
+                        if (banderaCLIENTENUEVO) {
+                            NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
+                                                                  _nodoCliente->getID(),
+                                                                  _nodoCliente->getNombre(), _nodoCat->getCodigo(),
+                                                                  _nodoCat->getDesc(),
+                                                                  _nodoProd->getCodigoProducto(),
+                                                                  _nodoProd->getNombreProducto(),
+                                                                  _nodoProd->getPrecioPorUnidad(), cantidad,
+                                                                  _nodoProd->getPrecioPorUnidad() * cantidad);
+                            listaVentas->insertar(_nodoVenta);
+
+                        }else {
 
 
-                        NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
-                                                              _nodoCliente->getID(),
-                                                              _nodoCliente->getNombre(), _nodoCat->getCodigo(),
-                                                              _nodoCat->getDesc(),
-                                                              _nodoProd->getCodigoProducto(),
-                                                              _nodoProd->getNombreProducto(),
-                                                              _nodoProd->getPrecioPorUnidad(), cantidad,
-                                                              ((_nodoProd->getPrecioPorUnidad() * cantidad)) - (_nodoProd->getPrecioPorUnidad() * cantidad * 0.05));
-                        listaVentas->insertar(_nodoVenta);
+                            NodoVenta *_nodoVenta = new NodoVenta(_nodoProv->getID(), _nodoProv->getNombre(),
+                                                                  _nodoCliente->getID(),
+                                                                  _nodoCliente->getNombre(), _nodoCat->getCodigo(),
+                                                                  _nodoCat->getDesc(),
+                                                                  _nodoProd->getCodigoProducto(),
+                                                                  _nodoProd->getNombreProducto(),
+                                                                  _nodoProd->getPrecioPorUnidad(), cantidad,
+                                                                  ((_nodoProd->getPrecioPorUnidad() * cantidad)) - (_nodoProd->getPrecioPorUnidad() * cantidad * 0.05));
+                            listaVentas->insertar(_nodoVenta);
+                        }
+
+                        n = write(newsockfd, "VENTA REALIZADA", strlen("VENTA REALIZADA"));
+
+                    } else {
+                        char msgNo[] = "Venta NO realizada, porfavor digite una cantidad adecuada";
+                        n = write(newsockfd, msgNo, strlen(msgNo));
                     }
-
-                    n = write(newsockfd, "VENTA REALIZADA", strlen("VENTA REALIZADA"));
                 }
             }
             bandera = 0;
@@ -694,21 +702,31 @@ int main() {
                         break;
                     }
                     */
+                    arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
+
                     NodoProducto* productoMasVendido = new NodoProducto();
                     arbolProductos->getProductoMasVendido(arbolProductos->raiz,productoMasVendido);
 
                     //productoMasVendido->
+
                     std::string nombre = productoMasVendido->getNombreProducto();
-                    std::vector<char> v(nombre.begin(), nombre.end());
-                    v.push_back('\0'); // Make sure we are null-terminated
-                    char* productoCh = &v[0];
-                    n = write(newsockfd,productoCh , strlen(productoCh));
+                    if (nombre != "") {
+                        std::vector<char> v(nombre.begin(), nombre.end());
+                        v.push_back('\0'); // Make sure we are null-terminated
+                        char* productoCh = &v[0];
+                        n = write(newsockfd,productoCh , strlen(productoCh));
+                    } else {
+                        n = write(newsockfd,"No se han comprado productos", strlen("No se han comprado productos"));
+                    }
+
+
 
                 }
 
-                bandera = 0;
+
 
             }
+            bandera = 0;
 
 
 //------------------------------------------------------------------------------------
@@ -730,7 +748,7 @@ int main() {
                 bzero(buffer,TAMANHO_BUFFER);
                 n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
 
-
+                codCat = 0;
                 if (i == 0 ) {
 
                     //existe
@@ -751,6 +769,7 @@ int main() {
 
 
                     //aca es donde se van metiendo en los valores los codigos
+                    //codCat = atoi(buffer);
                     codCat = atoi(buffer);
                     //
                     _arbolSupermercados->getArbolCat(codSuper,_arbolSupermercados->raiz,arbolCategorias);
