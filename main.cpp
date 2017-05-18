@@ -10,10 +10,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
-//#include <sys/socket.h>
-//#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 #include <vector>
-#include <cstring>
+
 #include "arbolproveedores.h"
 #include "arbolclientes.h"
 #include "arbolsupermercados.h"
@@ -323,11 +323,11 @@ void leerArchClientes(ArbolClientes * _ArbolClientes){
 
 const int portno = 7777;
 
-/*
+
 int main() {
 
 
-
+/*
     ArbolProductos* AA = new ArbolProductos();
 
     AA->raiz = AA->insertar(AA->raiz,6,99,"K",10,10);
@@ -342,7 +342,7 @@ int main() {
     std::string preorden;
     AA->PreordenSocket(AA->raiz,preorden);
 
-
+*/
 
 
 
@@ -685,7 +685,7 @@ int main() {
                     if (!arbolCategorias->existeCategoria(codCat,arbolCategorias->raiz)) {
                         n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
                         break;
-                    }*/
+                    }
                     /*
                     // aca pone
                     char msgCodR[] = "Codigo de Categoria recibido\nDigite el Codigo de Producto";
@@ -703,7 +703,7 @@ int main() {
                         n = write(newsockfd,msgNoExiste, strlen(msgNoExiste));
                         break;
                     }
-                    *//*
+                    */
                     arbolCategorias->getArbolProd(arbolCategorias->raiz,codCat,arbolProductos);
 
                     NodoProducto* productoMasVendido = new NodoProducto();
@@ -1121,6 +1121,10 @@ int main() {
 
 
         }else if(bandera == OPCION_FACTURA) {
+
+            bzero(buffer, TAMANHO_BUFFER);
+            n = read(newsockfd, buffer, TAMANHO_BUFFER - 1);
+
             if(!listaVentas->listaVacia()){
                 listaVentas->crearFactura();
                 n = write(newsockfd, "FACTURA CREADA\n", strlen("FACTURA CREADA\n"));
@@ -1131,11 +1135,11 @@ int main() {
             bandera = 0;
 
         }else{
-*/
+
             /* newsockfd = accept(sockfd,
                                (struct sockaddr *) &cli_addr,
                                &clilen);
-            *//*
+            */
 
             bzero(buffer,TAMANHO_BUFFER);
             n = read(newsockfd,buffer,TAMANHO_BUFFER - 1);
@@ -1263,11 +1267,11 @@ int main() {
 }
 
 
-*/
 
 
 
 
+/*
 
 int main() {
 
@@ -1319,3 +1323,4 @@ int main() {
     return 0;
 }
 
+*/
